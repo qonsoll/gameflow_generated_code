@@ -1,0 +1,3 @@
+{
+  "i18next.i18nPaths": "/Users/viacheslav/senseteq/react-native-boilerplate/ios/Pods/RCT-Folly/folly/lang,/Users/viacheslav/senseteq/react-native-boilerplate/ios/Pods/boost/boost/locale,/Users/viacheslav/senseteq/react-native-boilerplate/ios/Pods/Headers/Private/RCT-Folly/folly/lang,/Users/viacheslav/senseteq/react-native-boilerplate/ios/Pods/Headers/Public/RCT-Folly/folly/lang"
+}

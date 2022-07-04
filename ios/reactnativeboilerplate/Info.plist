@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>React Native Boilerplate</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -14,12 +16,26 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>caneat</string>
+				<string>com.googleusercontent.apps.612794922661-lerng0oantqp0gb02js3qq2lq7j88esk</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Camera description</key>
+	<string>We need to use your Camera for live session</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -35,12 +51,26 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Use your camera to upload your avatar.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your location is not needed. This request has popped up due to a 3rd party framework used by the app in a context that does NOT need you to reveal you location. Do be sure to check audit trail for the location queries on ios 15 or later.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>You will get zero benefit allowing this app accessing your location. You should never see this alert. If you do alert technical support at hello@foihelse.com</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>&quot;Daily Playground needs microphone access to work&quot;</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to use your photo library when upload avatar.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like access to photo gallery when upload avatar.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>SplashScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -49,7 +79,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-  <key>UIStatusBarStyle</key>
-  <string>UIStatusBarStyleDefault</string>
 </dict>
 </plist>

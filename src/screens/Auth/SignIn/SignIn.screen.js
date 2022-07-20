@@ -5,7 +5,7 @@ import {
   SIGN_UP_WITH_EMAIL_SCREEN
 } from '../../../constants/screens'
 import React, { Fragment } from 'react'
-import { appleAuth, googleAuth } from '../../../hooks/auth'
+import { appleAuth, googleAuth } from '../../../helpers/auth'
 
 import { BackgroundGradient } from '../../../components'
 import { Language } from '../../../components'

@@ -8,8 +8,7 @@
     "start": "react-native start",
     "lint": "eslint .",
     "android": "npm run android:dev",
-    "android:dev": "npx react-native run-android --variant=debug",
-    "android:prod": "npx react-native run-android --variant=release",
+    "android:dev": "npx react-native run-android",
     "prepare-bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "build:android-release-aab": "cd android&&gradlew bundleRelease&&cd../",
     "build:android-release-apk": "cd android&&gradlew assembleRelease&&cd ../"
@@ -70,7 +69,6 @@
     "react-native-canvas": "0.1.37",
     "react-native-collapsible": "1.6.0",
     "react-native-compressor": "0.5.17",
-    "react-native-config": "1.4.5",
     "react-native-create-thumbnail": "1.5.1",
     "react-native-date-picker": "4.1.1",
     "react-native-fast-image": "8.5.11",

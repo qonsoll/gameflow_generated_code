@@ -1,5 +1,6 @@
 import { COLLECTIONS } from '~/constants'
-import Config from 'react-native-config'
+import CONFIG from '../../constants/config'
+// import Config from 'react-native-config'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import { Platform } from 'react-native'
 import auth from '@react-native-firebase/auth'
@@ -10,8 +11,8 @@ import signInWithCredential from './signInWithCredential'
 const usersRef = firestore().collection(COLLECTIONS.USERS)
 const WEB_CLIENT_ID =
   Platform.OS === 'ios'
-    ? Config.GOOGLE_IOS_WEB_CLIENT_ID
-    : Config.GOOGLE_ANDROID_WEB_CLIENT_ID
+    ? CONFIG.GOOGLE_IOS_WEB_CLIENT_ID
+    : CONFIG.GOOGLE_ANDROID_WEB_CLIENT_ID
 
 const loginWithGoogle = async (idToken) => {
   const credential = auth.GoogleAuthProvider.credential(idToken)

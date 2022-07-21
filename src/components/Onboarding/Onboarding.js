@@ -7,6 +7,8 @@ import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { SIGN_IN_SCREEN } from '../../constants/screens'
 
 const Onboarding = (props) => {
   const {
@@ -25,8 +27,14 @@ const Onboarding = (props) => {
 
   // [CLEAN_FUNCTIONS]
   const onPrev = () => prevScreen && navigation.navigate(prevScreen)
-  const onNext = () => nextScreen && navigation.navigate(nextScreen)
-  const onSkip = () => skipScreen && navigation.navigate(skipScreen)
+  const onNext = () => {
+    nextScreen && navigation.navigate(nextScreen)
+    nextScreen === SIGN_IN_SCREEN && AsyncStorage.setItem('onboarding', 'true')
+  }
+  const onSkip = () => {
+    skipScreen && navigation.navigate(skipScreen)
+    AsyncStorage.setItem('@isOnboardingShoved', 'true')
+  }
 
   return (
     <View style={styles.wrapper}>

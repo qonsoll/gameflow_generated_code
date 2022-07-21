@@ -13,6 +13,7 @@ import TranslationProvider from './src/contexts/TranslationContext'
 import theme from './theme'
 
 const App = () => {
+  // [USE_EFFECTS]
   useEffect(() => {
     Orientation.lockToPortrait()
   }, [])

@@ -7,6 +7,7 @@ import { UserAuthContext, UserAuthProvider, UserProvider } from './src/contexts'
 import { AppearanceProvider } from 'react-native-appearance'
 import { NavigationContainer } from '@react-navigation/native'
 import Orientation from 'react-native-orientation'
+/* Importing the navigators from the navigators folder. */
 import { ThemeProvider } from '@qonsoll/react-native-design'
 import TranslationProvider from './src/contexts/TranslationContext'
 import theme from './theme'

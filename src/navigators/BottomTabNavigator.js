@@ -24,17 +24,12 @@ const BottomTabNavigator = () => {
         })}
         tabBar={(props) => <CustomBottomTabs {...props} />}
         initialRouteName={DASHBOARD_NAVIGATOR}>
-        <>
-          <BottomTab.Screen
-            name={DASHBOARD_SCREEN}
-            component={DashboardScreen}
-          />
+        <BottomTab.Screen name={DASHBOARD_SCREEN} component={DashboardScreen} />
 
-          <BottomTab.Screen
-            name={SETTINGS_NAVIGATOR}
-            component={SettingsStackNavigator}
-          />
-        </>
+        <BottomTab.Screen
+          name={SETTINGS_NAVIGATOR}
+          component={SettingsStackNavigator}
+        />
       </BottomTab.Navigator>
     </Suspense>
   )

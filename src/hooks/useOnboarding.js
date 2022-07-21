@@ -7,11 +7,15 @@ const useOnboarding = () => {
 
   // Set initial state
   useEffect(() => {
+    let mounted = true
     const getIsOnboardingShoved = async () => {
       const data = await AsyncStorage.getItem('@isOnboardingShoved')
-      setIsOnboardingShoved(data || 'false')
+      mounted && setIsOnboardingShoved(data || 'false')
     }
-    getIsOnboardingShoved()
+    mounted && getIsOnboardingShoved()
+    return () => {
+      mounted = false
+    }
   }, [])
 
   return [isOnboardingShoved]

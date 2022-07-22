@@ -31,7 +31,7 @@ const LoginForm = (props) => {
           />
         </Form.Item>
         <Form.Item
-          margins="zero"
+          margins="xs"
           label={t('password-label')}
           labelColor="white"
           name="password"

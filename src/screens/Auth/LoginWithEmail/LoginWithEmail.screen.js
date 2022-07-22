@@ -1,105 +1,111 @@
-// import { ALERT_TYPE, Toast } from 'react-native-alert-notification'
-// import { ArrowShortLeft3x, Logo } from '../../../constants/assets'
-// import {
-//   Dimensions,
-//   Image,
-//   Keyboard,
-//   KeyboardAvoidingView,
-//   Platform,
-//   TouchableOpacity,
-//   View
-// } from 'react-native'
-// import React, { useState } from 'react'
-// import Svg, { Defs, RadialGradient, Rect, Stop } from 'react-native-svg'
+import { ALERT_TYPE, Toast } from 'react-native-alert-notification'
+import { AuthHeader, BackgroundGradient } from '../../../components'
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  TouchableOpacity,
+  View
+} from 'react-native'
+import React, { useState } from 'react'
+import { useKeyboardState, useSwipe } from '../../../hooks'
 
-// import Color from 'color'
-// import { LoginForm } from '../../../domains/Auth/components/LoginForm'
-// import { Text } from '@qonsoll/react-native-design'
-// import auth from '@react-native-firebase/auth'
-// import dynamicStyles from './styles'
-// import theme from '../../../../theme'
-// import { useNavigation } from '@react-navigation/native'
+import { FORGOT_PASSWORD_SCREEN } from '../../../constants/screens'
+import { LoginForm } from '../../../domains/Auth/components/LoginForm'
+import { Text } from '@qonsoll/react-native-design'
+import auth from '@react-native-firebase/auth'
+import dynamicStyles from './styles'
+import { useNavigation } from '@react-navigation/native'
+import { useTranslations } from '@qonsoll/translation'
 
-// const { width, height } = Dimensions.get('screen')
+const LoginWithEmailScreen = () => {
+  // [ADDITIONAL_HOOKS]
+  const styles = dynamicStyles()
+  const navigation = useNavigation()
+  const { t } = useTranslations()
+  const isKeyboardVisible = useKeyboardState()
 
-// const LoginWithEmailScreen = () => {
-//   const styles = dynamicStyles()
-//   const navigation = useNavigation()
+  // [COMPONENT_STATE_HOOKS]
+  const [isSpin, setIsSpin] = useState(false)
 
-//   const lighterColor = Color(theme.CORE.COLORS['primary-default'])
-//     .lighten(0.25)
-//     .toString()
+  // [COMPUTED_PROPERTIES]
+  const keyboardBehavior = Platform.OS === 'ios' ? 'padding' : 'height'
+  const titleProps = isKeyboardVisible
+    ? { mt: 48, mb: 24, variant: 'h3' }
+    : { mt: 0, mb: 0, variant: 'h2' }
 
-//   const [isSpin, setIsSpin] = useState(false)
+  // [HANDLERS]
+  // TODO MOVE TO SEPARATE HELPER || HOOK
+  const onEmailLogin = async (credentials) => {
+    const { email, password } = credentials
+    try {
+      setIsSpin(true)
+      await auth().signInWithEmailAndPassword(email, password)
+    } catch (e) {
+      Toast.show({
+        type: ALERT_TYPE.DANGER,
+        title: t('login-error-title'),
+        textBody: t('login-error-text')
+      })
+    }
+    setIsSpin(false)
+  }
+  const handleWrapperPress = () => Keyboard.dismiss()
+  const handleBackPress = () => navigation.goBack()
+  const { onTouchStart, onTouchEnd } = useSwipe(null, handleBackPress)
 
-//   const onEmailLogin = async (credentials) => {
-//     const { email, password } = credentials
+  return (
+    <TouchableOpacity activeOpacity={1} onPress={handleWrapperPress}>
+      {/* Background gradient */}
+      <BackgroundGradient />
 
-//     try {
-//       setIsSpin(true)
-//       await auth().signInWithEmailAndPassword(email, password)
-//     } catch (e) {
-//       Toast.show({
-//         type: ALERT_TYPE.DANGER,
-//         title: 'Cant login',
-//         textBody: 'No user record found'
-//       })
-//     }
-//     setIsSpin(false)
-//   }
+      {/* Auth header */}
+      <AuthHeader />
 
-//   return (
-//     <TouchableOpacity
-//       activeOpacity={1}
-//       onPress={() => {
-//         Keyboard.dismiss()
-//       }}>
-//       <Svg>
-//         <Defs>
-//           <RadialGradient id="gradient" cx="50%" cy="40%">
-//             <Stop offset="0%" stopColor={lighterColor} />
-//             <Stop
-//               offset="100%"
-//               stopColor={theme.CORE.COLORS['primary-default']}
-//             />
-//           </RadialGradient>
-//         </Defs>
-//         <Rect x={0} y={0} width={width} height={height} fill="url(#gradient)" />
-//       </Svg>
-//       <View style={styles.wrapper}>
-//         <View style={styles.headerContainer}>
-//           <Image source={Logo} style={styles.logo} />
-//           <View style={styles.topHeaderLine} />
-//           <TouchableOpacity
-//             onPress={() => navigation.navigate('Dashboard')}
-//             style={styles.leftButton}>
-//             <Image source={ArrowShortLeft3x} style={styles.icon} />
-//           </TouchableOpacity>
-//         </View>
-//         <KeyboardAvoidingView
-//           style={styles.keyboard}
-//           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-//           <View style={styles.container}>
-//             <Text variant="h3" color="white" mb={8}>
-//               Login with Email
-//             </Text>
-//             <LoginForm onFinish={onEmailLogin} loading={isSpin} />
-//           </View>
-//         </KeyboardAvoidingView>
-//         <View style={styles.bottomContainer}>
-//           <Text variant="body1" fontWeight="medium" color="white-t-lighten1">
-//             Don't remember your password?{' '}
-//           </Text>
-//           <TouchableOpacity
-//             onPress={() => navigation.navigate('ForgotPasswordScreen')}>
-//             <Text variant="body1" fontWeight="medium" color="white">
-//               Restore it
-//             </Text>
-//           </TouchableOpacity>
-//         </View>
-//       </View>
-//     </TouchableOpacity>
-//   )
-// }
+      <SafeAreaView>
+        <View
+          style={styles.wrapper}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}>
+          <KeyboardAvoidingView
+            style={styles.keyboard}
+            behavior={keyboardBehavior}>
+            <View style={styles.container}>
+              {/* Title */}
+              <Text color="white" {...titleProps}>
+                {t('sign-in-with-email-title')}
+              </Text>
+              {!isKeyboardVisible && (
+                <Text variant="body1" color="white" mt={8} mb={48}>
+                  {t('sign-in-with-email-description')}
+                </Text>
+              )}
 
-// export default LoginWithEmailScreen
+              {/* Form */}
+              <LoginForm onFinish={onEmailLogin} loading={isSpin} />
+
+              {/* Bottom section */}
+              <View style={styles.bottomContainer}>
+                <Text
+                  variant="body1"
+                  fontWeight="medium"
+                  color="white-t-lighten1">
+                  {t('go-to-forgot-password-caption')}?{' '}
+                </Text>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate(FORGOT_PASSWORD_SCREEN)}>
+                  <Text variant="body1" fontWeight="medium" color="white">
+                    {t('go-to-reset-password-button-text')}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </KeyboardAvoidingView>
+        </View>
+      </SafeAreaView>
+    </TouchableOpacity>
+  )
+}
+
+export default LoginWithEmailScreen

@@ -12,45 +12,6 @@ const dynamicStyles = () => {
       height,
       alignItems: 'center'
     },
-    boll: {
-      width: 70,
-      height: 140,
-      tintColor: theme.CORE.COLORS.white,
-      position: 'absolute',
-      top: 80,
-      right: 24,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: -2,
-        height: 2
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 2
-    },
-    headerContainer: {
-      width: '100%',
-      alignItems: 'center',
-      justifyContent: 'flex-end',
-      marginBottom: 32
-    },
-    logo: {
-      width: 140,
-      height: 100,
-      tintColor: theme.CORE.COLORS.white
-    },
-    topHeaderLine: {
-      backgroundColor: theme.CORE.COLORS['primary-default'],
-      position: 'absolute',
-      height: 20,
-      width: width,
-      top: 0
-    },
-    leftButton: { position: 'absolute', left: 0, paddingHorizontal: 24 },
-    icon: {
-      width: 32,
-      height: 32,
-      tintColor: theme.CORE.COLORS.white
-    },
     container: {
       width: '100%',
       flex: 1,
@@ -117,10 +78,13 @@ const dynamicStyles = () => {
         height: 4
       },
       shadowOpacity: 0.06,
-      shadowRadius: 4,
-      marginBottom: 32
+      shadowRadius: 4
     },
-    bottomSectionWrapper: { flexDirection: 'row', justifyContent: 'center' }
+    bottomSectionWrapper: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginTop: 32
+    }
   })
 }
 

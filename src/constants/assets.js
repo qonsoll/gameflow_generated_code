@@ -112,6 +112,7 @@ export const List3x = require('../../assets/List3x.png')
 export const Location = require('../../assets/Location.png')
 export const Location2x = require('../../assets/Location2x.png')
 export const Location3x = require('../../assets/Location3x.png')
+export const Logo = require('../../assets/Logo.png')
 export const LogOut = require('../../assets/LogOut.png')
 export const Mail = require('../../assets/Mail.png')
 export const Mail2x = require('../../assets/Mail2x.png')
@@ -331,6 +332,7 @@ export default {
   Location,
   Location2x,
   Location3x,
+  Logo,
   LogOut,
   Mail,
   Mail2x,

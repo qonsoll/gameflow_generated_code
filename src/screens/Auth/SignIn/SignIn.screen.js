@@ -1,4 +1,5 @@
 import { Apple3x, GoogleColored3x, Mail3x } from '../../../constants/assets'
+import { AuthHeader, BackgroundGradient } from '../../../components'
 import { Image, TouchableOpacity, View } from 'react-native'
 import {
   LOGIN_WITH_EMAIL_SCREEN,
@@ -7,17 +8,15 @@ import {
 import React, { Fragment } from 'react'
 import { appleAuth, googleAuth } from '../../../helpers/auth'
 
-import { BackgroundGradient } from '../../../components'
-import { Language } from '../../../components'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
 
 const SignInScreen = () => {
+  // [ADDITIONAL_HOOKS]
   const styles = dynamicStyles()
   const { t } = useTranslations()
-
   const navigation = useNavigation()
 
   return (
@@ -25,8 +24,8 @@ const SignInScreen = () => {
       {/* Background gradient */}
       <BackgroundGradient />
 
-      {/* Language button */}
-      <Language />
+      {/* Auth header */}
+      <AuthHeader />
 
       <View style={styles.wrapper}>
         <View style={styles.container}>
@@ -79,12 +78,12 @@ const SignInScreen = () => {
           {/* Bottom section */}
           <View style={styles.bottomSectionWrapper}>
             <Text variant="body1" fontWeight="medium" color="white-t-lighten1">
-              {t('do not have account')}?{' '}
+              {t('go-to-signup-caption')}?{' '}
             </Text>
             <TouchableOpacity
               onPress={() => navigation.navigate(SIGN_UP_WITH_EMAIL_SCREEN)}>
               <Text variant="body1" fontWeight="medium" color="white">
-                {t('sign up')}
+                {t('go-to-signup-button-text')}
               </Text>
             </TouchableOpacity>
           </View>

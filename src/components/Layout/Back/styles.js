@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native'
-import theme from '../../../theme'
+import theme from '../../../../theme'
 
 const dynamicStyles = () => {
   return StyleSheet.create({
-    wrapper: {
-      position: 'absolute'
-    },
-    stopColor: theme.CORE.COLORS['primary-default']
+    icon: {
+      width: 32,
+      height: 32,
+      tintColor: theme.CORE.COLORS.white
+    }
   })
 }
 

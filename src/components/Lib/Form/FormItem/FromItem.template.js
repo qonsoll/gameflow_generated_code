@@ -13,6 +13,7 @@ import PropTypes from 'prop-types'
 import useStyles from './styles'
 
 const MARGINS = {
+  xs: 6,
   sm: 12,
   md: 20
 }
@@ -24,6 +25,7 @@ const FromItem = (props) => {
     label,
     margins = 'md',
     onError,
+    labelColor,
     ...rest
   } = props
 
@@ -48,6 +50,9 @@ const FromItem = (props) => {
     error,
     onBlur
   }
+  const computedMargin = !animatedError
+    ? MARGINS[margins]
+    : MARGINS[margins] - 3
 
   // [USE_EFFECTS]
   useEffect(() => {
@@ -66,9 +71,9 @@ const FromItem = (props) => {
   }, [error])
 
   return (
-    <Box mb={!animatedError ? MARGINS[margins] : MARGINS[margins] - 3}>
+    <Box mb={computedMargin}>
       {label && (
-        <Text variant="body1" mb={4}>
+        <Text color={labelColor} variant="body1" mb={4}>
           {label}
         </Text>
       )}

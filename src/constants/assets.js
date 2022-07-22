@@ -216,6 +216,7 @@ export const Volume = require('../../assets/Volume.png')
 export const Wallet = require('../../assets/Wallet.png')
 export const Wallet2x = require('../../assets/Wallet2x.png')
 export const Wallet3x = require('../../assets/Wallet3x.png')
+export const Warning = require('../../assets/Warning.png')
 
 export default {
   Apple,
@@ -435,5 +436,6 @@ export default {
   Volume,
   Wallet,
   Wallet2x,
-  Wallet3x
+  Wallet3x,
+  Warning
 }

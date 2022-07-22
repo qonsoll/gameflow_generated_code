@@ -1,6 +1,7 @@
-import { useTheme } from '@qonsoll/react-native-design'
 import { useEffect, useRef } from 'react'
+
 import { Animated } from 'react-native'
+import { useTheme } from '@qonsoll/react-native-design'
 
 const useStyles = (error) => {
   // [ADDITIONAL_HOOKS]
@@ -27,13 +28,33 @@ const useStyles = (error) => {
       duration: 220,
       useNativeDriver: true
     }).start()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error])
 
   return {
     errorText: {
       opacity,
-      color: theme.CORE.COLORS['danger-default'],
-      transform: [{ translateY }]
+      color: theme.CORE.COLORS['danger-lighten-1'],
+      transform: [{ translateY }],
+      lineHeight: 12,
+      fontSize: 12
+    },
+    alert: {
+      width: 12,
+      height: 16,
+      marginRight: 6
+    },
+    error: {
+      backgroundColor: theme.CORE.COLORS['danger-lighten-5'],
+      paddingHorizontal: 10,
+      paddingVertical: 4,
+      marginTop: 2,
+      marginBottom: 4,
+      borderRadius: theme.CORE.BORDER_RADIUSES.sm,
+      fontWeight: 'semibold',
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center'
     }
   }
 }

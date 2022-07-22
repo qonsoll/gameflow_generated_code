@@ -30,7 +30,7 @@ const SignUpWithEmailScreen = () => {
   // [COMPUTED_PROPERTIES]
   const keyboardBehavior = Platform.OS === 'ios' ? 'padding' : 'height'
   const titleProps = isKeyboardVisible
-    ? { mt: 48, mb: 24, variant: 'h3' }
+    ? { mt: 48, mb: 8, variant: 'h3' }
     : { mt: 0, mb: 0, variant: 'h2' }
 
   // [HANDLERS]

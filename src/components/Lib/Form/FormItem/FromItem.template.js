@@ -1,3 +1,4 @@
+import { Animated, View } from 'react-native'
 import { Box, Text } from '@qonsoll/react-native-design'
 import React, {
   cloneElement,
@@ -8,12 +9,14 @@ import React, {
 } from 'react'
 import { useController, useFormContext } from 'react-hook-form'
 
-import { Animated } from 'react-native'
+import { Image } from 'react-native'
 import PropTypes from 'prop-types'
+import { Warning } from '../../../../constants/assets'
 import useStyles from './styles'
 
 const MARGINS = {
-  xs: 6,
+  zero: 0,
+  xs: 8,
   sm: 12,
   md: 20
 }
@@ -57,6 +60,7 @@ const FromItem = (props) => {
   // [USE_EFFECTS]
   useEffect(() => {
     initialValue && setFieldsValue({ [name]: initialValue })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -68,6 +72,7 @@ const FromItem = (props) => {
       onError?.(error)
       setAnimatedError(error?.message)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error])
 
   return (
@@ -78,8 +83,14 @@ const FromItem = (props) => {
         </Text>
       )}
       <FormItemChildren {...childrenProps}>{children}</FormItemChildren>
-
-      <Animated.Text style={styles.errorText}>{animatedError}</Animated.Text>
+      {animatedError && (
+        <View style={styles.error}>
+          <Image source={Warning} style={styles.alert} />
+          <Animated.Text style={styles.errorText}>
+            {animatedError}
+          </Animated.Text>
+        </View>
+      )}
     </Box>
   )
 }

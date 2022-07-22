@@ -16,9 +16,11 @@ const SignupForm = (props) => {
 
   return (
     <Form form={form} {...rest}>
-      <Box bg="white" px={16} pb={0} pt={24} mb={12} borderRadius="md">
+      <Box mb={12}>
         <Form.Item
           name="email"
+          label={t('email-label')}
+          labelColor="white"
           margins="xs"
           rules={{ required: t('email-required-validation-message') }}>
           <Input
@@ -30,6 +32,8 @@ const SignupForm = (props) => {
         </Form.Item>
         <Form.Item
           margins="xs"
+          label={t('password-label')}
+          labelColor="white"
           name="password"
           rules={{
             required: t('password-required-validation-message'),
@@ -47,6 +51,8 @@ const SignupForm = (props) => {
         </Form.Item>
         <Form.Item
           margins="xs"
+          label={t('confirm-password-label')}
+          labelColor="white"
           name="confirmedPassword"
           rules={{
             required: t('confirm-password-required-validation-message'),
@@ -67,7 +73,7 @@ const SignupForm = (props) => {
 
       <TouchableOpacity onPress={() => form.submit()} style={styles.button}>
         <Text variant="body1" fontWeight="medium" color="grey-5">
-          {t('sign-in-button-text')}
+          {t('sign-up-button-text')}
         </Text>
       </TouchableOpacity>
     </Form>

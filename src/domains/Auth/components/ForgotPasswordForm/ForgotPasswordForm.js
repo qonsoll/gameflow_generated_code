@@ -16,9 +16,11 @@ const ForgotPasswordForm = (props) => {
 
   return (
     <Form form={form} {...rest}>
-      <Box bg="white" p={16} pb={0} pt={24} mb={12} borderRadius="md">
+      <Box mb={12}>
         <Form.Item
           name="email"
+          label={t('email-label')}
+          labelColor="white"
           margins="sm"
           rules={{ required: t('email-required-validation-message') }}>
           <Input

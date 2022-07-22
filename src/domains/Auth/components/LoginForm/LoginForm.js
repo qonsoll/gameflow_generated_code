@@ -16,13 +16,13 @@ const LoginForm = (props) => {
 
   return (
     <Form form={form} {...rest}>
-      <Box bg="white" px={16} pb={0} pt={24} mb={12} borderRadius="md">
+      <Box mb={12}>
         <Form.Item
-          // label={t('Email')}
-          // labelColor="white"
+          label={t('email-label')}
+          labelColor="white"
           name="email"
           margins="xs"
-          rules={{ required: t('enter-email-validation-message') }}>
+          rules={{ required: t('email-required-validation-message') }}>
           <Input
             disabled={loading}
             placeholder={t('email-input-placeholder')}
@@ -31,16 +31,12 @@ const LoginForm = (props) => {
           />
         </Form.Item>
         <Form.Item
-          margins="xs"
-          // label={t('Password')}
-          // labelColor="white"
+          margins="zero"
+          label={t('password-label')}
+          labelColor="white"
           name="password"
           rules={{
-            required: t('enter-password-validation-message'),
-            minLength: {
-              value: 6,
-              message: t('password-length-validation-message')
-            }
+            required: t('password-required-validation-message')
           }}>
           <Input
             disabled={loading}

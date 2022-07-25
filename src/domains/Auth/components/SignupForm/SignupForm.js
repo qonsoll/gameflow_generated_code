@@ -1,5 +1,6 @@
 import { Box, Text } from '@qonsoll/react-native-design'
-import { Form, Input } from '../../../../components'
+import { Form, Input } from '~/components'
+import { validateEmail, validatePasswordConfirmation } from '~/helpers'
 
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
@@ -14,12 +15,28 @@ const SignupForm = (props) => {
   const form = Form.useForm()
   const styles = dynamicStyles()
 
-  // [HANDLERS]
-  const validatePasswordConfirmation = (value) => {
-    if (form.watch?.('password') !== value) {
-      return t('confirm-password-not-match-validation-message')
+  // [COMPUTED_PROPERTIES]
+  const emailValidationRules = {
+    required: t('email-required-validation-message'),
+    validate: (email) => validateEmail(t, email)
+  }
+  const passwordValidationRules = {
+    required: t('password-required-validation-message'),
+    minLength: {
+      value: 6,
+      message: t('password-min-length-validation-message')
     }
   }
+  const confirmPasswordValidationRules = {
+    required: t('confirm-password-required-validation-message'),
+    validate: (value) => {
+      const password = form.watch?.('password')
+      validatePasswordConfirmation(t, password, value)
+    }
+  }
+
+  // [HANDLERS]
+  const handleSignup = () => form.submit()
 
   return (
     <Form form={form} {...rest}>
@@ -29,7 +46,7 @@ const SignupForm = (props) => {
           label={t('email-label')}
           labelColor="white"
           margins="xs"
-          rules={{ required: t('email-required-validation-message') }}>
+          rules={emailValidationRules}>
           <Input
             placeholder={t('email-input-placeholder')}
             style={styles.input}
@@ -42,13 +59,7 @@ const SignupForm = (props) => {
           label={t('password-label')}
           labelColor="white"
           name="password"
-          rules={{
-            required: t('password-required-validation-message'),
-            minLength: {
-              value: 6,
-              message: t('password-min-length-validation-message')
-            }
-          }}>
+          rules={passwordValidationRules}>
           <Input
             disabled={loading}
             placeholder={t('password-input-placeholder')}
@@ -61,10 +72,7 @@ const SignupForm = (props) => {
           label={t('confirm-password-label')}
           labelColor="white"
           name="confirmedPassword"
-          rules={{
-            required: t('confirm-password-required-validation-message'),
-            validate: validatePasswordConfirmation
-          }}>
+          rules={confirmPasswordValidationRules}>
           <Input
             disabled={loading}
             placeholder={t('confirm-password-input-placeholder')}
@@ -74,7 +82,7 @@ const SignupForm = (props) => {
         </Form.Item>
       </Box>
 
-      <TouchableOpacity onPress={() => form.submit()} style={styles.button}>
+      <TouchableOpacity onPress={handleSignup} style={styles.button}>
         <Text variant="body1" fontWeight="medium" color="grey-5">
           {t('sign-up-button-text')}
         </Text>

@@ -1,9 +1,6 @@
-import {
-  ONBOARDING_SECOND_SCREEN,
-  SIGN_IN_SCREEN
-} from '../../constants/screens'
+import { ONBOARDING_SECOND_SCREEN, SIGN_IN_SCREEN } from '~/constants/screens'
 
-import { Onboarding } from '../../components'
+import { Onboarding } from '~/components'
 import React from 'react'
 import { useTranslations } from '@qonsoll/translation'
 

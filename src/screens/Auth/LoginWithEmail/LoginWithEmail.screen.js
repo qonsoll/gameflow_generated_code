@@ -1,18 +1,17 @@
 import { ALERT_TYPE, Toast } from 'react-native-alert-notification'
-import { AuthHeader, BackgroundGradient } from '../../../components'
+import { AuthHeader, BackgroundGradient } from '~/components'
 import {
   Keyboard,
   KeyboardAvoidingView,
-  Platform,
   SafeAreaView,
   TouchableOpacity,
   View
 } from 'react-native'
 import React, { useState } from 'react'
-import { useKeyboardState, useSwipe } from '../../../hooks'
+import { useKeyboardState, useSwipe } from '~/hooks'
 
-import { FORGOT_PASSWORD_SCREEN } from '../../../constants/screens'
-import { LoginForm } from '../../../domains/Auth/components/LoginForm'
+import { FORGOT_PASSWORD_SCREEN } from '~/constants/screens'
+import { LoginForm } from '~/domains/Auth/components/LoginForm'
 import { Text } from '@qonsoll/react-native-design'
 import auth from '@react-native-firebase/auth'
 import dynamicStyles from './styles'
@@ -30,19 +29,20 @@ const LoginWithEmailScreen = () => {
   const [isSpin, setIsSpin] = useState(false)
 
   // [COMPUTED_PROPERTIES]
-  const keyboardBehavior = Platform.OS === 'ios' ? 'padding' : 'height'
   const titleProps = isKeyboardVisible
-    ? { mt: 64, mb: 8, variant: 'h3' }
-    : { mt: 0, mb: 0, variant: 'h2' }
+    ? styles.titlePropsWithKeyboard
+    : styles.titleProps
 
   // [HANDLERS]
   // TODO MOVE TO SEPARATE HELPER || HOOK
   const onEmailLogin = async (credentials) => {
-    const { email, password } = credentials
     try {
       setIsSpin(true)
+      const { email, password } = credentials
       await auth().signInWithEmailAndPassword(email, password)
-    } catch (e) {
+    } catch (error) {
+      console.error(error)
+
       Toast.show({
         type: ALERT_TYPE.DANGER,
         title: t('login-error-title'),
@@ -53,6 +53,8 @@ const LoginWithEmailScreen = () => {
   }
   const handleWrapperPress = () => Keyboard.dismiss()
   const handleBackPress = () => navigation.goBack()
+  const handleForgotPasswordPress = () =>
+    navigation.navigate(FORGOT_PASSWORD_SCREEN)
   const { onTouchStart, onTouchEnd } = useSwipe(null, handleBackPress)
 
   return (
@@ -68,9 +70,7 @@ const LoginWithEmailScreen = () => {
           style={styles.wrapper}
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}>
-          <KeyboardAvoidingView
-            style={styles.keyboard}
-            behavior={keyboardBehavior}>
+          <KeyboardAvoidingView style={styles.keyboard} behavior="padding">
             <View style={styles.container}>
               {/* Title */}
               <Text color="white" {...titleProps}>
@@ -93,8 +93,7 @@ const LoginWithEmailScreen = () => {
                   color="white-t-lighten1">
                   {t('go-to-forgot-password-caption')}?{' '}
                 </Text>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate(FORGOT_PASSWORD_SCREEN)}>
+                <TouchableOpacity onPress={handleForgotPasswordPress}>
                   <Text variant="body1" fontWeight="medium" color="white">
                     {t('go-to-reset-password-button-text')}
                   </Text>

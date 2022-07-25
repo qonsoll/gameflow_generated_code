@@ -1,19 +1,19 @@
+import { ALERT_TYPE, Toast } from 'react-native-alert-notification'
 import { AuthHeader, BackgroundGradient } from '../../../components'
 import {
   Keyboard,
   KeyboardAvoidingView,
-  Platform,
   SafeAreaView,
   TouchableOpacity,
   View
 } from 'react-native'
 import React, { useState } from 'react'
-import { useKeyboardState, useSwipe } from '../../../hooks'
+import { useKeyboardState, useSwipe } from '~/hooks'
 
-import { SignupForm } from '../../../domains/Auth/components'
+import { SignupForm } from '~/domains/Auth/components'
 import { Text } from '@qonsoll/react-native-design'
-// import auth from '@react-native-firebase/auth'
 import dynamicStyles from './styles'
+import { signUpWithCredentials } from '~/helpers/auth'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
 
@@ -28,14 +28,25 @@ const SignUpWithEmailScreen = () => {
   const [isSpin, setIsSpin] = useState(false)
 
   // [COMPUTED_PROPERTIES]
-  const keyboardBehavior = Platform.OS === 'ios' ? 'padding' : 'height'
   const titleProps = isKeyboardVisible
-    ? { mt: 64, mb: 8, variant: 'h3' }
-    : { mt: 0, mb: 0, variant: 'h2' }
+    ? styles.titlePropsWithKeyboard
+    : styles.titleProps
 
   // [HANDLERS]
-  // TODO MOVE TO SEPARATE HELPER || HOOK
   const onFinish = async (credentials) => {
+    try {
+      setIsSpin(true)
+      const { email, password } = credentials
+      await signUpWithCredentials(email, password)
+    } catch (error) {
+      console.error(error)
+
+      Toast.show({
+        type: ALERT_TYPE.DANGER,
+        title: t('signup-error-title'),
+        textBody: t('signup-error-text')
+      })
+    }
     setIsSpin(false)
   }
   const handleWrapperPress = () => Keyboard.dismiss()
@@ -55,9 +66,7 @@ const SignUpWithEmailScreen = () => {
           style={styles.wrapper}
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}>
-          <KeyboardAvoidingView
-            style={styles.keyboard}
-            behavior={keyboardBehavior}>
+          <KeyboardAvoidingView style={styles.keyboard} behavior="padding">
             <View style={styles.container}>
               {/* Title */}
               <Text color="white" {...titleProps}>

@@ -24,7 +24,9 @@ const dynamicStyles = () => {
       flexDirection: 'row',
       justifyContent: 'center',
       marginTop: 32
-    }
+    },
+    titlePropsWithKeyboard: { mt: 64, mb: 8, variant: 'h3' },
+    titleProps: { my: 0, variant: 'h2' }
   })
 }
 

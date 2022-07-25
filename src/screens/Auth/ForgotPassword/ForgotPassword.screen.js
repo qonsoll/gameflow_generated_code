@@ -1,17 +1,19 @@
+import { ALERT_TYPE, Toast } from 'react-native-alert-notification'
 import { AuthHeader, BackgroundGradient } from '../../../components'
 import {
   Keyboard,
   KeyboardAvoidingView,
-  Platform,
   TouchableOpacity,
   View
 } from 'react-native'
-import React, { useState } from 'react'
-import { useKeyboardState, useSwipe } from '../../../hooks'
+import { useKeyboardState, useSwipe } from '~/hooks'
 
-import { ForgotPasswordForm } from '../../../domains/Auth/components/ForgotPasswordForm'
+import { ForgotPasswordForm } from '~/domains/Auth/components/ForgotPasswordForm'
+import React from 'react'
+import { SIGN_IN_SCREEN } from '~/constants/screens'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
+import { resetPassword } from '~/helpers/auth'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
 
@@ -22,20 +24,32 @@ const ForgotPasswordScreen = () => {
   const { t } = useTranslations()
   const isKeyboardVisible = useKeyboardState()
 
-  // [COMPONENT_STATE_HOOKS]
-  const [isSpin, setIsSpin] = useState(false)
-
   // [COMPUTED_PROPERTIES]
-  const keyboardBehavior = Platform.OS === 'ios' ? 'padding' : 'height'
   const titleProps = isKeyboardVisible
-    ? { mt: 64, mb: 8, variant: 'h3' }
-    : { mt: 0, mb: 0, variant: 'h2' }
+    ? styles.titlePropsWithKeyboard
+    : styles.titleProps
 
   // [HANDLERS]
-  // TODO MOVE TO SEPARATE HELPER || HOOK
   const onFinish = async (credentials) => {
-    setIsSpin(false)
+    try {
+      await resetPassword(credentials.email)
+      Toast.show({
+        type: ALERT_TYPE.SUCCESS,
+        title: t('reset-password-success-send-title'),
+        textBody: t('reset-password-success-send-text')
+      })
+      navigation.navigate(SIGN_IN_SCREEN)
+    } catch (error) {
+      console.error(error)
+
+      Toast.show({
+        type: ALERT_TYPE.DANGER,
+        title: t('reset-password-error-title'),
+        textBody: t('reset-password-error-text')
+      })
+    }
   }
+
   const handleWrapperPress = () => Keyboard.dismiss()
   const handleBackPress = () => navigation.goBack()
   const { onTouchStart, onTouchEnd } = useSwipe(null, handleBackPress)
@@ -52,9 +66,7 @@ const ForgotPasswordScreen = () => {
         style={styles.wrapper}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}>
-        <KeyboardAvoidingView
-          style={styles.keyboard}
-          behavior={keyboardBehavior}>
+        <KeyboardAvoidingView style={styles.keyboard} behavior="padding">
           <View style={styles.container}>
             {/* Title */}
             <Text color="white" {...titleProps}>
@@ -67,7 +79,7 @@ const ForgotPasswordScreen = () => {
             )}
 
             {/* Form */}
-            <ForgotPasswordForm onFinish={onFinish} loading={isSpin} />
+            <ForgotPasswordForm onFinish={onFinish} />
           </View>
         </KeyboardAvoidingView>
       </View>

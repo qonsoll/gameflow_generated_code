@@ -19,19 +19,18 @@ const dynamicStyles = () => {
       paddingHorizontal: 12,
       marginBottom: 8
     },
-    itemWithMargin: {
-      marginBottom: 32
-    },
-    arrowIcon: {
-      width: 32,
-      height: 32
-    },
+    itemWithMargin: { marginBottom: 32 },
+    arrowIcon: { width: 32, height: 32 },
     text: { lineHeight: 20, fontSize: 16, fontWeight: '500' },
     icon: {
       width: 24,
       height: 26
     },
-    textWrapper: { flexDirection: 'row', alignItems: 'center' },
+    textWrapper: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      maxWidth: '80%'
+    },
     container: { width: '100%', paddingHorizontal: 24 },
     iconContainer: {
       borderRadius: 8,

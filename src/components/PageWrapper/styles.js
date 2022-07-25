@@ -15,8 +15,9 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
       marginBottom: 32
     },
     logo: {
-      width: 140,
-      height: 100,
+      top: 24,
+      width: 120,
+      height: 48,
       tintColor: logoColor || theme.CORE.COLORS.black
     },
     leftButton: { position: 'absolute', left: 0, paddingHorizontal: 24 },

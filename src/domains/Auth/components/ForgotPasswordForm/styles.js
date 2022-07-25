@@ -17,7 +17,7 @@ const dynamicStyles = () => {
       shadowRadius: 4,
       marginBottom: 12
     },
-    input: { height: 50 }
+    input: { box: { height: 50 } }
   })
 }
 

@@ -112,6 +112,7 @@ export const List3x = require('../../assets/List3x.png')
 export const Location = require('../../assets/Location.png')
 export const Location2x = require('../../assets/Location2x.png')
 export const Location3x = require('../../assets/Location3x.png')
+export const Logo = require('../../assets/Logo.png')
 export const LogOut = require('../../assets/LogOut.png')
 export const Mail = require('../../assets/Mail.png')
 export const Mail2x = require('../../assets/Mail2x.png')
@@ -215,6 +216,7 @@ export const Volume = require('../../assets/Volume.png')
 export const Wallet = require('../../assets/Wallet.png')
 export const Wallet2x = require('../../assets/Wallet2x.png')
 export const Wallet3x = require('../../assets/Wallet3x.png')
+export const Warning = require('../../assets/Warning.png')
 
 export default {
   Apple,
@@ -331,6 +333,7 @@ export default {
   Location,
   Location2x,
   Location3x,
+  Logo,
   LogOut,
   Mail,
   Mail2x,
@@ -433,5 +436,6 @@ export default {
   Volume,
   Wallet,
   Wallet2x,
-  Wallet3x
+  Wallet3x,
+  Warning
 }

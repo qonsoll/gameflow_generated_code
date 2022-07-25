@@ -1,6 +1,7 @@
-import { useTheme } from '@qonsoll/react-native-design'
-import { useEffect, useRef } from 'react'
 import { Animated, StyleSheet } from 'react-native'
+import { useEffect, useRef } from 'react'
+
+import { useTheme } from '@qonsoll/react-native-design'
 
 const dynamicStyles = (props, theme) => {
   return StyleSheet.create({
@@ -45,6 +46,7 @@ const useStyles = ({ error, disabled }) => {
       duration: 220,
       useNativeDriver: false
     }).start()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error])
 
   return { borderColor }

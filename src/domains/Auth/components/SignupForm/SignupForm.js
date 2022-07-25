@@ -6,7 +6,7 @@ import { TouchableOpacity } from 'react-native'
 import dynamicStyles from './styles'
 import { useTranslations } from '@qonsoll/translation'
 
-const LoginForm = (props) => {
+const SignupForm = (props) => {
   const { loading, ...rest } = props
 
   // [ADDITIONAL_HOOKS]
@@ -14,20 +14,27 @@ const LoginForm = (props) => {
   const form = Form.useForm()
   const styles = dynamicStyles()
 
+  // [HANDLERS]
+  const validatePasswordConfirmation = (value) => {
+    if (form.watch?.('password') !== value) {
+      return t('confirm-password-not-match-validation-message')
+    }
+  }
+
   return (
     <Form form={form} {...rest}>
       <Box mb={12}>
         <Form.Item
+          name="email"
           label={t('email-label')}
           labelColor="white"
-          name="email"
           margins="xs"
           rules={{ required: t('email-required-validation-message') }}>
           <Input
-            disabled={loading}
             placeholder={t('email-input-placeholder')}
             style={styles.input}
             autoCorrect={false}
+            disabled={loading}
           />
         </Form.Item>
         <Form.Item
@@ -36,7 +43,11 @@ const LoginForm = (props) => {
           labelColor="white"
           name="password"
           rules={{
-            required: t('password-required-validation-message')
+            required: t('password-required-validation-message'),
+            minLength: {
+              value: 6,
+              message: t('password-min-length-validation-message')
+            }
           }}>
           <Input
             disabled={loading}
@@ -45,15 +56,31 @@ const LoginForm = (props) => {
             style={styles.input}
           />
         </Form.Item>
+        <Form.Item
+          margins="xs"
+          label={t('confirm-password-label')}
+          labelColor="white"
+          name="confirmedPassword"
+          rules={{
+            required: t('confirm-password-required-validation-message'),
+            validate: validatePasswordConfirmation
+          }}>
+          <Input
+            disabled={loading}
+            placeholder={t('confirm-password-input-placeholder')}
+            secureTextEntry
+            style={styles.input}
+          />
+        </Form.Item>
       </Box>
 
       <TouchableOpacity onPress={() => form.submit()} style={styles.button}>
         <Text variant="body1" fontWeight="medium" color="grey-5">
-          {t('sign-in-button-text')}
+          {t('sign-up-button-text')}
         </Text>
       </TouchableOpacity>
     </Form>
   )
 }
 
-export default LoginForm
+export default SignupForm

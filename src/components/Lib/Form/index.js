@@ -1,7 +1,8 @@
+import { FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import React, { memo, useEffect, useMemo } from 'react'
-import PropTypes from 'prop-types'
-import { useForm, FormProvider, useFieldArray } from 'react-hook-form'
+
 import FormItem from './FormItem'
+import PropTypes from 'prop-types'
 import _ from 'lodash'
 
 const Form = (props) => {
@@ -20,6 +21,7 @@ const Form = (props) => {
 
   useEffect(() => {
     initialValues && methods.setFieldsValue(initialValues)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return <FormProvider {...methods}>{children}</FormProvider>

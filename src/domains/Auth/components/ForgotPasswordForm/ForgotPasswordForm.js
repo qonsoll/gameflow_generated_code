@@ -8,22 +8,25 @@ import { useTranslations } from '@qonsoll/translation'
 
 const ForgotPasswordForm = (props) => {
   const { loading, ...rest } = props
+
+  // [ADDITIONAL_HOOKS]
   const { t } = useTranslations()
   const form = Form.useForm()
   const styles = dynamicStyles()
 
   return (
     <Form form={form} {...rest}>
-      <Box bg="white" p={16} pb={0} pt={24} mb={12} borderRadius="md">
+      <Box mb={12}>
         <Form.Item
-          label={t('Email')}
           name="email"
+          label={t('email-label')}
+          labelColor="white"
           margins="sm"
-          rules={{ required: t('Enter email, please') }}>
+          rules={{ required: t('email-required-validation-message') }}>
           <Input
             disabled={loading}
-            placeholder={t('Enter email')}
-            style={{ box: styles.input }}
+            placeholder={t('email-input-placeholder')}
+            style={styles.input}
             autoCorrect={false}
           />
         </Form.Item>
@@ -31,7 +34,7 @@ const ForgotPasswordForm = (props) => {
 
       <TouchableOpacity onPress={() => form.submit()} style={styles.button}>
         <Text variant="body1" fontWeight="medium" color="grey-5">
-          Send
+          {t('forgot-password-button-text')}
         </Text>
       </TouchableOpacity>
     </Form>

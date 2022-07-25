@@ -1,10 +1,20 @@
+import {
+  FORGOT_PASSWORD_SCREEN,
+  LOGIN_WITH_EMAIL_SCREEN,
+  SIGN_IN_SCREEN,
+  SIGN_UP_WITH_EMAIL_SCREEN
+} from '../constants/screens'
+import {
+  ForgotPasswordScreen,
+  LoginWithEmailScreen,
+  SignInScreen,
+  SignUpWithEmailScreen
+} from '../screens'
 import { useOnboarding, useStatusBarColor } from '../hooks'
 
 import { ONBOARDING_NAVIGATOR } from '../constants/navigators'
 import OnboardingStackNavigator from './OnboardingStackNavigator'
 import React from 'react'
-import { SIGN_IN_SCREEN } from '../constants/screens'
-import { SignInScreen } from '../screens'
 import { StatusBar } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -30,6 +40,18 @@ const AuthStackNavigator = () => {
         />
       )}
       <Stack.Screen name={SIGN_IN_SCREEN} component={SignInScreen} />
+      <Stack.Screen
+        name={SIGN_UP_WITH_EMAIL_SCREEN}
+        component={SignUpWithEmailScreen}
+      />
+      <Stack.Screen
+        name={FORGOT_PASSWORD_SCREEN}
+        component={ForgotPasswordScreen}
+      />
+      <Stack.Screen
+        name={LOGIN_WITH_EMAIL_SCREEN}
+        component={LoginWithEmailScreen}
+      />
     </Stack.Navigator>
   )
 }

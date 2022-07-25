@@ -41,14 +41,9 @@ const SettingsScreen = () => {
       [
         {
           text: t('confirm'),
-          onPress: () => {
-            removeUser({ uid: _id })
-          }
+          onPress: () => removeUser({ uid: _id })
         },
-        {
-          text: t('cancel'),
-          style: 'cancel'
-        }
+        { text: t('cancel'), style: 'cancel' }
       ]
     )
 
@@ -117,6 +112,7 @@ const SettingsScreen = () => {
                 />
               </View>
               <Text
+                numberOfLines={1}
                 variant="body1"
                 fontWeight="medium"
                 color={settingsItemsMap[item].textColor}>

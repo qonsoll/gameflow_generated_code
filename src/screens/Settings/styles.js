@@ -31,7 +31,11 @@ const dynamicStyles = () => {
       width: 24,
       height: 26
     },
-    textWrapper: { flexDirection: 'row', alignItems: 'center' },
+    textWrapper: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      maxWidth: '80%'
+    },
     container: { width: '100%', paddingHorizontal: 24 },
     iconContainer: {
       borderRadius: 8,

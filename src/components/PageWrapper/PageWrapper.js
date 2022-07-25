@@ -1,6 +1,6 @@
 import { Image, Keyboard, TouchableOpacity, View } from 'react-native'
 
-import { Logo } from '../../constants/assets'
+import { Logo } from '../Layout'
 import PropTypes from 'prop-types'
 import React from 'react'
 import dynamicStyles from './styles'
@@ -27,7 +27,7 @@ const PageWrapper = (props) => {
       style={styles.container}
       onPress={onPress}>
       <View style={styles.headerContainer}>
-        <Image source={Logo} style={styles.logo} />
+        <Logo style={styles.logo} />
         {!!leftButtonIcon && (
           <TouchableOpacity
             onPress={leftButtonAction}

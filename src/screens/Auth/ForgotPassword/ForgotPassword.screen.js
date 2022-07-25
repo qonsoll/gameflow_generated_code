@@ -6,14 +6,14 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
-import { useKeyboardState, useSwipe } from '../../../hooks'
+import { useKeyboardState, useSwipe } from '~/hooks'
 
-import { ForgotPasswordForm } from '../../../domains/Auth/components/ForgotPasswordForm'
+import { ForgotPasswordForm } from '~/domains/Auth/components/ForgotPasswordForm'
 import React from 'react'
-import { SIGN_IN_SCREEN } from '../../../constants/screens'
+import { SIGN_IN_SCREEN } from '~/constants/screens'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
-import { resetPassword } from '../../../helpers/auth'
+import { resetPassword } from '~/helpers/auth'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
 

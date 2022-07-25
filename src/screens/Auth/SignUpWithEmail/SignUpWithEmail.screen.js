@@ -8,12 +8,12 @@ import {
   View
 } from 'react-native'
 import React, { useState } from 'react'
-import { useKeyboardState, useSwipe } from '../../../hooks'
+import { useKeyboardState, useSwipe } from '~/hooks'
 
-import { SignupForm } from '../../../domains/Auth/components'
+import { SignupForm } from '~/domains/Auth/components'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
-import { signupWithCredentials } from '../../../helpers/auth'
+import { signupWithCredentials } from '~/helpers/auth'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
 

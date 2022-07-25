@@ -1,12 +1,12 @@
-import { Apple3x, GoogleColored3x, Mail3x } from '../../../constants/assets'
-import { AuthHeader, BackgroundGradient } from '../../../components'
+import { Apple3x, GoogleColored3x, Mail3x } from '~/constants/assets'
+import { AuthHeader, BackgroundGradient } from '~/components'
 import { Image, TouchableOpacity, View } from 'react-native'
 import {
   LOGIN_WITH_EMAIL_SCREEN,
   SIGN_UP_WITH_EMAIL_SCREEN
-} from '../../../constants/screens'
+} from '~/constants/screens'
 import React, { Fragment } from 'react'
-import { appleAuth, googleAuth } from '../../../helpers/auth'
+import { appleAuth, googleAuth } from '~/helpers/auth'
 
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'

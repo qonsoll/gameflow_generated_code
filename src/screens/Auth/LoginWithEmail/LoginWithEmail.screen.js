@@ -30,8 +30,8 @@ const LoginWithEmailScreen = () => {
 
   // [COMPUTED_PROPERTIES]
   const titleProps = isKeyboardVisible
-    ? { mt: 64, mb: 8, variant: 'h3' }
-    : { mt: 0, mb: 0, variant: 'h2' }
+    ? styles.titlePropsWithKeyboard
+    : styles.titleProps
 
   // [HANDLERS]
   // TODO MOVE TO SEPARATE HELPER || HOOK
@@ -40,7 +40,9 @@ const LoginWithEmailScreen = () => {
       setIsSpin(true)
       const { email, password } = credentials
       await auth().signInWithEmailAndPassword(email, password)
-    } catch (e) {
+    } catch (error) {
+      console.error(error)
+
       Toast.show({
         type: ALERT_TYPE.DANGER,
         title: t('login-error-title'),

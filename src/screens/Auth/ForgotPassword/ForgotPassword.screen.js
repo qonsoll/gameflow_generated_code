@@ -26,8 +26,8 @@ const ForgotPasswordScreen = () => {
 
   // [COMPUTED_PROPERTIES]
   const titleProps = isKeyboardVisible
-    ? { mt: 64, mb: 8, variant: 'h3' }
-    : { mt: 0, mb: 0, variant: 'h2' }
+    ? styles.titlePropsWithKeyboard
+    : styles.titleProps
 
   // [HANDLERS]
   const onFinish = async (credentials) => {
@@ -40,6 +40,8 @@ const ForgotPasswordScreen = () => {
       })
       navigation.navigate(SIGN_IN_SCREEN)
     } catch (error) {
+      console.error(error)
+
       Toast.show({
         type: ALERT_TYPE.DANGER,
         title: t('reset-password-error-title'),

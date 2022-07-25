@@ -29,8 +29,8 @@ const SignUpWithEmailScreen = () => {
 
   // [COMPUTED_PROPERTIES]
   const titleProps = isKeyboardVisible
-    ? { mt: 64, mb: 8, variant: 'h3' }
-    : { mt: 0, mb: 0, variant: 'h2' }
+    ? styles.titlePropsWithKeyboard
+    : styles.titleProps
 
   // [HANDLERS]
   const onFinish = async (credentials) => {
@@ -39,7 +39,8 @@ const SignUpWithEmailScreen = () => {
       const { email, password } = credentials
       await signupWithCredentials(email, password)
     } catch (error) {
-      console.log(error)
+      console.error(error)
+
       Toast.show({
         type: ALERT_TYPE.DANGER,
         title: t('signup-error-title'),

@@ -5,7 +5,7 @@ import { parseEmailDisplayName } from '../parse'
 
 const usersRef = firestore().collection(COLLECTIONS.USERS)
 
-const signupWithCredentials = async (_email, _password) => {
+const signUpWithCredentials = async (_email, _password) => {
   const response = await auth().createUserWithEmailAndPassword(
     _email,
     _password
@@ -44,5 +44,5 @@ const signupWithCredentials = async (_email, _password) => {
   }
 }
 
-export { signupWithCredentials }
-export default signupWithCredentials
+export { signUpWithCredentials }
+export default signUpWithCredentials

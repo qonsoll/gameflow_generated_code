@@ -13,7 +13,7 @@ import { useKeyboardState, useSwipe } from '~/hooks'
 import { SignupForm } from '~/domains/Auth/components'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
-import { signupWithCredentials } from '~/helpers/auth'
+import { signUpWithCredentials } from '~/helpers/auth'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
 
@@ -37,7 +37,7 @@ const SignUpWithEmailScreen = () => {
     try {
       setIsSpin(true)
       const { email, password } = credentials
-      await signupWithCredentials(email, password)
+      await signUpWithCredentials(email, password)
     } catch (error) {
       console.error(error)
 

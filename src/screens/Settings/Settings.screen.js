@@ -11,7 +11,7 @@ import {
 import { DASHBOARD_SCREEN, PROFILE_SCREEN } from '~/constants/screens'
 
 import FastImage from 'react-native-fast-image'
-import Language from '~/components/Language/Language'
+import { Language } from '~/components'
 import { PageWrapper } from '~/components'
 import React from 'react'
 import { Text } from '@qonsoll/react-native-design'

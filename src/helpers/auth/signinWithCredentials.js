@@ -4,7 +4,7 @@ import firestore from '@react-native-firebase/firestore'
 
 const usersRef = firestore().collection(COLLECTIONS.USERS)
 
-const signinWithCredentials = async (credential) => {
+const signInWithCredentials = async (credential) => {
   const response = await auth().signInWithCredential(credential)
   const isNewUser = response?.additionalUserInfo?.isNewUser
   const { uid, email, photoURL, displayName } = response?.user
@@ -40,5 +40,5 @@ const signinWithCredentials = async (credential) => {
   }
 }
 
-export { signinWithCredentials }
-export default signinWithCredentials
+export { signInWithCredentials }
+export default signInWithCredentials

@@ -19,13 +19,8 @@ const dynamicStyles = () => {
       paddingHorizontal: 12,
       marginBottom: 8
     },
-    itemWithMargin: {
-      marginBottom: 32
-    },
-    arrowIcon: {
-      width: 32,
-      height: 32
-    },
+    itemWithMargin: { marginBottom: 32 },
+    arrowIcon: { width: 32, height: 32 },
     text: { lineHeight: 20, fontSize: 16, fontWeight: '500' },
     icon: {
       width: 24,

@@ -6,7 +6,7 @@ const dynamicStyles = () => {
     container: {
       position: 'absolute',
       right: 24,
-      top: 12,
+      top: 24,
       backgroundColor: theme.CORE.COLORS['grey-10'],
       height: 40,
       width: 40,

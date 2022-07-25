@@ -1,12 +1,11 @@
 import { COLLECTIONS } from '~/constants'
-import CONFIG from '../../constants/config'
-// import Config from 'react-native-config'
+import CONFIG from '~/constants/config'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import { Platform } from 'react-native'
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore'
 import messaging from '@react-native-firebase/messaging'
-import signinWithCredentials from './signinWithCredentials'
+import signInWithCredentials from './signInWithCredentials'
 
 const usersRef = firestore().collection(COLLECTIONS.USERS)
 const WEB_CLIENT_ID =
@@ -16,7 +15,7 @@ const WEB_CLIENT_ID =
 
 const loginWithGoogle = async (idToken) => {
   const credential = auth.GoogleAuthProvider.credential(idToken)
-  const response = await signinWithCredentials(credential)
+  const response = await signInWithCredentials(credential)
   return response
 }
 

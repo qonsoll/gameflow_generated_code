@@ -16,7 +16,7 @@ const dynamicStyles = () => {
       shadowOpacity: 0.06,
       shadowRadius: 4
     },
-    input: { height: 50 }
+    input: { box: { height: 50 } }
   })
 }
 

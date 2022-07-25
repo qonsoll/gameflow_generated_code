@@ -26,7 +26,7 @@ const LoginForm = (props) => {
           <Input
             disabled={loading}
             placeholder={t('email-input-placeholder')}
-            style={{ box: styles.input }}
+            style={styles.input}
             autoCorrect={false}
           />
         </Form.Item>
@@ -42,7 +42,7 @@ const LoginForm = (props) => {
             disabled={loading}
             placeholder={t('password-input-placeholder')}
             secureTextEntry
-            style={{ box: styles.input }}
+            style={styles.input}
           />
         </Form.Item>
       </Box>

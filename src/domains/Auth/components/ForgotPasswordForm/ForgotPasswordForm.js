@@ -26,7 +26,7 @@ const ForgotPasswordForm = (props) => {
           <Input
             disabled={loading}
             placeholder={t('email-input-placeholder')}
-            style={{ box: styles.input }}
+            style={styles.input}
             autoCorrect={false}
           />
         </Form.Item>

@@ -14,6 +14,13 @@ const SignupForm = (props) => {
   const form = Form.useForm()
   const styles = dynamicStyles()
 
+  // [HANDLERS]
+  const validatePasswordConfirmation = (value) => {
+    if (form.watch?.('password') !== value) {
+      return t('confirm-password-not-match-validation-message')
+    }
+  }
+
   return (
     <Form form={form} {...rest}>
       <Box mb={12}>
@@ -24,10 +31,10 @@ const SignupForm = (props) => {
           margins="xs"
           rules={{ required: t('email-required-validation-message') }}>
           <Input
-            disabled={loading}
             placeholder={t('email-input-placeholder')}
-            style={{ box: styles.input }}
+            style={styles.input}
             autoCorrect={false}
+            disabled={loading}
           />
         </Form.Item>
         <Form.Item
@@ -46,7 +53,7 @@ const SignupForm = (props) => {
             disabled={loading}
             placeholder={t('password-input-placeholder')}
             secureTextEntry
-            style={{ box: styles.input }}
+            style={styles.input}
           />
         </Form.Item>
         <Form.Item
@@ -56,17 +63,13 @@ const SignupForm = (props) => {
           name="confirmedPassword"
           rules={{
             required: t('confirm-password-required-validation-message'),
-            validate: (value) => {
-              if (form.watch?.('password') !== value) {
-                return t('confirm-password-not-match-validation-message')
-              }
-            }
+            validate: validatePasswordConfirmation
           }}>
           <Input
             disabled={loading}
             placeholder={t('confirm-password-input-placeholder')}
             secureTextEntry
-            style={{ box: styles.input }}
+            style={styles.input}
           />
         </Form.Item>
       </Box>

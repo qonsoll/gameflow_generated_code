@@ -18,9 +18,7 @@ function TabItem(props) {
   const { t } = useTranslations()
 
   // [CLEAN_FUNCTIONS]
-  const onTabPress = () => {
-    onPress(routeName)
-  }
+  const onTabPress = () => onPress(routeName)
 
   const menuConfig = {
     0: { icon: Home3x, title: t('dashboard') },

@@ -1,8 +1,8 @@
+import { ALERT_TYPE, Toast } from 'react-native-alert-notification'
 import { AuthHeader, BackgroundGradient } from '../../../components'
 import {
   Keyboard,
   KeyboardAvoidingView,
-  Platform,
   SafeAreaView,
   TouchableOpacity,
   View
@@ -12,8 +12,8 @@ import { useKeyboardState, useSwipe } from '../../../hooks'
 
 import { SignupForm } from '../../../domains/Auth/components'
 import { Text } from '@qonsoll/react-native-design'
-// import auth from '@react-native-firebase/auth'
 import dynamicStyles from './styles'
+import { signupWithCredentials } from '../../../helpers/auth'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
 
@@ -28,14 +28,24 @@ const SignUpWithEmailScreen = () => {
   const [isSpin, setIsSpin] = useState(false)
 
   // [COMPUTED_PROPERTIES]
-  const keyboardBehavior = Platform.OS === 'ios' ? 'padding' : 'height'
   const titleProps = isKeyboardVisible
     ? { mt: 64, mb: 8, variant: 'h3' }
     : { mt: 0, mb: 0, variant: 'h2' }
 
   // [HANDLERS]
-  // TODO MOVE TO SEPARATE HELPER || HOOK
   const onFinish = async (credentials) => {
+    try {
+      setIsSpin(true)
+      const { email, password } = credentials
+      await signupWithCredentials(email, password)
+    } catch (error) {
+      console.log(error)
+      Toast.show({
+        type: ALERT_TYPE.DANGER,
+        title: t('signup-error-title'),
+        textBody: t('signup-error-text')
+      })
+    }
     setIsSpin(false)
   }
   const handleWrapperPress = () => Keyboard.dismiss()
@@ -55,9 +65,7 @@ const SignUpWithEmailScreen = () => {
           style={styles.wrapper}
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}>
-          <KeyboardAvoidingView
-            style={styles.keyboard}
-            behavior={keyboardBehavior}>
+          <KeyboardAvoidingView style={styles.keyboard} behavior="padding">
             <View style={styles.container}>
               {/* Title */}
               <Text color="white" {...titleProps}>

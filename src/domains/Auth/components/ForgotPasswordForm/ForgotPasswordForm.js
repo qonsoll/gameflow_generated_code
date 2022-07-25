@@ -5,6 +5,7 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import dynamicStyles from './styles'
 import { useTranslations } from '@qonsoll/translation'
+import { validateEmail } from '../../../../helpers'
 
 const ForgotPasswordForm = (props) => {
   const { loading, ...rest } = props
@@ -14,6 +15,15 @@ const ForgotPasswordForm = (props) => {
   const form = Form.useForm()
   const styles = dynamicStyles()
 
+  // [COMPUTED_PROPERTIES]
+  const emailValidationRules = {
+    required: t('email-required-validation-message'),
+    validate: (email) => validateEmail(t, email)
+  }
+
+  // [HANDLERS]
+  const handleForgotPassword = () => form.submit()
+
   return (
     <Form form={form} {...rest}>
       <Box mb={12}>
@@ -22,7 +32,7 @@ const ForgotPasswordForm = (props) => {
           label={t('email-label')}
           labelColor="white"
           margins="sm"
-          rules={{ required: t('email-required-validation-message') }}>
+          rules={emailValidationRules}>
           <Input
             disabled={loading}
             placeholder={t('email-input-placeholder')}
@@ -32,7 +42,7 @@ const ForgotPasswordForm = (props) => {
         </Form.Item>
       </Box>
 
-      <TouchableOpacity onPress={() => form.submit()} style={styles.button}>
+      <TouchableOpacity onPress={handleForgotPassword} style={styles.button}>
         <Text variant="body1" fontWeight="medium" color="grey-5">
           {t('forgot-password-button-text')}
         </Text>

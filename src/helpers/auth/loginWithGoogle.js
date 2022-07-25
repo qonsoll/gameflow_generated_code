@@ -6,7 +6,7 @@ import { Platform } from 'react-native'
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore'
 import messaging from '@react-native-firebase/messaging'
-import signInWithCredential from './signInWithCredential'
+import signinWithCredentials from './signinWithCredentials'
 
 const usersRef = firestore().collection(COLLECTIONS.USERS)
 const WEB_CLIENT_ID =
@@ -16,7 +16,7 @@ const WEB_CLIENT_ID =
 
 const loginWithGoogle = async (idToken) => {
   const credential = auth.GoogleAuthProvider.credential(idToken)
-  const response = await signInWithCredential(credential)
+  const response = await signinWithCredentials(credential)
   return response
 }
 

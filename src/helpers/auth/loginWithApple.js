@@ -1,7 +1,7 @@
 import appleAuth from '@invertase/react-native-apple-authentication'
 import auth from '@react-native-firebase/auth'
 import jwt_decode from 'jwt-decode'
-import signInWithCredential from './signInWithCredential'
+import signinWithCredentials from './signinWithCredentials'
 
 const getAppleCredential = async ({ identityToken, nonce }) => {
   // Create a Firebase credential from the response
@@ -20,7 +20,7 @@ const loginWithApple = async ({ appleAuthRequestResponse, email }) => {
     nonce: appleAuthRequestResponse?.nonce
   })
   // Sign in with Apple credential
-  signInWithCredential(appleCredential)
+  signinWithCredentials(appleCredential)
 }
 
 const getAppleAuthData = async () => {

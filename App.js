@@ -7,6 +7,7 @@ import { UserAuthContext, UserAuthProvider, UserProvider } from './src/contexts'
 import { AppearanceProvider } from 'react-native-appearance'
 import { NavigationContainer } from '@react-navigation/native'
 import Orientation from 'react-native-orientation'
+import { Root } from 'react-native-alert-notification'
 /* Importing the navigators from the navigators folder. */
 import { ThemeProvider } from '@qonsoll/react-native-design'
 import TranslationProvider from './src/contexts/TranslationContext'
@@ -19,27 +20,29 @@ const App = () => {
   }, [])
 
   return (
-    <AppearanceProvider>
-      <ThemeProvider theme={theme}>
-        <TranslationProvider>
-          <UserAuthProvider>
-            <NavigationContainer>
-              <UserAuthContext.Consumer>
-                {({ _isUserAuthExists }) =>
-                  _isUserAuthExists ? (
-                    <UserProvider>
-                      <AppStackNavigator />
-                    </UserProvider>
-                  ) : (
-                    <AuthStackNavigator />
-                  )
-                }
-              </UserAuthContext.Consumer>
-            </NavigationContainer>
-          </UserAuthProvider>
-        </TranslationProvider>
-      </ThemeProvider>
-    </AppearanceProvider>
+    <Root>
+      <AppearanceProvider>
+        <ThemeProvider theme={theme}>
+          <TranslationProvider>
+            <UserAuthProvider>
+              <NavigationContainer>
+                <UserAuthContext.Consumer>
+                  {({ _isUserAuthExists }) =>
+                    _isUserAuthExists ? (
+                      <UserProvider>
+                        <AppStackNavigator />
+                      </UserProvider>
+                    ) : (
+                      <AuthStackNavigator />
+                    )
+                  }
+                </UserAuthContext.Consumer>
+              </NavigationContainer>
+            </UserAuthProvider>
+          </TranslationProvider>
+        </ThemeProvider>
+      </AppearanceProvider>
+    </Root>
   )
 }
 

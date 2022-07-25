@@ -1,11 +1,11 @@
 import { Box, Text } from '@qonsoll/react-native-design'
-import { Form, Input } from '../../../../components'
+import { Form, Input } from '~/components'
 
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import dynamicStyles from './styles'
 import { useTranslations } from '@qonsoll/translation'
-import { validateEmail } from '../../../../helpers'
+import { validateEmail } from '~/helpers'
 
 const ForgotPasswordForm = (props) => {
   const { loading, ...rest } = props

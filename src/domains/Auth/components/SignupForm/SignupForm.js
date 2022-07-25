@@ -1,9 +1,6 @@
 import { Box, Text } from '@qonsoll/react-native-design'
-import { Form, Input } from '../../../../components'
-import {
-  validateEmail,
-  validatePasswordConfirmation
-} from '../../../../helpers'
+import { Form, Input } from '~/components'
+import { validateEmail, validatePasswordConfirmation } from '~/helpers'
 
 import React from 'react'
 import { TouchableOpacity } from 'react-native'

@@ -1,6 +1,7 @@
 import { COLLECTIONS } from '~/constants'
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore'
+import { parseEmailDisplayName } from '../parse'
 
 const usersRef = firestore().collection(COLLECTIONS.USERS)
 
@@ -11,8 +12,17 @@ const signupWithCredentials = async (_email, _password) => {
   )
   const { uid, email, photoURL, displayName } = response?.user
 
-  const firstName = displayName?.split(' ')[0]
-  const lastName = displayName?.split(' ')[1]
+  let firstName = null
+  let lastName = null
+
+  if (displayName) {
+    firstName = displayName.split(' ')[0]
+    lastName = displayName.split(' ')[1]
+  } else {
+    const _displayName = parseEmailDisplayName(_email)
+    firstName = _displayName.firstName
+    lastName = _displayName.lastName
+  }
 
   const userData = {
     avatarUrl: photoURL || null,

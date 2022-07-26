@@ -11,8 +11,8 @@ import {
   View
 } from 'react-native'
 
-import { Button } from '../../../components'
-import { Close2x } from '../../../constants/assets'
+import Button from '../Button'
+import { Close2x } from '~/constants/assets'
 import Modal from 'react-native-modal'
 import PropTypes from 'prop-types'
 import React from 'react'

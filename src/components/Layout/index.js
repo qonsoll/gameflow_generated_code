@@ -1,3 +1,5 @@
 export { default as Logo } from './Logo'
 export { default as Back } from './Back'
 export { default as AuthHeader } from './AuthHeader'
+export { default as BackgroundGradient } from './BackgroundGradient'
+export { default as PageWrapper } from './PageWrapper'

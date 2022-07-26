@@ -1,7 +1,6 @@
 export { default as Input } from './Inputs'
 export { default as Form } from './Form'
 export { default as NoData } from './NoData'
-export { default as PageWrapper } from './PageWrapper'
 export { default as Modal } from './Modal'
 export { default as Select } from './Select'
 export { default as Collapse } from './Collapse'

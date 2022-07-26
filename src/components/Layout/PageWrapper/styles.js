@@ -10,9 +10,9 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
     },
     headerContainer: {
       width: '100%',
+      marginBottom: 32,
       alignItems: 'center',
-      justifyContent: 'flex-end',
-      marginBottom: 32
+      justifyContent: 'flex-end'
     },
     logo: {
       top: 16,
@@ -22,8 +22,8 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
     },
     leftButton: {
       top: 24,
-      position: 'absolute',
       left: 0,
+      position: 'absolute',
       paddingHorizontal: 24
     },
     leftIcon: {
@@ -47,11 +47,8 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
       borderRadius: 8,
       justifyContent: 'center',
       alignItems: 'center',
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 0
-      },
+      shadowColor: theme.CORE.COLORS.black,
+      shadowOffset: { width: 0, height: 0 },
       shadowOpacity: 0.16,
       shadowRadius: 2,
       zIndex: 4

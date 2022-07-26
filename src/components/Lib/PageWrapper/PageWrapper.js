@@ -8,7 +8,6 @@ import {
 
 import PropTypes from 'prop-types'
 import React from 'react'
-// import dynamicStyles from '~/components/Lib/PageWrapper/styles'
 import dynamicStyles from '../../Lib/PageWrapper/styles'
 import { useColorScheme } from 'react-native-appearance'
 

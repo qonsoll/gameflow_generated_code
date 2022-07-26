@@ -1,26 +1,26 @@
+import { NEXT_LANGUAGES } from './constants'
 import React from 'react'
 import { Text } from '@qonsoll/react-native-design'
 import { TouchableOpacity } from 'react-native'
-import dynamicStyles from './styles'
 import { useTranslations } from '@qonsoll/translation'
-import { NEXT_LANGUAGES } from './constants'
 
 const Language = (props) => {
   // [ADDITIONAL_HOOKS]
-  const styles = dynamicStyles()
   const { language, setCurrentLanguage } = useTranslations()
 
   // [HANDLERS]
-  const handleLanguageChange = () =>
-    setCurrentLanguage(NEXT_LANGUAGES[language])
+  const handleLanguageChange = () => {
+    const nextLanguage = NEXT_LANGUAGES[language]
+    setCurrentLanguage(nextLanguage)
+  }
+
+  // [COMPUTED_PROPERTIES]
+  const languageComputed = language?.toUpperCase()
 
   return (
-    <TouchableOpacity
-      onPress={handleLanguageChange}
-      style={styles.container}
-      {...props}>
+    <TouchableOpacity onPress={handleLanguageChange} {...props}>
       <Text variant="h5" color="primary-default">
-        {language?.toUpperCase()}
+        {languageComputed}
       </Text>
     </TouchableOpacity>
   )

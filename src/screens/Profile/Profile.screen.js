@@ -11,7 +11,7 @@ import PhoneInput from 'react-native-phone-input'
 import dynamicStyles from './styles'
 import firestore from '@react-native-firebase/firestore'
 import theme from '../../../theme'
-import { uploadPhoto } from './helpers'
+import { uploadPhoto } from '~/helpers'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
 

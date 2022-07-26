@@ -1,6 +1,7 @@
 import { Image, Keyboard, TouchableOpacity, View } from 'react-native'
 
-import { Logo } from '../Layout'
+import Language from '../../Language/Language'
+import Logo from '../Logo'
 import PropTypes from 'prop-types'
 import React from 'react'
 import dynamicStyles from './styles'
@@ -14,7 +15,8 @@ const PageWrapper = (props) => {
     leftIconColor,
     rightIconColor,
     logoColor,
-    children
+    children,
+    withLanguage
   } = props
 
   // [ADDITIONAL_HOOKS]
@@ -35,6 +37,7 @@ const PageWrapper = (props) => {
             <Image source={leftButtonIcon} style={styles.leftIcon} />
           </TouchableOpacity>
         )}
+        {withLanguage && <Language style={styles.language} />}
         {!!rightButtonIcon && (
           <TouchableOpacity
             onPress={rightButtonAction}

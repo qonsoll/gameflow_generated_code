@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import theme from '../../../theme'
+import theme from '../../../../theme'
 
 const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
   return StyleSheet.create({
@@ -15,12 +15,17 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
       marginBottom: 32
     },
     logo: {
-      top: 24,
+      top: 16,
       width: 120,
       height: 48,
       tintColor: logoColor || theme.CORE.COLORS.black
     },
-    leftButton: { position: 'absolute', left: 0, paddingHorizontal: 24 },
+    leftButton: {
+      top: 24,
+      position: 'absolute',
+      left: 0,
+      paddingHorizontal: 24
+    },
     leftIcon: {
       width: 32,
       height: 32,
@@ -31,6 +36,25 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
       width: 32,
       height: 32,
       tintColor: rightIconColor || theme.CORE.COLORS['primary-default']
+    },
+    language: {
+      position: 'absolute',
+      right: 24,
+      top: 18,
+      backgroundColor: theme.CORE.COLORS['grey-10'],
+      height: 40,
+      width: 40,
+      borderRadius: 8,
+      justifyContent: 'center',
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 0
+      },
+      shadowOpacity: 0.16,
+      shadowRadius: 2,
+      zIndex: 4
     }
   })
 }

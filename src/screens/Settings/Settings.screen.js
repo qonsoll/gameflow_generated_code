@@ -11,7 +11,6 @@ import {
 import { DASHBOARD_SCREEN, PROFILE_SCREEN } from '~/constants/screens'
 
 import FastImage from 'react-native-fast-image'
-import { Language } from '~/components'
 import { PageWrapper } from '~/components'
 import React from 'react'
 import { Text } from '@qonsoll/react-native-design'
@@ -92,9 +91,9 @@ const SettingsScreen = () => {
 
   return (
     <PageWrapper
+      withLanguage
       leftButtonIcon={LogoSmall}
       leftButtonAction={() => navigation.navigate(DASHBOARD_SCREEN)}>
-      <Language />
       <UserSimpleView />
 
       <View style={styles.container}>

@@ -1,6 +1,7 @@
-import { Button, Modal } from '../../../components'
 import React, { useState } from 'react'
 
+import Button from '../Button'
+import Modal from '../Modal'
 import PropTypes from 'prop-types'
 import { Text } from '@qonsoll/react-native-design'
 import { useTranslations } from '@qonsoll/translation'
@@ -31,8 +32,6 @@ const Remove = (props) => {
 
   // [COMPONENT_STATE_HOOKS]
   const [isConfirmShow, setIsConfirmShow] = useState(false)
-
-  // [COMPUTED_PROPERTIES]
 
   // [CLEAN_FUNCTIONS]
   const showConfirm = () => {

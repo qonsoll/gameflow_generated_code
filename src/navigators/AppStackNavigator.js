@@ -1,5 +1,5 @@
 import { BOTTOM_TAB_NAVIGATOR } from '../constants/navigators'
-import { BottomTabNavigator } from '../navigators'
+import BottomTabNavigator from './BottomTabNavigator'
 import React from 'react'
 import { StatusBar } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'

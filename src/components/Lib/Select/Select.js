@@ -1,12 +1,17 @@
-// import { Input, Modal } from '~/components'
-import { Input, Modal } from '../../../components'
 import React, { useCallback, useMemo, useState } from 'react'
 
+import Input from '../Inputs'
+import Modal from '../Modal'
 import { Picker } from '@react-native-picker/picker'
 import PropTypes from 'prop-types'
 import { useTheme } from '@qonsoll/react-native-design'
 import { useTranslations } from '@qonsoll/translation'
 
+/**
+ * It renders an input that opens a modal with a picker
+ * @param props - The props passed to the component.
+ * @returns A component that renders a modal with a picker inside.
+ */
 const Select = (props) => {
   const {
     items,
@@ -39,14 +44,14 @@ const Select = (props) => {
     setIsModalVisible(false)
     onChange?.(selectedValue?.value)
   }
-  const onSelect = (value) =>
-    setSelectedValue(items.find((item) => item.value === value))
+  const onSelect = (_value) =>
+    setSelectedValue(items.find((item) => item.value === _value))
 
   // [COMPUTED_PROPERTIES]
   const inputValue = useMemo(() => {
     const v = !disabled && items.find((item) => item.value === value)
     return v?.inputLabel || v?.label
-  }, [items, value])
+  }, [disabled, items, value])
 
   const placeholder = props.placeholder?.label || props.placeholder
   return (

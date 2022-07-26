@@ -1,4 +1,3 @@
-import { Home3x, Settings } from '../../constants/assets'
 import { Image, TouchableOpacity } from 'react-native'
 import React, { Fragment } from 'react'
 import { Text, useTheme } from '@qonsoll/react-native-design'
@@ -9,7 +8,7 @@ import { useColorScheme } from 'react-native-appearance'
 import { useTranslations } from '@qonsoll/translation'
 
 function TabItem(props) {
-  const { onPress, focus, routeName, i } = props
+  const { onPress, focus, routeName, icon, title } = props
 
   // [ADDITIONAL_HOOKS]
   const colorScheme = useColorScheme()
@@ -19,11 +18,6 @@ function TabItem(props) {
 
   // [CLEAN_FUNCTIONS]
   const onTabPress = () => onPress(routeName)
-
-  const menuConfig = {
-    0: { icon: Home3x, title: t('dashboard') },
-    1: { icon: Settings, title: t('settings') }
-  }
 
   return (
     <TouchableOpacity
@@ -36,14 +30,14 @@ function TabItem(props) {
             styles.icon,
             focus ? styles.focusTintColor : styles.unFocusTintColor
           ]}
-          source={menuConfig[i]?.icon}
+          source={icon}
         />
 
         <Text
           variant="caption1"
           fontWeight="semibold"
           color={focus ? 'white' : 'white-t-lighten2'}>
-          {menuConfig[i]?.title.toUpperCase()}
+          {t(title)}
         </Text>
       </Fragment>
     </TouchableOpacity>

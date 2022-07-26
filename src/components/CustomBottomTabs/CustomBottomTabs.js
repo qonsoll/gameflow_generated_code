@@ -5,9 +5,10 @@ import { View } from 'react-native'
 import dynamicStyles from './styles'
 import { useColorScheme } from 'react-native-appearance'
 import { useTheme } from '@qonsoll/react-native-design'
+import { MENU_CONFIG } from './constants'
 
 export default function BottomTabs(props) {
-  const { state, navigation, tabIcons, colorTitle } = props
+  const { state, navigation, colorTitle } = props
 
   // [ADDITIONAL_HOOKS]
   const colorScheme = useColorScheme()
@@ -29,17 +30,13 @@ export default function BottomTabs(props) {
 
   const renderTabItem = (route, index) => (
     <CustomTabItem
-      i={index}
-      isRightBorder={index === 1}
-      isLeftBorder={index === 3}
-      key={index + ''}
+      key={index}
       route={customRoutes[index]}
-      tabIcons={tabIcons}
       focus={getIsFocus(stateIndex, route.name)}
       routeName={route.name}
       onPress={onTabItemPress}
-      isAdd={route.name?.toLowerCase() === 'creategroup'}
       colorTitle={colorTitle}
+      {...MENU_CONFIG[route.name]}
     />
   )
 

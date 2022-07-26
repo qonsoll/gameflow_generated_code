@@ -4,22 +4,18 @@ import { TouchableOpacity } from 'react-native'
 import dynamicStyles from './styles'
 import { useTranslations } from '@qonsoll/translation'
 
+const NEXT_LANGUAGES = {
+  no: 'en',
+  en: 'uk',
+  uk: 'no'
+}
+
 const Language = (props) => {
   // [ADDITIONAL_HOOKS]
   const styles = dynamicStyles()
   const { language, setCurrentLanguage } = useTranslations()
 
-  const onLanguageChange = () => {
-    if (language === 'no') {
-      setCurrentLanguage?.('en')
-    }
-    if (language === 'en') {
-      setCurrentLanguage?.('uk')
-    }
-    if (language === 'uk') {
-      setCurrentLanguage?.('no')
-    }
-  }
+  const onLanguageChange = () => setCurrentLanguage(NEXT_LANGUAGES[language])
 
   return (
     <TouchableOpacity

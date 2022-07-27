@@ -16,7 +16,7 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
     },
     logo: {
       top: 16,
-      width: 120,
+      width: 128,
       height: 48,
       tintColor: logoColor || theme.CORE.COLORS.black
     },

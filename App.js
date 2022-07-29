@@ -10,6 +10,7 @@ import Orientation from 'react-native-orientation'
 import { Root } from 'react-native-alert-notification'
 /* Importing the navigators from the navigators folder. */
 import { ThemeProvider } from '@qonsoll/react-native-design'
+import { NativeBaseProvider } from 'native-base'
 import TranslationProvider from './src/contexts/TranslationContext'
 import theme from './theme'
 
@@ -21,27 +22,29 @@ const App = () => {
 
   return (
     <Root>
-      <AppearanceProvider>
-        <ThemeProvider theme={theme}>
-          <TranslationProvider>
-            <UserAuthProvider>
-              <NavigationContainer>
-                <UserAuthContext.Consumer>
-                  {({ _isUserAuthExists }) =>
-                    _isUserAuthExists ? (
-                      <UserProvider>
-                        <AppStackNavigator />
-                      </UserProvider>
-                    ) : (
-                      <AuthStackNavigator />
-                    )
-                  }
-                </UserAuthContext.Consumer>
-              </NavigationContainer>
-            </UserAuthProvider>
-          </TranslationProvider>
-        </ThemeProvider>
-      </AppearanceProvider>
+      <NativeBaseProvider>
+        <AppearanceProvider>
+          <ThemeProvider theme={theme}>
+            <TranslationProvider>
+              <UserAuthProvider>
+                <NavigationContainer>
+                  <UserAuthContext.Consumer>
+                    {({ _isUserAuthExists }) =>
+                      _isUserAuthExists ? (
+                        <UserProvider>
+                          <AppStackNavigator />
+                        </UserProvider>
+                      ) : (
+                        <AuthStackNavigator />
+                      )
+                    }
+                  </UserAuthContext.Consumer>
+                </NavigationContainer>
+              </UserAuthProvider>
+            </TranslationProvider>
+          </ThemeProvider>
+        </AppearanceProvider>
+      </NativeBaseProvider>
     </Root>
   )
 }

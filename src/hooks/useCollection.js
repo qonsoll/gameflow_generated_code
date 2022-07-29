@@ -5,15 +5,14 @@ import { buildQuery } from '../helpers'
 const useCollection = (props) => {
   const { ref = '' } = props
   const [data, setData] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(!!ref)
   const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
-      let snapshotRef = buildQuery(firestore().collection(ref), props)
-
       setLoading(true)
       try {
+        const snapshotRef = buildQuery(firestore().collection(ref), props)
         const querySnapshot = await snapshotRef.get()
         setData(querySnapshot.docs.map((item) => item.data()))
       } catch (err) {
@@ -21,7 +20,7 @@ const useCollection = (props) => {
       }
       setLoading(false)
     }
-    fetchData()
+    ref && fetchData()
   }, [ref, props])
 
   return [data, loading, error]

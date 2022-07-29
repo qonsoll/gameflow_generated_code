@@ -13,10 +13,10 @@ const useDocument = (props) => {
       setLoading(true)
       try {
         const [collectionName, documentId] = ref.split('/')
-        const snapshotRef = buildQuery(
-          firestore().collection(collectionName).doc(documentId),
-          props
-        )
+        const snapshotRef = firestore()
+          .collection(collectionName)
+          .doc(documentId)
+
         const querySnapshot = await snapshotRef.get()
         setData(querySnapshot.data())
       } catch (err) {

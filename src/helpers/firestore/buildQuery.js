@@ -33,25 +33,25 @@ const buildQuery = (query, options) => {
     query = query.limit(limit)
   }
 
-  // if (offset) {
-  //   query = query.offset(offset)
-  // }
+  if (offset) {
+    query = query.offset(offset)
+  }
 
-  // if (startAt) {
-  //   query = query.startAt(...startAt)
-  // }
+  if (startAt) {
+    query = query.startAt(...startAt)
+  }
 
-  // if (endAt) {
-  //   query = query.endAt(...endAt)
-  // }
+  if (endAt) {
+    query = query.endAt(...endAt)
+  }
 
-  // if (startAfter) {
-  //   query = query.startAfter(...startAfter)
-  // }
+  if (startAfter) {
+    query = query.startAfter(...startAfter)
+  }
 
-  // if (endBefore) {
-  //   query = query.endBefore(...endBefore)
-  // }
+  if (endBefore) {
+    query = query.endBefore(...endBefore)
+  }
 
   if (Object.keys(rest).length) {
     throw new Error('Unsupported options')

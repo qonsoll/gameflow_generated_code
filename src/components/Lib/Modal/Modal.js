@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 
 import Button from '../Button'
-import { Close2x } from '~/constants/assets'
+import { Close2x } from '~/__constants__/assets'
 import Modal from 'react-native-modal'
 import PropTypes from 'prop-types'
 import React from 'react'

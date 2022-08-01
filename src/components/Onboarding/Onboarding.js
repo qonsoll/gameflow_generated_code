@@ -1,6 +1,6 @@
 import { Image, TouchableOpacity, View } from 'react-native'
 
-import { ArrowShortLeft3x } from '../../constants/assets'
+import { ArrowShortLeft3x } from '../../__constants__/assets'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Text } from '@qonsoll/react-native-design'
@@ -8,7 +8,7 @@ import dynamicStyles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { SIGN_IN_SCREEN } from '../../constants/screens'
+import { SIGN_IN_SCREEN } from '../../__constants__/screens'
 
 const Onboarding = (props) => {
   const {

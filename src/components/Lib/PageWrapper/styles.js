@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native'
+import theme from '../../../../theme'
 
 const dynamicStyles = () => {
   return StyleSheet.create({
     screenContainer: {
-      backgroundColor: '#f6f9fd',
+      backgroundColor: theme.components.PAGE_WRAPPER.backgroundColor,
       height: '100%'
     }
   })

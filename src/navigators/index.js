@@ -1,18 +1,5 @@
-import AppStackNavigator from './AppStackNavigator'
-import AuthStackNavigator from './AuthStackNavigator'
-import OnboardingStackNavigator from './OnboardingStackNavigator'
-import SettingsStackNavigator from './SettingsStackNavigator'
-
-export {
-  AppStackNavigator,
-  AuthStackNavigator,
-  SettingsStackNavigator,
-  OnboardingStackNavigator
-}
-
-export default {
-  AppStackNavigator,
-  AuthStackNavigator,
-  SettingsStackNavigator,
-  OnboardingStackNavigator
-}
+export { default as AppStackNavigator } from './AppStackNavigator'
+export { default as AuthStackNavigator } from './AuthStackNavigator'
+export { default as BottomTabNavigator } from './BottomTabNavigator'
+export { default as OnboardingStackNavigator } from './OnboardingStackNavigator'
+export { default as SettingsStackNavigator } from './SettingsStackNavigator'

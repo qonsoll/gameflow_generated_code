@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import theme from '../../../../theme'
 
 const MODAL_HEIGHT = {
   sm: '30%',
@@ -6,7 +7,7 @@ const MODAL_HEIGHT = {
   lg: '50%'
 }
 
-const dynamicStyles = (insets, height = 'lg', theme) => {
+const dynamicStyles = (insets, height = 'lg') => {
   const main = StyleSheet.create({
     modalStyles: {
       margin: 0
@@ -38,7 +39,7 @@ const dynamicStyles = (insets, height = 'lg', theme) => {
       width: 32,
       height: 32,
       zIndex: 1,
-      backgroundColor: 'rgba(89, 89, 89, 0.2)',
+      backgroundColor: theme.components.MODAL.backgroundColor,
       borderRadius: 25,
       justifyContent: 'center',
       alignItems: 'center'
@@ -54,7 +55,7 @@ const dynamicStyles = (insets, height = 'lg', theme) => {
   })
   const keyboardAvoidingViewStyles = StyleSheet.create({
     touchableStyles: {
-      backgroundColor: '#00000080',
+      backgroundColor: theme.CORE.COLORS.white,
       flex: 1,
       justifyContent: 'flex-end',
       alignItems: 'center'
@@ -70,14 +71,11 @@ const dynamicStyles = (insets, height = 'lg', theme) => {
       borderTopRightRadius: theme.CORE.BORDER_RADIUSES.xxl2,
       padding: 32,
       alignItems: 'center',
-      shadowColor: '#000',
+      ...theme.SHADOWS.xs,
       shadowOffset: {
         width: 0,
         height: 2
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5
+      }
     }
   })
 

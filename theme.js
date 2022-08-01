@@ -112,7 +112,9 @@ const COLORS = {
   'input-border-color': 'rgba(3, 11, 23, 0.1)',
   'input-border-color-disabled': 'rgba(3, 11, 23, 0.15)',
   'card-spin-background': 'rgba(0, 0, 0, 0.55)',
-  'card-background': '#e9edf1'
+  'card-background': '#e9edf1',
+  'modal-background': 'rgba(89, 89, 89, 0.2)',
+  'page-wrapper-background': '#f6f9fd'
 }
 
 const FONT_FAMILIES = {
@@ -163,58 +165,50 @@ const BORDER_RADIUSES = {
   round: 50
 }
 
-const SHADOWS = {
-  // xs: {
-  //   shadowColor: '#000',
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 1,
-  //   },
-  //   shadowOpacity: 0.2,
-  //   shadowRadius: 1.41,
-  //   elevation: 2,
-  // },
-  // sm: {
-  //   shadowColor: '#000',
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 1,
-  //   },
-  //   shadowOpacity: 0.22,
-  //   shadowRadius: 2.22,
-  //   elevation: 3,
-  // },
-  // md: {
-  //   shadowColor: '#000',
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 2,
-  //   },
-  //   shadowOpacity: 0.23,
-  //   shadowRadius: 2.62,
-  //   elevation: 4,
-  // },
-  // lg: {
-  //   shadowColor: '#000',
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 2,
-  //   },
-  //   shadowOpacity: 0.25,
-  //   shadowRadius: 3.84,
-  //   elevation: 5,
-  // },
-  // xl: {
-  //   shadowColor: '#000',
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 3,
-  //   },
-  //   shadowOpacity: 0.27,
-  //   shadowRadius: 4.65,
-  //   elevation: 6,
-  // },
+const SHADOW_OFFSETS = {
+  DEFAULT: { width: 2, height: 2 }
 }
+
+// Elevation doesn't work properly on Android
+const SHADOWS = {
+  xs: {
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    shadowOffset: SHADOW_OFFSETS.DEFAULT
+    // elevation: 1
+  },
+  sm: {
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    shadowOffset: SHADOW_OFFSETS.DEFAULT
+    // elevation: 3
+  },
+  md: {
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.6,
+    shadowRadius: 8,
+    shadowOffset: SHADOW_OFFSETS.DEFAULT
+    // elevation: 4
+  },
+  lg: {
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.8,
+    shadowRadius: 16,
+    shadowOffset: SHADOW_OFFSETS.DEFAULT
+    // elevation: 5
+  },
+  xl: {
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.16,
+    shadowRadius: 20,
+    shadowOffset: SHADOW_OFFSETS.DEFAULT
+    // elevation: 6
+  }
+}
+
+const SCREEN_SHADOW = COLORS['black-t-lighten3']
 
 const TOGGLES = {
   variants: {
@@ -489,8 +483,15 @@ const EXTENSIONS = {
 
 const theme = {
   CORE,
+  SHADOWS,
   EXTENSIONS,
   components: {
+    MODAL: {
+      backgroundColor: COLORS['modal-background']
+    },
+    PAGE_WRAPPER: {
+      backgroundColor: COLORS['page-wrapper-background']
+    },
     TOGGLES,
     STATUSES,
     CARD: {
@@ -560,7 +561,8 @@ const theme = {
       fontWeight: 'medium',
       hoverOpacity: 0.5
     },
-    SWIAPABLE: { actionMargin: 10 }
+    SWIAPABLE: { actionMargin: 10 },
+    VIEW: { SCREEN_SHADOW }
   }
 }
 

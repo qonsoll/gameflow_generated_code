@@ -24,13 +24,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
       width: '100%',
       paddingHorizontal: 12,
       borderRadius: 16,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 4,
-        height: 4
-      },
-      shadowOpacity: 0.4,
-      shadowRadius: 4
+      ...theme.SHADOWS.sm,
+      shadowOffset: { width: 2, height: 4 }
     },
     buttonContainer: {
       width: '30%',
@@ -98,13 +93,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
       bottom: 0,
       left: 0,
       borderTopRightRadius: 20,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 8,
-        height: 4
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 20
+      ...theme.SHADOWS.xs,
+      shadowOffset: { width: 8, height: 4 }
     },
     rightShadow: {
       width: isIPad ? '45%' : '40%',
@@ -114,13 +104,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
       bottom: 0,
       right: 0,
       borderTopLeftRadius: 20,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: -8,
-        height: 4
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 20
+      ...theme.SHADOWS.xs,
+      shadowOffset: { width: -8, height: 4 }
     }
   })
 }

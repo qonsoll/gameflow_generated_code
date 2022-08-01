@@ -47,10 +47,8 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
       borderRadius: 8,
       justifyContent: 'center',
       alignItems: 'center',
-      shadowColor: theme.CORE.COLORS.black,
+      ...theme.SHADOWS.xs,
       shadowOffset: { width: 0, height: 0 },
-      shadowOpacity: 0.16,
-      shadowRadius: 2,
       zIndex: 4
     }
   })

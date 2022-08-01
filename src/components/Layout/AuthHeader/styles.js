@@ -26,13 +26,11 @@ const dynamicStyles = () => {
       borderRadius: 8,
       justifyContent: 'center',
       alignItems: 'center',
-      shadowColor: '#000',
+      ...theme.SHADOWS.xs,
       shadowOffset: {
         width: 0,
         height: 0
       },
-      shadowOpacity: 0.16,
-      shadowRadius: 2,
       zIndex: 4
     }
   })

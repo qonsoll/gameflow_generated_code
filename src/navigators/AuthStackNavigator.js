@@ -12,7 +12,7 @@ import {
 } from '../screens'
 import { useOnboarding, useStatusBarColor } from '../hooks'
 
-import { ONBOARDING_NAVIGATOR } from '../constants/navigators'
+import { ONBOARDING_NAVIGATOR } from '../__constants__/navigators'
 import OnboardingStackNavigator from './OnboardingStackNavigator'
 import React from 'react'
 import { StatusBar } from 'react-native'

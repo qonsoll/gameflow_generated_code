@@ -7,14 +7,14 @@ import {
   Mail3x,
   Profile2x,
   Trash3x
-} from '~/constants/assets'
-import { DASHBOARD_SCREEN, PROFILE_SCREEN } from '~/constants/screens'
+} from '~/__constants__/assets'
+import { DASHBOARD_SCREEN, PROFILE_SCREEN } from '~/__constants__/screens'
 
 import FastImage from 'react-native-fast-image'
 import { PageWrapper } from '~/components'
 import React from 'react'
 import { Text } from '@qonsoll/react-native-design'
-import { UserSimpleView } from '~/domains/User/components'
+import { UserSimpleView } from '../../domains/User/components'
 import auth from '@react-native-firebase/auth'
 import dynamicStyles from './styles'
 import removeUser from '~/domains/User/helpers/removeUser'

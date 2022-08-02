@@ -1,9 +1,9 @@
-import { BOTTOM_TAB_NAVIGATOR } from '../constants/navigators'
+import { BOTTOM_TAB_NAVIGATOR } from '../__constants__/navigators'
 import BottomTabNavigator from './BottomTabNavigator'
 import React from 'react'
 import { StatusBar } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { isIOS } from '../constants'
+import { isIOS } from '../__constants__'
 import theme from '../../theme'
 import { useStatusBarColor } from '../hooks'
 

@@ -1,11 +1,11 @@
 import {
   DASHBOARD_NAVIGATOR,
   SETTINGS_NAVIGATOR
-} from '../constants/navigators'
+} from '../__constants__/navigators'
 import React, { Suspense } from 'react'
 
 import { CustomBottomTabs } from '../components'
-import { DASHBOARD_SCREEN } from '../constants/screens'
+import { DASHBOARD_SCREEN } from '../__constants__/screens'
 import { DashboardScreen } from '../screens'
 import { SettingsStackNavigator } from '../navigators'
 import { Spinner } from '@qonsoll/react-native-design'

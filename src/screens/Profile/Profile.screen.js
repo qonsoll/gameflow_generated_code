@@ -5,7 +5,7 @@ import { LayoutAnimation, ScrollView, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useUserContext, useUserDispatch } from '~/contexts'
 
-import { ArrowShortLeft3x } from '~/constants/assets'
+import { ArrowShortLeft3x } from '~/__constants__/assets'
 import KeyboardListener from 'react-native-keyboard-listener'
 import PhoneInput from 'react-native-phone-input'
 import dynamicStyles from './styles'

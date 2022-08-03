@@ -355,6 +355,16 @@ const EXTENSIONS = {
         borderBottomColor: COLORS['danger-default'],
         borderLeftColor: COLORS['danger-default']
       },
+      lightDanger: {
+        backgroundColor: COLORS['danger-lighten-5'],
+        color: COLORS['grey-t-4'],
+        infoTextColor: COLORS['danger-lighten-5'],
+        borderColor: COLORS['danger-lighten-5'],
+        borderTopColor: COLORS['danger-lighten-5'],
+        borderRightColor: COLORS['danger-lighten-5'],
+        borderBottomColor: COLORS['danger-lighten-5'],
+        borderLeftColor: COLORS['danger-lighten-5']
+      },
       white: {
         backgroundColor: COLORS.white,
         color: COLORS['grey-t-4'],

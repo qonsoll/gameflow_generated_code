@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
   removeButton: {
     height: theme.COMPONENTS.BUTTONS.sizes.md.height,
     width: theme.COMPONENTS.BUTTONS.sizes.md.height,
-    backgroundColor: theme.COMPONENTS.BUTTONS.variants.danger.backgroundColor,
+    backgroundColor:
+      theme.COMPONENTS.BUTTONS.variants.lightDanger.backgroundColor,
     borderRadius: theme.COMPONENTS.BUTTONS.borderRadiuses.sm,
     marginLeft: 8,
     justifyContent: 'center',
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: theme.COMPONENTS.BUTTONS.sizes.md.height,
     width: theme.COMPONENTS.BUTTONS.sizes.md.height,
-    backgroundColor: theme.COMPONENTS.BUTTONS.variants.black.backgroundColor,
+    backgroundColor:
+      theme.COMPONENTS.BUTTONS.variants.lightGrey.backgroundColor,
     borderRadius: theme.COMPONENTS.BUTTONS.borderRadiuses.sm
   },
   actionsWrapper: { flexDirection: 'row', paddingRight: 24 }

@@ -470,7 +470,8 @@ const COMPONENTS = {
     borderRadiuses: BORDER_RADIUSES
   },
   CARD: {
-    backgroundColor: COLORS['card-background']
+    backgroundColor: COLORS['card-background'],
+    borderRadiuses: BORDER_RADIUSES
   }
 }
 

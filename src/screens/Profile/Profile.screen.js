@@ -81,14 +81,12 @@ const ProfileScreen = () => {
 
   return (
     <PageWrapper
+      title={t('profile-title')}
       leftButtonIcon={ArrowShortLeft3x}
+      withLanguage
       leftButtonAction={() => navigation.goBack()}>
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
-          <Text variant="h3" mb={16}>
-            {t('profile-title')}
-          </Text>
-
           <Box
             display="flex"
             justifyContent="center"

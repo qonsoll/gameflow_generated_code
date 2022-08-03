@@ -50,7 +50,8 @@ const SettingsScreen = () => {
     PROFILE: {
       icon: Profile2x,
       text: t('settings-profile-item-name'),
-      color: theme.CORE.COLORS['grey-4'],
+      iconColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+      arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
       action: onProfile,
       isArrowShow: true,
       textColor: 'grey-4'
@@ -58,7 +59,8 @@ const SettingsScreen = () => {
     CONTACT_US: {
       icon: Mail3x,
       text: t('settings-contact-us-item-name'),
-      color: theme.CORE.COLORS['grey-4'],
+      iconColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+      arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
       action: onContactUs,
       isArrowShow: true,
       textColor: 'grey-4'
@@ -66,25 +68,31 @@ const SettingsScreen = () => {
     TERMS_AND_PRIVACY: {
       icon: Doc3x,
       text: t('settings-terms-and-privacy-item-name'),
-      color: theme.CORE.COLORS['grey-4'],
+      iconColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+      arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
       action: onTermsAndPrivacy,
       isArrowShow: true,
       textColor: 'grey-4'
-    },
+    }
+  }
+
+  const extraActionsMap = {
     LOG_OUT: {
       icon: LogOut,
       text: t('settings-log-out-item-name'),
-      color: theme.CORE.COLORS['danger-default'],
+      iconColor: theme.COMPONENTS.ICON.variants.danger.backgroundColor,
+      arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
       action: onLogOut,
-      isArrowShow: false,
+      isArrowShow: true,
       textColor: 'danger-default'
     },
     DELETE_USER: {
       icon: Trash3x,
       text: t('settings-user-remove-item-name'),
-      color: theme.CORE.COLORS['danger-default'],
+      iconColor: theme.COMPONENTS.ICON.variants.danger.backgroundColor,
+      arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
       action: confirmDeletion,
-      isArrowShow: false,
+      isArrowShow: true,
       textColor: 'danger-default'
     }
   }
@@ -92,41 +100,79 @@ const SettingsScreen = () => {
   return (
     <PageWrapper
       withLanguage
+      withLogo={false}
       leftButtonIcon={LogoSmall}
       leftButtonAction={() => navigation.navigate(DASHBOARD_SCREEN)}>
       <UserSimpleView />
 
-      <View style={styles.container}>
-        {Object.keys(settingsItemsMap).map((item, index) => (
-          <TouchableOpacity
-            onPress={settingsItemsMap[item].action}
-            key={item}
-            style={[styles.item, index === 2 && styles.itemWithMargin]}>
-            <View style={styles.textWrapper}>
-              <View style={styles.iconContainer}>
-                <FastImage
-                  source={settingsItemsMap[item].icon}
-                  tintColor={settingsItemsMap[item].color}
-                  style={styles.icon}
-                />
+      <View style={styles.wrapper}>
+        <View style={styles.container}>
+          {Object.keys(settingsItemsMap).map((item, index) => (
+            <TouchableOpacity
+              onPress={settingsItemsMap[item].action}
+              key={item}
+              style={styles.item}>
+              <View style={styles.textWrapper}>
+                <View style={styles.iconContainer}>
+                  <FastImage
+                    source={settingsItemsMap[item].icon}
+                    tintColor={settingsItemsMap[item].colorColor}
+                    style={styles.icon}
+                  />
+                </View>
+                <Text
+                  numberOfLines={1}
+                  variant="body1"
+                  fontWeight="medium"
+                  color={settingsItemsMap[item].textColor}>
+                  {settingsItemsMap[item].text}
+                </Text>
               </View>
-              <Text
-                numberOfLines={1}
-                variant="body1"
-                fontWeight="medium"
-                color={settingsItemsMap[item].textColor}>
-                {settingsItemsMap[item].text}
-              </Text>
-            </View>
-            {!!settingsItemsMap[item].isArrowShow && (
-              <FastImage
-                source={ArrowShortRight3x}
-                tintColor={settingsItemsMap[item].color}
-                style={styles.arrowIcon}
-              />
-            )}
-          </TouchableOpacity>
-        ))}
+              {!!settingsItemsMap[item].isArrowShow && (
+                <FastImage
+                  source={ArrowShortRight3x}
+                  tintColor={settingsItemsMap[item].arrowColor}
+                  style={styles.arrowIcon}
+                />
+              )}
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+
+      <View style={styles.wrapper}>
+        <View style={styles.container}>
+          {Object.keys(extraActionsMap).map((item, index) => (
+            <TouchableOpacity
+              onPress={extraActionsMap[item].action}
+              key={item}
+              style={styles.item}>
+              <View style={styles.textWrapper}>
+                <View style={styles.iconContainer}>
+                  <FastImage
+                    source={extraActionsMap[item].icon}
+                    tintColor={extraActionsMap[item].iconColor}
+                    style={styles.icon}
+                  />
+                </View>
+                <Text
+                  numberOfLines={1}
+                  variant="body1"
+                  fontWeight="medium"
+                  color={extraActionsMap[item].textColor}>
+                  {extraActionsMap[item].text}
+                </Text>
+              </View>
+              {!!extraActionsMap[item].isArrowShow && (
+                <FastImage
+                  source={ArrowShortRight3x}
+                  tintColor={extraActionsMap[item].arrowColor}
+                  style={styles.arrowIcon}
+                />
+              )}
+            </TouchableOpacity>
+          ))}
+        </View>
       </View>
     </PageWrapper>
   )

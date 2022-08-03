@@ -20,7 +20,11 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
       height: 48,
       tintColor: logoColor || theme.CORE.COLORS.black
     },
-    title: { top: 16 },
+    title: {
+      top: 16,
+      height: 48,
+      justifyContent: 'center'
+    },
     leftButton: {
       top: 24,
       left: 0,

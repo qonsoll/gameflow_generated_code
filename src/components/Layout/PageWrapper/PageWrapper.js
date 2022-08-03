@@ -18,6 +18,7 @@ const PageWrapper = (props) => {
     logoColor,
     children,
     withLanguage,
+    withLogo = true,
     title
   } = props
 
@@ -36,7 +37,7 @@ const PageWrapper = (props) => {
             <Text variant="h3">{title}</Text>
           </View>
         ) : (
-          <Logo style={styles.logo} />
+          withLogo && <Logo style={styles.logo} />
         )}
 
         {!!leftButtonIcon && (

@@ -1,30 +1,24 @@
 import { StyleSheet } from 'react-native'
-import theme from '../../../../../theme'
 
 const dynamicStyles = (avatarUrl) => {
   return StyleSheet.create({
     wrapper: {
       marginBottom: 32,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
       width: '100%',
       paddingHorizontal: 24
     },
-    nameContainer: { flex: 1, paddingRight: 20, marginBottom: 24 },
+    nameContainer: { alignItems: 'center' },
     avatarContainer: {
-      borderRadius: 14,
-      backgroundColor: theme.CORE.COLORS.white,
-      height: 130,
-      width: 130,
+      width: '100%',
       alignItems: 'center',
-      justifyContent: 'flex-end',
       borderWidth: avatarUrl ? 0 : 2,
-      borderColor: avatarUrl ? 'transparent' : '#C18AA4'
+      borderColor: avatarUrl ? 'transparent' : '#C18AA4',
+      marginBottom: 24
     },
     avatar: {
-      height: avatarUrl ? '100%' : 96,
-      width: avatarUrl ? '100%' : 60,
-      borderRadius: avatarUrl ? 12 : 0
+      height: avatarUrl ? 120 : 96,
+      width: avatarUrl ? 120 : 60,
+      borderRadius: avatarUrl ? 100 : 0
     }
   })
 }

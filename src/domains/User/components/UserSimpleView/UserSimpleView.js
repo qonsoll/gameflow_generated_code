@@ -12,19 +12,16 @@ const UserSimpleView = () => {
 
   return (
     <View style={styles.wrapper}>
-      <View style={styles.nameContainer}>
-        <Text variant="h3" fontWeight="semibold">
-          {firstName}
-        </Text>
-        <Text variant="h2" fontWeight="semibold">
-          {lastName}
-        </Text>
-      </View>
       <View style={styles.avatarContainer}>
         <FastImage
           source={avatarUrl ? { uri: avatarUrl } : UserIcon}
           style={styles.avatar}
         />
+      </View>
+      <View style={styles.nameContainer}>
+        <Text variant="h2" fontWeight="semibold">
+          {firstName} {lastName}
+        </Text>
       </View>
     </View>
   )

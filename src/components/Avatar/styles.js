@@ -27,8 +27,11 @@ const dynamicStyles = (theme, size) => {
       width: 20,
       tintColor: '#fff'
     },
-
-    fastImage: { width: size || 130, height: size || 130, borderRadius: 12 },
+    fastImage: {
+      width: size || 130,
+      height: size || 130,
+      borderRadius: (size || 130) / 2
+    },
     defaultAvatarContainer: {
       borderRadius: 14,
       backgroundColor: theme.CORE.COLORS.white,

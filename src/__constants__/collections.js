@@ -1,6 +1,20 @@
 const USERS = 'users'
-const MATERIALS = 'materials'
+const VIDEOGAMES = 'videogames'
+const TEAMS = 'teams'
+const STREAMS = 'streams'
+const COMPETITIONS = 'competitions'
+const MATCHES = 'matches'
+const GAMES = 'games'
+const GAMEMAPS = 'gamemaps'
+const SCORES = 'scores'
 export const COLLECTIONS = {
   USERS,
-  MATERIALS
+  VIDEOGAMES,
+  TEAMS,
+  STREAMS,
+  COMPETITIONS,
+  MATCHES,
+  GAMES,
+  GAMEMAPS,
+  SCORES
 }

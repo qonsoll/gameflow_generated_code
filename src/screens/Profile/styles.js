@@ -9,7 +9,7 @@ const dynamicStyles = () => {
       backgroundColor: theme.CORE.COLORS['input-background'],
       fontSize: 16,
       borderWidth: 1,
-      borderRadius: theme.CORE.BORDER_RADIUSES.md2,
+      borderRadius: theme.CORE.BORDER_RADIUSES.md,
       flex: 1,
       color: theme.CORE.COLORS['grey-t-4'],
       borderColor: theme.CORE.COLORS['input-border-color'],

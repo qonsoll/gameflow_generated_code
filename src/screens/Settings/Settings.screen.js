@@ -76,7 +76,7 @@ const SettingsScreen = () => {
       text: t('settings-log-out-item-name'),
       color: theme.CORE.COLORS['danger-default'],
       action: onLogOut,
-      isArrowShow: true,
+      isArrowShow: false,
       textColor: 'danger-default'
     },
     DELETE_USER: {
@@ -84,7 +84,7 @@ const SettingsScreen = () => {
       text: t('settings-user-remove-item-name'),
       color: theme.CORE.COLORS['danger-default'],
       action: confirmDeletion,
-      isArrowShow: true,
+      isArrowShow: false,
       textColor: 'danger-default'
     }
   }

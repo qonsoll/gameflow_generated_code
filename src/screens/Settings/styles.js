@@ -10,7 +10,7 @@ const dynamicStyles = () => {
     },
     logo: { width: 140, height: 100, marginBottom: 24 },
     item: {
-      backgroundColor: theme.CORE.COLORS['grey-10'],
+      backgroundColor: theme.COMPONENTS.CARD.backgroundColor,
       height: 52,
       borderRadius: 8,
       flexDirection: 'row',

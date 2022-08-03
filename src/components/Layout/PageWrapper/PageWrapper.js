@@ -4,6 +4,7 @@ import Language from '../../Language/Language'
 import Logo from '../Logo'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
 
 const PageWrapper = (props) => {
@@ -16,7 +17,8 @@ const PageWrapper = (props) => {
     rightIconColor,
     logoColor,
     children,
-    withLanguage
+    withLanguage,
+    title
   } = props
 
   // [ADDITIONAL_HOOKS]
@@ -29,7 +31,14 @@ const PageWrapper = (props) => {
       style={styles.container}
       onPress={onPress}>
       <View style={styles.headerContainer}>
-        <Logo style={styles.logo} />
+        {title ? (
+          <View style={styles.title}>
+            <Text variant="h3">{title}</Text>
+          </View>
+        ) : (
+          <Logo style={styles.logo} />
+        )}
+
         {!!leftButtonIcon && (
           <TouchableOpacity
             onPress={leftButtonAction}

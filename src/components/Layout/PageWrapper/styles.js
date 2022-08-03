@@ -6,7 +6,7 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
     container: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: theme.CORE.COLORS.white
+      backgroundColor: theme.CORE.COLORS['page-wrapper-background']
     },
     headerContainer: {
       width: '100%',
@@ -20,6 +20,7 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
       height: 48,
       tintColor: logoColor || theme.CORE.COLORS.black
     },
+    title: { top: 16 },
     leftButton: {
       top: 24,
       left: 0,

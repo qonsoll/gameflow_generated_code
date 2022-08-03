@@ -1,4 +1,4 @@
-import { COLLECTIONS } from '~/constants'
+import { COLLECTIONS } from '~/__constants__'
 import CONFIG from '~/constants/config'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import { Platform } from 'react-native'

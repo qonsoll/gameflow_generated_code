@@ -112,9 +112,9 @@ const COLORS = {
   'input-border-color': 'rgba(3, 11, 23, 0.1)',
   'input-border-color-disabled': 'rgba(3, 11, 23, 0.15)',
   'card-spin-background': 'rgba(0, 0, 0, 0.55)',
-  'card-background': '#e9edf1',
   'modal-background': 'rgba(89, 89, 89, 0.2)',
-  'page-wrapper-background': '#f6f9fd'
+  'card-background': '#fff',
+  'page-wrapper-background': 'rgb(242, 241, 247)'
 }
 
 const FONT_FAMILIES = {
@@ -468,6 +468,9 @@ const COMPONENTS = {
     sizes: EXTENSIONS.ITEM_TOKENS.SIZE_TOKENS,
     variants: EXTENSIONS.ITEM_TOKENS.VARIANT_TOKENS,
     borderRadiuses: BORDER_RADIUSES
+  },
+  CARD: {
+    backgroundColor: COLORS['card-background']
   }
 }
 

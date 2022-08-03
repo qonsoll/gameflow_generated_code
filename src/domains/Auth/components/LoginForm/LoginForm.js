@@ -40,6 +40,7 @@ const LoginForm = (props) => {
             disabled={loading}
             placeholder={t('email-input-placeholder')}
             style={styles.input}
+            shape="rounded"
             autoCorrect={false}
           />
         </Form.Item>

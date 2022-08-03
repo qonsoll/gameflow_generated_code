@@ -1,9 +1,10 @@
+import { Box, Spinner, Text } from '@qonsoll/react-native-design'
 import React, { cloneElement } from 'react'
+
 import PropTypes from 'prop-types'
 import { TouchableOpacity } from 'react-native'
-import { Box, Spinner, Text, useTheme } from '@qonsoll/react-native-design'
-
 import dynamicStyles from './styles'
+import theme from '../../../../theme'
 
 const Button = (props) => {
   const {
@@ -28,8 +29,6 @@ const Button = (props) => {
   } = props
 
   // [ADDITIONAL_HOOKS]
-  const { theme } = useTheme()
-
   const styles = dynamicStyles(theme, {
     onPress,
     text,
@@ -47,13 +46,13 @@ const Button = (props) => {
   })
 
   const color = disabled
-    ? theme.components.BUTTONS.variant['grey-light'].color
-    : theme.components.BUTTONS.variant[variant].color
+    ? theme.COMPONENTS.BUTTONS.variants.lightGrey.color
+    : theme.COMPONENTS.BUTTONS.variants[variant].color
 
   return (
     <TouchableOpacity
       onPress={(!disabled || !loading) && onPress}
-      activeOpacity={theme.components.BUTTONS.hoverOpacity}
+      activeOpacity={theme.COMPONENTS.BUTTONS.hoverOpacity}
       style={[styles.buttonContainer, style]}
       disabled={disabled || loading}>
       <Box
@@ -77,14 +76,6 @@ const Button = (props) => {
                 })
               }
             )}
-            {/* <FastImage
-              tintColor={color}
-              style={[
-                styles.imageIcon,
-                iconSize && { height: iconSize, width: iconSize }
-              ]}
-              source={AppStyles.iconSet[imageName]}
-            /> */}
           </Box>
         ) : (
           icon ||
@@ -100,19 +91,13 @@ const Button = (props) => {
                   })
                 }
               )}
-              {/* <IconOutline
-                name={iconName}
-                color={color}
-                size={iconSize ?? theme.components.BUTTONS.iconSize[size]}
-              /> */}
             </Box>
           ))
         )}
         {(text || children) && (
           <Text
-            variant={theme.components.BUTTONS.textSize}
-            textTransform={theme.components.BUTTONS.text.textTransform}
-            fontWeight={fontWeight || theme.components.BUTTONS.fontWeight}
+            variant={styles.textVariant}
+            fontWeight={fontWeight}
             styleOverride={{ color }}>
             {text || children}
           </Text>

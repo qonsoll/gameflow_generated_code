@@ -13,21 +13,21 @@ const dynamicStyles = (theme, props) => {
     borderRadius
   } = props
 
-  const themeBorderRadius = theme.components.BUTTONS.borderRadius
+  const themeBorderRadius = theme.COMPONENTS.BUTTONS.borderRadiuses
   const isBorderRadiusPassed =
     !isNaN(themeBorderRadius[borderRadius]) || themeBorderRadius[borderRadius]
 
   return StyleSheet.create({
     buttonContainer: {
-      height: theme.components.BUTTONS[size].height,
+      height: theme.COMPONENTS.BUTTONS.sizes[size].height,
       width:
         shape === 'square' && !(children || text) && !block
-          ? theme.components.BUTTONS[size].height
+          ? theme.COMPONENTS.BUTTONS.sizes[size].height
           : undefined,
       flex: block ? 1 : undefined,
       backgroundColor: disabled
-        ? theme.components.BUTTONS.variant['grey-light'].backgroundColor
-        : theme.components.BUTTONS.variant[variant].backgroundColor,
+        ? theme.COMPONENTS.BUTTONS.variants.lightGrey.backgroundColor
+        : theme.COMPONENTS.BUTTONS.variants[variant].backgroundColor,
       paddingHorizontal: shape !== 'square' && !block ? 16 : undefined,
       borderRadius: isBorderRadiusPassed
         ? themeBorderRadius[borderRadius]
@@ -37,7 +37,9 @@ const dynamicStyles = (theme, props) => {
     imageIcon: {
       height: theme.CORE.ICON_SIZES[size] - 4,
       width: theme.CORE.ICON_SIZES[size] - 4
-    }
+    },
+    textVariant: 'body1',
+    textTransform: 'none'
   })
 }
 

@@ -1,8 +1,8 @@
-import React from 'react'
 import { Input } from '@qonsoll/react-native-design'
+import React from 'react'
 
 const PasswordInput = (props) => {
-  return <Input secureTextEntry keyboadrType="visible-password" {...props} />
+  return <Input secureTextEntry keyboardType="visible-password" {...props} />
 }
 
 PasswordInput.propTypes = {}

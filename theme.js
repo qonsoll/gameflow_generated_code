@@ -150,18 +150,12 @@ const ICON_SIZES = {
 
 const BORDER_RADIUSES = {
   sharp: 0,
-  // xs2: 2,
-  // xs: 4, // Default - 2
-  sm2: 6,
-  sm: 8, // Default - 4
-  md2: 12,
-  md: 12, // Default - 8
-  // lg2: 14,
-  lg: 16, // Default - 16
-  // xl2: 20,
-  // xl: 24, // Default - 32
-  xxl2: 32,
-  // xxl: 64,
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 24,
+  xxl: 32,
   round: 50
 }
 
@@ -208,47 +202,45 @@ const SHADOWS = {
   }
 }
 
-const SCREEN_SHADOW = COLORS['black-t-lighten3']
+// const TOGGLES = {
+//   variants: {
+//     default: {
+//       variant: 'lightGrey',
+//       corners: 'round',
+//       border: 'thin',
+//       type: 'filled',
+//       color: COLORS['primary-default']
+//     },
+//     primary: {
+//       variant: 'primary',
+//       corners: 'round',
+//       border: 'thin',
+//       type: 'filled',
+//       color: COLORS.white
+//     }
+//   }
+// }
 
-const TOGGLES = {
-  variants: {
-    default: {
-      variant: 'lightGrey',
-      corners: 'round',
-      border: 'thin',
-      type: 'filled',
-      color: COLORS['primary-default']
-    },
-    primary: {
-      variant: 'primary',
-      corners: 'round',
-      border: 'thin',
-      type: 'filled',
-      color: COLORS.white
-    }
-  }
-}
-
-const STATUSES = {
-  variants: {
-    default: {
-      wrapperBg: COLORS['grey-t-9'],
-      bg: COLORS['grey-t-7']
-    },
-    active: {
-      wrapperBg: COLORS['primary-lighten-5'],
-      bg: COLORS['primary-default']
-    },
-    danger: {
-      wrapperBg: COLORS['danger-lighten-5'],
-      bg: COLORS['danger-default']
-    },
-    warning: {
-      wrapperBg: COLORS['warning-lighten-5'],
-      bg: COLORS['warning-default']
-    }
-  }
-}
+// const STATUSES = {
+//   variants: {
+//     default: {
+//       wrapperBg: COLORS['grey-t-9'],
+//       bg: COLORS['grey-t-7']
+//     },
+//     active: {
+//       wrapperBg: COLORS['primary-lighten-5'],
+//       bg: COLORS['primary-default']
+//     },
+//     danger: {
+//       wrapperBg: COLORS['danger-lighten-5'],
+//       bg: COLORS['danger-default']
+//     },
+//     warning: {
+//       wrapperBg: COLORS['warning-lighten-5'],
+//       bg: COLORS['warning-default']
+//     }
+//   }
+// }
 
 const CORE = {
   COLORS,
@@ -271,10 +263,6 @@ const EXTENSIONS = {
     SIZE_TOKENS: {
       xs: {
         paddingHorizontal: 4,
-        // fontSize: CORE.FONT_SIZES.caption1,
-        // lineHeight: CORE.LINE_HEIGHTS.caption1,
-        // infoTextFontSize: CORE.FONT_SIZES.caption2,
-        // infoTextLineHeight: CORE.LINE_HEIGHTS.caption2,
         iconSize: ICON_SIZES.xs,
         height: 20,
         width: 20,
@@ -282,10 +270,6 @@ const EXTENSIONS = {
       },
       sm: {
         paddingHorizontal: 12,
-        // fontSize: CORE.FONT_SIZES.body2,
-        // lineHeight: CORE.LINE_HEIGHTS.body2,
-        // infoTextFontSize: CORE.FONT_SIZES.caption1,
-        // infoTextLineHeight: CORE.LINE_HEIGHTS.caption1,
         iconSize: ICON_SIZES.sm,
         height: 32,
         width: 32,
@@ -293,10 +277,6 @@ const EXTENSIONS = {
       },
       md: {
         paddingHorizontal: 16,
-        // fontSize: CORE.FONT_SIZES.body2,
-        // lineHeight: CORE.LINE_HEIGHTS.body1,
-        // infoTextFontSize: CORE.FONT_SIZES.caption1,
-        // infoTextLineHeight: CORE.LINE_HEIGHTS.caption1,
         iconSize: ICON_SIZES.md,
         height: 48,
         width: 48,
@@ -304,10 +284,6 @@ const EXTENSIONS = {
       },
       lg: {
         paddingHorizontal: 24,
-        // fontSize: CORE.FONT_SIZES.h4,
-        // lineHeight: CORE.LINE_HEIGHTS.h4,
-        // infoTextFontSize: CORE.FONT_SIZES.body1,
-        // infoTextLineHeight: CORE.LINE_HEIGHTS.body1,
         iconSize: ICON_SIZES.lg,
         height: 52,
         width: 52,
@@ -315,10 +291,6 @@ const EXTENSIONS = {
       },
       xl: {
         paddingHorizontal: 28,
-        // fontSize: CORE.FONT_SIZES.h3,
-        // lineHeight: CORE.LINE_HEIGHTS.h3,
-        // infoTextFontSize: CORE.FONT_SIZES.h4,
-        // infoTextLineHeight: CORE.LINE_HEIGHTS.h4,
         iconSize: ICON_SIZES.xl,
         height: 64,
         width: 64,
@@ -326,10 +298,6 @@ const EXTENSIONS = {
       },
       xxl: {
         paddingHorizontal: 34,
-        // fontSize: CORE.FONT_SIZES.h3,
-        // lineHeight: CORE.LINE_HEIGHTS.h3,
-        // infoTextFontSize: CORE.FONT_SIZES.h4,
-        // infoTextLineHeight: CORE.LINE_HEIGHTS.h4,
         iconSize: ICON_SIZES.xxl,
         height: 128,
         width: 128,
@@ -481,89 +449,23 @@ const EXTENSIONS = {
   }
 }
 
+const COMPONENTS = {
+  ICON: {
+    variants: EXTENSIONS.ITEM_TOKENS.VARIANT_TOKENS,
+    iconSizes: ICON_SIZES
+  },
+  BUTTONS: {
+    sizes: EXTENSIONS.ITEM_TOKENS.SIZE_TOKENS,
+    variants: EXTENSIONS.ITEM_TOKENS.VARIANT_TOKENS,
+    borderRadiuses: BORDER_RADIUSES
+  }
+}
+
 const theme = {
   CORE,
   SHADOWS,
   EXTENSIONS,
-  components: {
-    MODAL: {
-      backgroundColor: COLORS['modal-background']
-    },
-    PAGE_WRAPPER: {
-      backgroundColor: COLORS['page-wrapper-background']
-    },
-    TOGGLES,
-    STATUSES,
-    CARD: {
-      borderRadius: {
-        sharp: BORDER_RADIUSES.sharp,
-        sm: BORDER_RADIUSES.xs,
-        md: BORDER_RADIUSES.sm,
-        lg: 40
-      }
-    },
-    BUTTONS: {
-      variant: {
-        primary: {
-          backgroundColor: COLORS['primary-default'],
-          color: COLORS.white
-        },
-
-        secondary: {
-          backgroundColor: COLORS['primary-lighten-3'],
-          color: COLORS['primary-default']
-        },
-        default: {
-          backgroundColor: 'rgba(3,11,23,0.05)',
-          color: COLORS['grey-t-4']
-        },
-        danger: {
-          backgroundColor: COLORS['danger-lighten-5'],
-          color: COLORS['danger-default']
-        },
-        'grey-light': {
-          backgroundColor: COLORS['grey-t-9'],
-          color: COLORS['grey-7']
-        },
-        transparent: {
-          backgroundColor: 'transparent',
-          color: COLORS['grey-1']
-        },
-        success: {
-          backgroundColor: 'transparent',
-          color: COLORS['success-default']
-        },
-        white: {
-          backgroundColor: '#fff'
-        }
-      },
-      height: {
-        sm: 40,
-        md: 44,
-        lg: 50
-      },
-      iconSize: {
-        sm: ICON_SIZES.xs,
-        md: ICON_SIZES.sm,
-        lg: ICON_SIZES.md
-      },
-      borderRadius: {
-        sharp: BORDER_RADIUSES.sharp,
-        sm: BORDER_RADIUSES.xs,
-        md: BORDER_RADIUSES.sm,
-        lg: BORDER_RADIUSES.lg
-      },
-      text: {
-        textTransform: 'none',
-        fontWeight: '500'
-      },
-      textSize: 'body1',
-      fontWeight: 'medium',
-      hoverOpacity: 0.5
-    },
-    SWIAPABLE: { actionMargin: 10 },
-    VIEW: { SCREEN_SHADOW }
-  }
+  COMPONENTS
 }
 
 export default theme

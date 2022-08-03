@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useTheme } from '@qonsoll/react-native-design'
+
 import { Animated } from 'react-native'
 
 const SwipeableItem = (props) => {
@@ -12,8 +12,6 @@ const SwipeableItem = (props) => {
     children,
     ...rest
   } = props
-  // [ADDITIONAL_HOOKS]
-  const { theme } = useTheme()
 
   // [COMPONENT_STATE_HOOKS]
   const [itemWidth, setItemWidth] = useState(0)
@@ -36,9 +34,7 @@ const SwipeableItem = (props) => {
           flexDirection: 'row',
           transform: [{ translateX }]
         },
-        isLeft
-          ? { marginRight: theme.components.SWIAPABLE.actionMargin }
-          : { marginLeft: theme.components.SWIAPABLE.actionMargin },
+        isLeft ? { marginRight: 10 } : { marginLeft: 10 },
         style
       ]}
       {...rest}>

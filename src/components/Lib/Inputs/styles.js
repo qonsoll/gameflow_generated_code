@@ -1,9 +1,9 @@
 import { Animated, StyleSheet } from 'react-native'
 import { useEffect, useRef } from 'react'
 
-import { useTheme } from '@qonsoll/react-native-design'
+import theme from '../../../../theme'
 
-const dynamicStyles = (props, theme) => {
+const dynamicStyles = (props) => {
   return StyleSheet.create({
     box: {
       flexDirection: 'row',
@@ -15,7 +15,7 @@ const dynamicStyles = (props, theme) => {
       backgroundColor: props.disabled
         ? theme.CORE.COLORS['input-background-disabled']
         : theme.CORE.COLORS['input-background'],
-      borderRadius: theme.CORE.BORDER_RADIUSES.md2,
+      borderRadius: theme.CORE.BORDER_RADIUSES.md,
       paddingRight: props.iconRight || props.imageRight ? 10 : 30
     },
     input: {
@@ -28,7 +28,6 @@ const dynamicStyles = (props, theme) => {
   })
 }
 const useStyles = ({ error, disabled }) => {
-  const { theme } = useTheme()
   const borderColorAnimation = useRef(new Animated.Value(0)).current
 
   const borderColor = borderColorAnimation.interpolate({

@@ -1,6 +1,5 @@
-import { Avatar, Button, Input } from '~/components'
+import { Avatar, Button, Form, Input, PageWrapper } from '~/components'
 import { Box, Text } from '@qonsoll/react-native-design'
-import { Form, PageWrapper } from '~/components'
 import { LayoutAnimation, ScrollView, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useUserContext, useUserDispatch } from '~/contexts'

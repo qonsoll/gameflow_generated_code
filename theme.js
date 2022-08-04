@@ -471,7 +471,12 @@ const COMPONENTS = {
   },
   CARD: {
     backgroundColor: COLORS['card-background'],
-    borderRadiuses: BORDER_RADIUSES
+    borderRadiuses: BORDER_RADIUSES,
+    borderRadius: BORDER_RADIUSES.sm
+  },
+  INPUT: {
+    backgroundColor: COLORS['card-background'],
+    borderColor: 'transparent'
   }
 }
 

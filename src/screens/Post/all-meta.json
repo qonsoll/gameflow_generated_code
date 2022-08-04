@@ -1,0 +1,29 @@
+{
+  "domain": "Post",
+  "variant": "All",
+  "screenName": "PostsAll",
+  "domainComponent": "PostList",
+  "imports": [
+    {
+      "imports": [
+        "React"
+      ],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": [
+        "PageWrapper"
+      ],
+      "source": "~/components",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "PostList"
+      ],
+      "source": "~/domains/Post/components",
+      "isDefault": false
+    }
+  ]
+}

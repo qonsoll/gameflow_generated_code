@@ -1,0 +1,80 @@
+{
+  "domain": "Post",
+  "variant": "List",
+  "parentDomains": [],
+  "collectionName": "posts",
+  "singularDomain": "post",
+  "loweringDomain": "post", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": ["styles"],
+      "source": "./PostList.styles",
+      "isDefault": true
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": ["FlatList","View"],
+      "source": "react-native",
+      "isDefault": false
+    },
+    {
+      "imports": ["Text"],
+      "source": "@qonsoll/react-native-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["useGetPosts"],
+      "source": "~/domains/Post/hooks",
+      "isDefault": false
+    },
+    {
+      "imports": ["PostSimpleView"],
+      "source": "~/domains/Post/components",
+      "isDefault": false
+    }
+  ],
+  "components": [],
+  "states" : [
+    {
+      "variables": ["posts","loading"],
+      "hook": "useGetPosts",
+      "params": [],
+      "type": "array"
+    }
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+  ],
+  "propTypes": [
+  ],
+  "nestedComponents": [
+    {
+      "domain": "Post",
+      "variant": "SortMenu"
+    },
+    {
+      "domain": "Post",
+      "variant": "SimpleView"
+    },
+    {
+      "domain": "Post",
+      "variant": "SimpleForm"
+    }
+  ]
+}

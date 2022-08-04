@@ -1,0 +1,11 @@
+{
+  "Post": [
+    {
+      "name": "PostsAll",
+      "domain": "Post",
+      "variant": "All",
+      "screenName": "POSTS_ALL",
+      "component": "PostsAll"
+    }
+  ]
+}

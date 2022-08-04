@@ -1,0 +1,4 @@
+{
+  "applicationType": "mobile",
+  "baseComponentLibrary": "@qonsoll/react-native-design"
+}

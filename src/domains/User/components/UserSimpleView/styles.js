@@ -11,9 +11,7 @@ const dynamicStyles = (avatarUrl) => {
     avatarContainer: {
       width: '100%',
       alignItems: 'center',
-      borderWidth: avatarUrl ? 0 : 2,
-      borderColor: avatarUrl ? 'transparent' : '#C18AA4',
-      marginBottom: 24
+      marginBottom: 12
     },
     avatar: {
       height: avatarUrl ? 120 : 96,

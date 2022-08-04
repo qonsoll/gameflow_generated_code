@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
-
 import { Keyboard, LayoutAnimation } from 'react-native'
+import { useEffect, useState } from 'react'
 
 /**
  * It returns a boolean value that indicates whether the keyboard is opened or not

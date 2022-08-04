@@ -11,7 +11,7 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
     },
     headerContainer: {
       width: '100%',
-      marginBottom: 32,
+      marginBottom: isIOS ? 12 : 32,
       alignItems: 'center',
       justifyContent: 'flex-end',
       paddingTop: isIOS ? 40 : 0

@@ -1,11 +1,10 @@
 import { Avatar, Button, Form, Input, PageWrapper } from '~/components'
 import { Box, Text } from '@qonsoll/react-native-design'
-import { LayoutAnimation, ScrollView, View } from 'react-native'
+import { LayoutAnimation, ScrollView, UIManager, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useUserContext, useUserDispatch } from '~/contexts'
 
 import { ArrowShortLeft3x } from '~/__constants__/assets'
-import KeyboardListener from 'react-native-keyboard-listener'
 import PhoneInput from 'react-native-phone-input'
 import dynamicStyles from './styles'
 import firestore from '@react-native-firebase/firestore'
@@ -13,6 +12,14 @@ import theme from '../../../theme'
 import { uploadPhoto } from '~/helpers'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
+import { isIOS } from '../../__constants__'
+import { useKeyboardWithAnimationPresetState } from '../../hooks'
+
+if (!isIOS) {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true)
+  }
+}
 
 const ProfileScreen = () => {
   const { t } = useTranslations()
@@ -20,6 +27,7 @@ const ProfileScreen = () => {
 
   const user = useUserContext()
   const dispatch = useUserDispatch()
+  const isKeyboardOpen = useKeyboardWithAnimationPresetState()
   const styles = dynamicStyles(isKeyboardOpen)
   const form = Form.useForm()
   const { firstName, lastName, avatarUrl, phone, _id } = user
@@ -30,7 +38,6 @@ const ProfileScreen = () => {
     lastName,
     phone
   })
-  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false)
   const [isSpin, setIsSpin] = useState(false)
 
   const onUserDataChange = (data) => setUserData({ ...userData, ...data })
@@ -91,7 +98,7 @@ const ProfileScreen = () => {
         mb={isKeyboardOpen ? 0 : 16}
         position={isKeyboardOpen ? 'absolute' : 'relative'}
         right={isKeyboardOpen ? 24 : null}
-        top={isKeyboardOpen ? 46 : null}>
+        top={isKeyboardOpen ? (isIOS ? 46 : 6) : null}>
         <Avatar
           size={isKeyboardOpen ? 40 : 130}
           isEditable
@@ -185,10 +192,6 @@ const ProfileScreen = () => {
           </View>
         </ScrollView>
       </View>
-      <KeyboardListener
-        onWillShow={() => setIsKeyboardOpen(true)}
-        onWillHide={() => setIsKeyboardOpen(false)}
-      />
     </PageWrapper>
   )
 }

@@ -6,7 +6,7 @@ import { Keyboard, LayoutAnimation } from 'react-native'
  * It returns a boolean value that indicates whether the keyboard is opened or not
  * @returns A boolean value that indicates whether the keyboard is opened or not.
  */
-const useKeyboardState = () => {
+const useKeyboardWithAnimationPresetState = () => {
   const [opened, setOpened] = useState()
 
   useEffect(() => {
@@ -34,4 +34,4 @@ const useKeyboardState = () => {
   return opened
 }
 
-export default useKeyboardState
+export default useKeyboardWithAnimationPresetState

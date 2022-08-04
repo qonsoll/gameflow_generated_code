@@ -83,27 +83,26 @@ const ProfileScreen = () => {
     <PageWrapper
       title={t('profile-title')}
       leftButtonIcon={ArrowShortLeft3x}
-      withLanguage
       leftButtonAction={() => navigation.goBack()}>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        mb={isKeyboardOpen ? 0 : 16}
+        position={isKeyboardOpen ? 'absolute' : 'relative'}
+        right={isKeyboardOpen ? 24 : null}
+        top={isKeyboardOpen ? 46 : null}>
+        <Avatar
+          size={isKeyboardOpen ? 40 : 130}
+          isEditable
+          url={userData?.avatarUrl}
+          onChange={(url) => {
+            onUserDataChange({ avatarUrl: url })
+          }}
+        />
+      </Box>
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            mb={isKeyboardOpen ? 0 : 16}
-            position={isKeyboardOpen ? 'absolute' : 'relative'}
-            right={isKeyboardOpen ? 0 : null}>
-            <Avatar
-              size={isKeyboardOpen ? 36 : 130}
-              isEditable
-              url={userData?.avatarUrl}
-              onChange={(url) => {
-                onUserDataChange({ avatarUrl: url })
-              }}
-            />
-          </Box>
-
           <Form form={form}>
             <Box>
               <Form.Item

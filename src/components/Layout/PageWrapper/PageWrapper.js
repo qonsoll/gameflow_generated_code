@@ -1,5 +1,6 @@
 import { Image, Keyboard, TouchableOpacity, View } from 'react-native'
 
+import { Avatar } from '~/components'
 import Language from '../../Language/Language'
 import Logo from '../Logo'
 import PropTypes from 'prop-types'
@@ -19,7 +20,8 @@ const PageWrapper = (props) => {
     children,
     withLanguage,
     withLogo = true,
-    title
+    title,
+    userAvatarUrl
   } = props
 
   // [ADDITIONAL_HOOKS]
@@ -54,6 +56,13 @@ const PageWrapper = (props) => {
             style={styles.rightButton}>
             <Image source={rightButtonIcon} style={styles.rightIcon} />
           </TouchableOpacity>
+        )}
+        {userAvatarUrl && (
+          <Avatar
+            avatarContainerStyle={{ position: 'absolute', right: 24, top: 24 }}
+            size={36}
+            url={userAvatarUrl}
+          />
         )}
       </View>
       {children}

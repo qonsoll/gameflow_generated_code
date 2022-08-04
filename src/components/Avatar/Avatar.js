@@ -11,7 +11,14 @@ import { useTheme } from '@qonsoll/react-native-design'
 import { useTranslations } from '@qonsoll/translation'
 
 const Avatar = (props) => {
-  const { size, url, onChange, cropping } = props
+  const {
+    size,
+    url,
+    onChange,
+    isEditable,
+    cropping,
+    avatarContainerStyle
+  } = props
 
   // [ADDITIONAL_HOOKS]
   const { theme } = useTheme()
@@ -22,10 +29,12 @@ const Avatar = (props) => {
   const photoUploadDialogActionSheet = useRef()
 
   const onEditButtonPress = () => {
-    if (url) {
-      updatePhotoDialogActionSheet.current.show()
-    } else {
-      photoUploadDialogActionSheet.current.show()
+    if (isEditable) {
+      if (url) {
+        updatePhotoDialogActionSheet.current.show()
+      } else {
+        photoUploadDialogActionSheet.current.show()
+      }
     }
   }
 
@@ -52,14 +61,17 @@ const Avatar = (props) => {
       .then((image) => {
         updateUrl(image.path)
       })
-      .catch((error) => console.error('error ===', error))
+      .catch((error) => console.error(error))
   }
 
   const updateUrl = (avatarUrl) => onChange && onChange(avatarUrl)
 
   return (
     <Fragment>
-      <TouchableOpacity onPress={onEditButtonPress}>
+      <TouchableOpacity
+        style={avatarContainerStyle}
+        activeOpacity={isEditable ? 0.2 : 1}
+        onPress={onEditButtonPress}>
         {url ? (
           <FastImage style={styles.fastImage} source={{ uri: url }} />
         ) : (

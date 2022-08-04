@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { isIOS } from '~/__constants__'
 import theme from '../../../../theme'
 
 const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
@@ -12,21 +13,21 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
       width: '100%',
       marginBottom: 32,
       alignItems: 'center',
-      justifyContent: 'flex-end'
+      justifyContent: 'flex-end',
+      paddingTop: isIOS ? 40 : 0
     },
     logo: {
-      top: 16,
       width: 128,
       height: 48,
       tintColor: logoColor || theme.CORE.COLORS.black
     },
     title: {
-      top: 16,
-      height: 48,
+      height: 52,
       justifyContent: 'center'
     },
     leftButton: {
-      top: 24,
+      height: 52,
+      justifyContent: 'center',
       left: 0,
       position: 'absolute',
       paddingHorizontal: 24

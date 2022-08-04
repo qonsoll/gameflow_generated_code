@@ -83,6 +83,10 @@ project.ext.react = [
     composeSourceMapsPath: new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsolutePath() + "/scripts/compose-source-maps.js",
 ]
 
+project.ext.vectoricons = [
+    iconFontNames: [] // Name of the font files you want to copy
+]
+
 apply from: new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim(), "../react.gradle")
 
 /**
@@ -210,6 +214,8 @@ dependencies {
     implementation "androidx.appcompat:appcompat:1.0.0"
     // google sign in
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+    implementation project(':react-native-vector-icons')
 
     compile project(':react-native-video')
 

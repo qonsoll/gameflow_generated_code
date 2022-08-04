@@ -15,6 +15,8 @@ import com.facebook.soloader.SoLoader;
 import expo.modules.ApplicationLifecycleDispatcher;
 import expo.modules.ReactNativeHostWrapper;
 
+import com.oblador.vectoricons.VectorIconsPackage;
+
 // Additions
 // import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 // import com.swmansion.reanimated.ReanimatedJSIModulePackage;

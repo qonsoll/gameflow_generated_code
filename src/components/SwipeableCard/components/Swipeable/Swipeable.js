@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
-import PropTypes from 'prop-types'
+
 import NativeSwipeable from 'react-native-gesture-handler/Swipeable'
+import PropTypes from 'prop-types'
 import SwipeableItem from './SwipeableItem'
 
 const Swipeable = (props) => {

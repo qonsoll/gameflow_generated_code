@@ -20,7 +20,7 @@ import { useTranslations } from '@qonsoll/translation'
  * component has an onPress prop that calls the onRemove function and the onClose function.
  */
 const SwipeableCard = (props) => {
-  const { children, onRemove, onEdit, onPress, style } = props
+  const { children, onRemove, onEdit, onPress, style, activeOpacity } = props
   const { t } = useTranslations()
 
   return (
@@ -49,7 +49,10 @@ const SwipeableCard = (props) => {
         </View>
       )}
       overshootRight={false}>
-      <TouchableOpacity style={style} activeOpacity={1} onPress={onPress}>
+      <TouchableOpacity
+        style={style}
+        activeOpacity={activeOpacity || 1}
+        onPress={onPress}>
         {children}
       </TouchableOpacity>
     </Swipeable>
@@ -61,7 +64,8 @@ SwipeableCard.propTypes = {
   onRemove: PropTypes.func,
   onEdit: PropTypes.func,
   onPress: PropTypes.func,
-  style: PropTypes.any
+  style: PropTypes.any,
+  activeOpacity: PropTypes.number
 }
 
 export default SwipeableCard

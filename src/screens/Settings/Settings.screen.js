@@ -1,13 +1,13 @@
-import { View } from 'react-native'
-import { LogoSmall } from '~/__constants__/assets'
-import React from 'react'
+import { useSettingsActions, useSettingsItems } from './hooks'
 
+import { LogoSmall } from '~/__constants__/assets'
+import { MenuList } from '~/components'
 import { PageWrapper } from '~/components'
+import React from 'react'
 import { UserSimpleView } from '~/domains/User/components'
+import { View } from 'react-native'
 import dynamicStyles from './styles'
 import { useTranslations } from '@qonsoll/translation'
-import { useSettingsActions, useSettingsItems } from './hooks'
-import { MenuList } from '~/components'
 
 const SettingsScreen = () => {
   const styles = dynamicStyles()

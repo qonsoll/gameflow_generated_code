@@ -18,7 +18,7 @@ const PostSimpleView = (props) => {
 
   return (
     <>
-      <SwipeableCard style={styles.wrapper}>
+      <SwipeableCard style={styles.wrapper} activeOpacity={0.2}>
         <View
           style={{
             flexDirection: 'row',

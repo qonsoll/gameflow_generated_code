@@ -1,10 +1,11 @@
-import React from 'react'
-import dynamicStyles from './LanguageList.styles'
 import { FlatList, View } from 'react-native'
-import { LanguageSimpleView } from '~/domains/Language/components'
+
 import { LANGUAGES } from '../../../../__constants__'
-import { useTranslations } from '@qonsoll/translation'
+import { LanguageSimpleView } from '~/domains/Language/components'
+import React from 'react'
 import { Text } from '@qonsoll/react-native-design'
+import dynamicStyles from './LanguageList.styles'
+import { useTranslations } from '@qonsoll/translation'
 
 const LanguageList = (props) => {
   // [COMPONENT_STATE_HOOKS]
@@ -14,7 +15,7 @@ const LanguageList = (props) => {
 
   return (
     <View style={styles.wrapper}>
-      <Text color="grey-6" mb={8} ml={16}>
+      <Text color="grey-6" mb={8} ml={12}>
         {t('language-description-text').toUpperCase()}
       </Text>
       <View style={styles.listWrapper}>

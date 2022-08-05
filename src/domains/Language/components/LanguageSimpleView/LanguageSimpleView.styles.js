@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native'
-import theme from '../../../../../theme'
 
 const styles = StyleSheet.create({
   wrapper: {
     maxHeight: 84,
     borderRadius: 8,
-    paddingLeft: 24,
+    paddingLeft: 12,
     paddingRight: 12,
     marginBottom: 8,
     marginTop: 4

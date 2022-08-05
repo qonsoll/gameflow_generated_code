@@ -13,26 +13,20 @@ const styles = StyleSheet.create({
     height: theme.COMPONENTS.ICON.iconSizes.md
   },
   removeButton: {
-    height: theme.COMPONENTS.BUTTONS.sizes.md.height,
-    width: theme.COMPONENTS.BUTTONS.sizes.md.height,
-    backgroundColor:
-      theme.COMPONENTS.BUTTONS.variants.lightDanger.backgroundColor,
-    borderRadius: theme.COMPONENTS.BUTTONS.borderRadiuses.sm,
-    marginLeft: 8,
+    height: '100%',
+    width: theme.COMPONENTS.BUTTONS.sizes.xl.width,
+    backgroundColor: theme.CORE.COLORS['danger-lighten-1'],
     justifyContent: 'center',
     alignItems: 'center'
   },
   editButton: {
-    marginLeft: -24,
     justifyContent: 'center',
     alignItems: 'center',
-    height: theme.COMPONENTS.BUTTONS.sizes.md.height,
-    width: theme.COMPONENTS.BUTTONS.sizes.md.height,
-    backgroundColor:
-      theme.COMPONENTS.BUTTONS.variants.lightGrey.backgroundColor,
-    borderRadius: theme.COMPONENTS.BUTTONS.borderRadiuses.sm
+    height: '100%',
+    width: theme.COMPONENTS.BUTTONS.sizes.xl.width,
+    backgroundColor: theme.CORE.COLORS['grey-7']
   },
-  actionsWrapper: { flexDirection: 'row', paddingRight: 24 }
+  actionsWrapper: { flexDirection: 'row' }
 })
 
 export default styles

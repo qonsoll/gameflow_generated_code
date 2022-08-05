@@ -22,7 +22,8 @@ const PageWrapper = (props) => {
     withLogo = true,
     title,
     userAvatarUrl,
-    rightButtonText
+    rightButtonText,
+    bgColor
   } = props
 
   // [ADDITIONAL_HOOKS]
@@ -30,7 +31,8 @@ const PageWrapper = (props) => {
     logoColor,
     leftIconColor,
     rightIconColor,
-    title
+    title,
+    bgColor
   })
   const onPress = () => Keyboard.dismiss()
 

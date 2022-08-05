@@ -2,12 +2,18 @@ import { StyleSheet } from 'react-native'
 import { isIOS } from '~/__constants__'
 import theme from '../../../../theme'
 
-const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor, title }) => {
+const dynamicStyles = ({
+  logoColor,
+  leftIconColor,
+  rightIconColor,
+  title,
+  bgColor
+}) => {
   return StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: theme.CORE.COLORS['page-wrapper-background']
+      backgroundColor: bgColor || theme.CORE.COLORS['page-wrapper-background']
     },
     headerContainer: {
       width: '100%',

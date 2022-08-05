@@ -3,14 +3,12 @@ import theme from '../../../../../theme'
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: theme.COMPONENTS.CARD.backgroundColor,
-    minHeight: 48,
-    justifyContent: 'center',
+    maxHeight: 84,
     borderRadius: 8,
+    paddingLeft: 24,
+    paddingRight: 12,
     marginBottom: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    marginHorizontal: 24
+    marginTop: 4
   },
   container: {
     flexDirection: 'row'

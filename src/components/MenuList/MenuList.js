@@ -16,7 +16,7 @@ const MenuList = (props) => {
 
   return data ? (
     data.map((item, index) => (
-      <Fragment key={item}>
+      <Fragment key={index}>
         <TouchableOpacity onPress={item.action} style={styles.item}>
           <View style={styles.textWrapper}>
             <View

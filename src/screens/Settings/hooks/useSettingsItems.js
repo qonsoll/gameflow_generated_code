@@ -5,7 +5,12 @@ import useSettingsActions from './useSettingsActions'
 
 const useSettingsItems = () => {
   const { t, language } = useTranslations()
-  const { onContactUs, onTermsAndPrivacy, onLogOut } = useSettingsActions()
+  const {
+    onContactUs,
+    onTermsAndPrivacy,
+    onLogOut,
+    onLanguages
+  } = useSettingsActions()
 
   const SETTINGS_ITEMS = [
     {
@@ -13,7 +18,7 @@ const useSettingsItems = () => {
       text: t('settings-language-item-name'),
       iconBackgroundColor: theme.CORE.COLORS['primary-default'],
       arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
-      action: onContactUs,
+      action: onLanguages,
       isArrowShow: true,
       textColor: 'grey-4',
       description: LANGUAGES[language]

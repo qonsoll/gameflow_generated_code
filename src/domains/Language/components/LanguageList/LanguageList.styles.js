@@ -1,8 +1,18 @@
 import { StyleSheet } from 'react-native'
-const styles = StyleSheet.create({
-  wrapper: {
-    width: '100%'
-  }
-})
+import theme from '../../../../../theme'
 
-export default styles
+const dynamicStyles = (props) =>
+  StyleSheet.create({
+    wrapper: {
+      width: '100%',
+      paddingHorizontal: 12,
+      marginBottom: 32
+    },
+    listWrapper: {
+      marginHorizontal: 16,
+      backgroundColor: theme.COMPONENTS.CARD.backgroundColor,
+      borderRadius: theme.COMPONENTS.CARD.borderRadiuses.sm
+    }
+  })
+
+export default dynamicStyles

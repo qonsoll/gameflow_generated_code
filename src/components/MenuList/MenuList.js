@@ -22,9 +22,7 @@ const MenuList = (props) => {
             <View
               style={[
                 styles.iconContainer,
-                {
-                  backgroundColor: item.iconBackgroundColor
-                }
+                { backgroundColor: item.iconBackgroundColor }
               ]}>
               <Icon
                 name={item.icon}
@@ -40,7 +38,7 @@ const MenuList = (props) => {
             <Text variant="body1" color="grey-6" mr={4}>
               {item.description}
             </Text>
-            {!!item.isArrowShow && (
+            {item.isArrowShow && (
               <Icon
                 name="chevron-right"
                 size={24}

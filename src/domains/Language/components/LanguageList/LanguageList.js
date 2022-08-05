@@ -1,25 +1,33 @@
 import React from 'react'
-import styles from './LanguageList.styles'
-import PropTypes from 'prop-types'
-import { useTranslations } from '@qonsoll/translation'
+import dynamicStyles from './LanguageList.styles'
 import { FlatList, View } from 'react-native'
-import { Text } from '@qonsoll/react-native-design'
-import { useGetLanguages } from '~/domains/Language/hooks'
 import { LanguageSimpleView } from '~/domains/Language/components'
+import { LANGUAGES } from '../../../../__constants__'
+import { useTranslations } from '@qonsoll/translation'
+import { Text } from '@qonsoll/react-native-design'
 
 const LanguageList = (props) => {
   // [COMPONENT_STATE_HOOKS]
-  const [languages, loading] = useGetLanguages()
 
-  // [ADDITIONAL_HOOKS]
+  const styles = dynamicStyles()
   const { t } = useTranslations()
 
   return (
     <View style={styles.wrapper}>
-      <FlatList
-        data={languages}
-        renderItem={({ item }) => <LanguageSimpleView language={item} />}
-      />
+      <Text color="grey-6" mb={8} ml={16}>
+        {t('language-description-text').toUpperCase()}
+      </Text>
+      <View style={styles.listWrapper}>
+        <FlatList
+          data={Object.keys(LANGUAGES)}
+          renderItem={({ item, index }) => (
+            <LanguageSimpleView
+              language={item}
+              showDivider={index !== Object.keys(LANGUAGES).length - 1}
+            />
+          )}
+        />
+      </View>
     </View>
   )
 }

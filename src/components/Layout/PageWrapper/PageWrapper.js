@@ -1,12 +1,14 @@
 import { Image, Keyboard, TouchableOpacity, View } from 'react-native'
 
 import { Avatar } from '~/components'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import Language from '../../Language/Language'
 import Logo from '../Logo'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
+import theme from '../../../../theme'
 
 const PageWrapper = (props) => {
   const {
@@ -55,13 +57,17 @@ const PageWrapper = (props) => {
           <TouchableOpacity
             onPress={leftButtonAction}
             style={styles.leftButton}>
+            {!!leftButtonIcon && (
+              <Icon
+                name={leftButtonIcon}
+                size={24}
+                color={theme.CORE.COLORS['info-default']}
+              />
+            )}
             {!!leftButtonText && (
               <Text variant="body1" color="info-default">
                 {leftButtonText}
               </Text>
-            )}
-            {!!leftButtonIcon && (
-              <Image source={leftButtonIcon} style={styles.leftIcon} />
             )}
           </TouchableOpacity>
         )}

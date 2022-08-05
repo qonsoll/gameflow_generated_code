@@ -1,0 +1,78 @@
+{
+  "domain": "Language",
+  "variant": "SimpleForm",
+  "parentDomains": [],
+  "collectionName": "languages",
+  "singularDomain": "language",
+  "loweringDomain": "language", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": ["styles"],
+      "source": "./LanguageSimpleForm.styles",
+      "isDefault": true
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["View"],
+      "source": "react-native",
+      "isDefault": false
+    },
+    {
+      "imports": ["FormControl","Stack","Input"],
+      "source": "native-base",
+      "isDefault": false
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+    {
+    "fieldName": "name",
+    "fieldTitle": "Name",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Input",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": false,
+    "isRecognized": true,
+    "priority": 2
+    }
+  ],
+  "propTypes": [
+  ],
+  "nestedComponents": [
+  ]
+}

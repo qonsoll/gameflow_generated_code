@@ -7,5 +7,14 @@
       "screenName": "POSTS_ALL",
       "component": "PostsAll"
     }
+  ],
+  "Language": [
+    {
+      "name": "LanguagesAll",
+      "domain": "Language",
+      "variant": "All",
+      "screenName": "LANGUAGES_ALL",
+      "component": "LanguagesAll"
+    }
   ]
 }

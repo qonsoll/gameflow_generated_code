@@ -11,11 +11,11 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor, title }) => {
     },
     headerContainer: {
       width: '100%',
-      marginBottom: isIOS ? (title ? 12 : -20) : 32,
+      marginBottom: isIOS ? (title ? 12 : -20) : title ? 32 : 0,
       alignItems: 'center',
       justifyContent: 'flex-end',
       paddingTop: isIOS ? 40 : 0,
-      height: isIOS ? 88 : 40
+      height: isIOS ? 88 : 48
     },
     logo: {
       width: 128,
@@ -44,7 +44,7 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor, title }) => {
       position: 'absolute',
       right: 0,
       paddingHorizontal: 16,
-      top: isIOS ? 36 : 20
+      top: isIOS ? 36 : 2
     },
     rightIcon: {
       width: 32,

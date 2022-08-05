@@ -1,0 +1,24 @@
+{
+  "domain": "Language",
+  "name": "LanguageStackNavigator",
+  "title": "LANGUAGES",
+  "routeName": "LANGUAGE_NAVIGATOR",
+  "screens": [
+    {
+      "name": "LanguagesAll",
+      "domain": "Language",
+      "variant": "All",
+      "screenName": "LANGUAGES_ALL",
+      "component": "LanguagesAll"
+    }
+  ],
+  "screenOptions": [
+    {
+      "name": "headerShown",
+      "value": "false",
+      "asVariable": true
+    }
+  ],
+  "importString": "import { LanguagesAll } from '../screens/Language'",
+  "defaultScreenName": "LANGUAGES_ALL"
+}

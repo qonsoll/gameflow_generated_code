@@ -15,11 +15,11 @@ const UserSimpleView = () => {
         <Avatar size={100} url={avatarUrl} />
       </View>
       <View style={styles.nameContainer}>
-        <Text variant="h2" fontWeight="semibold">
+        <Text numberOfLines={1} variant="h2" fontWeight="semibold">
           {firstName} {lastName}
         </Text>
 
-        <Text variant="body1" color="grey-6">
+        <Text numberOfLines={1} variant="body1" color="grey-6">
           + {phone} ‧ {email}
         </Text>
       </View>

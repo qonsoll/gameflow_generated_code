@@ -1,0 +1,29 @@
+{
+  "domain": "Language",
+  "variant": "All",
+  "screenName": "LanguagesAll",
+  "domainComponent": "LanguageList",
+  "imports": [
+    {
+      "imports": [
+        "React"
+      ],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": [
+        "PageWrapper"
+      ],
+      "source": "~/components",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "LanguageList"
+      ],
+      "source": "~/domains/Language/components",
+      "isDefault": false
+    }
+  ]
+}

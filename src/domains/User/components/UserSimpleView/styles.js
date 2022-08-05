@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 const dynamicStyles = (avatarUrl) => {
   return StyleSheet.create({
     wrapper: {
-      marginBottom: 32,
+      marginBottom: 24,
       width: '100%',
       paddingHorizontal: 24
     },

@@ -1,4 +1,4 @@
-import { Alert, TouchableOpacity, View } from 'react-native'
+import { Alert, Dimensions, TouchableOpacity, View } from 'react-native'
 import {
   ArrowShortRight3x,
   Doc3x,
@@ -9,10 +9,12 @@ import {
   Trash3x
 } from '~/__constants__/assets'
 import { DASHBOARD_SCREEN, PROFILE_SCREEN } from '~/__constants__/screens'
+import React, { Fragment } from 'react'
 
+import { Divider } from 'native-base'
 import FastImage from 'react-native-fast-image'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import { PageWrapper } from '~/components'
-import React from 'react'
 import { Text } from '@qonsoll/react-native-design'
 import { UserSimpleView } from '../../domains/User/components'
 import auth from '@react-native-firebase/auth'
@@ -23,10 +25,14 @@ import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
 import { useUserContext } from '~/contexts'
 
+const windowWidth = Dimensions.get('window').width
+
+const LANGUAGES = { en: 'English', no: 'Norsk', uk: 'Ukraine' }
+
 const SettingsScreen = () => {
   const styles = dynamicStyles()
   const navigation = useNavigation()
-  const { t } = useTranslations()
+  const { t, language } = useTranslations()
   const { _id } = useUserContext()
 
   const onProfile = () => navigation.navigate(PROFILE_SCREEN)
@@ -47,28 +53,38 @@ const SettingsScreen = () => {
     )
 
   const settingsItemsMap = {
-    PROFILE: {
-      icon: Profile2x,
-      text: t('settings-profile-item-name'),
-      iconColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+    // PROFILE: {
+    //   icon: 'Person',
+    //   text: t('settings-profile-item-name'),
+    //   iconBackgroundColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+    //   arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+    //   action: onProfile,
+    //   isArrowShow: true,
+    //   textColor: 'grey-4'
+    // },
+    LANGUAGE: {
+      icon: 'language',
+      text: t('settings-language-item-name'),
+      iconBackgroundColor: theme.CORE.COLORS['primary-default'],
       arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
-      action: onProfile,
+      action: onContactUs,
       isArrowShow: true,
-      textColor: 'grey-4'
+      textColor: 'grey-4',
+      description: LANGUAGES[language]
     },
     CONTACT_US: {
-      icon: Mail3x,
+      icon: 'email',
       text: t('settings-contact-us-item-name'),
-      iconColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+      iconBackgroundColor: theme.CORE.COLORS['info-default'],
       arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
       action: onContactUs,
       isArrowShow: true,
       textColor: 'grey-4'
     },
     TERMS_AND_PRIVACY: {
-      icon: Doc3x,
+      icon: 'shield',
       text: t('settings-terms-and-privacy-item-name'),
-      iconColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+      iconBackgroundColor: theme.CORE.COLORS['warning-default'],
       arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
       action: onTermsAndPrivacy,
       isArrowShow: true,
@@ -78,64 +94,89 @@ const SettingsScreen = () => {
 
   const extraActionsMap = {
     LOG_OUT: {
-      icon: LogOut,
+      icon: 'logout',
       text: t('settings-log-out-item-name'),
-      iconColor: theme.COMPONENTS.ICON.variants.danger.backgroundColor,
+      iconBackgroundColor: theme.CORE.COLORS['danger-default'],
       arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
       action: onLogOut,
       isArrowShow: true,
-      textColor: 'danger-default'
-    },
-    DELETE_USER: {
-      icon: Trash3x,
-      text: t('settings-user-remove-item-name'),
-      iconColor: theme.COMPONENTS.ICON.variants.danger.backgroundColor,
-      arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
-      action: confirmDeletion,
-      isArrowShow: true,
-      textColor: 'danger-default'
+      textColor: 'grey-4'
     }
+    // DELETE_USER: {
+    //   icon: 'trash',
+    //   text: t('settings-user-remove-item-name'),
+    //   iconBackgroundColor:
+    //     theme.COMPONENTS.ICON.variants.danger.backgroundColor,
+    //   arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
+    //   action: confirmDeletion,
+    //   isArrowShow: true,
+    //   textColor: 'danger-default'
+    // }
   }
 
   return (
     <PageWrapper
-      withLanguage
+      // title="qwe"
+      // withLanguage
       withLogo={false}
       leftButtonIcon={LogoSmall}
-      leftButtonAction={() => navigation.navigate(DASHBOARD_SCREEN)}>
+      leftButtonAction={() => navigation.navigate(DASHBOARD_SCREEN)}
+      rightButtonText={t('Edit')}
+      rightButtonAction={onProfile}>
       <UserSimpleView />
 
       <View style={styles.wrapper}>
         <View style={styles.container}>
           {Object.keys(settingsItemsMap).map((item, index) => (
-            <TouchableOpacity
-              onPress={settingsItemsMap[item].action}
-              key={item}
-              style={styles.item}>
-              <View style={styles.textWrapper}>
-                <View style={styles.iconContainer}>
-                  <FastImage
-                    source={settingsItemsMap[item].icon}
-                    tintColor={settingsItemsMap[item].colorColor}
-                    style={styles.icon}
-                  />
+            <Fragment key={item}>
+              <TouchableOpacity
+                onPress={settingsItemsMap[item].action}
+                style={styles.item}>
+                <View style={styles.textWrapper}>
+                  <View
+                    style={[
+                      styles.iconContainer,
+                      {
+                        backgroundColor:
+                          settingsItemsMap[item].iconBackgroundColor
+                      }
+                    ]}>
+                    <Icon
+                      name={settingsItemsMap[item].icon}
+                      size={20}
+                      style={{
+                        textAlign: 'center'
+                      }}
+                      color={theme.CORE.COLORS.white}
+                    />
+                  </View>
+                  <Text
+                    numberOfLines={1}
+                    variant="body1"
+                    color={settingsItemsMap[item].textColor}>
+                    {settingsItemsMap[item].text}
+                  </Text>
                 </View>
-                <Text
-                  numberOfLines={1}
-                  variant="body1"
-                  fontWeight="medium"
-                  color={settingsItemsMap[item].textColor}>
-                  {settingsItemsMap[item].text}
-                </Text>
-              </View>
-              {!!settingsItemsMap[item].isArrowShow && (
-                <FastImage
-                  source={ArrowShortRight3x}
-                  tintColor={settingsItemsMap[item].arrowColor}
-                  style={styles.arrowIcon}
-                />
+                <View style={{ flexDirection: 'row' }}>
+                  <Text variant="body1" color="grey-6" mr={4}>
+                    {settingsItemsMap[item].description}
+                  </Text>
+                  {!!settingsItemsMap[item].isArrowShow && (
+                    <Icon
+                      name="chevron-right"
+                      size={24}
+                      style={{
+                        textAlign: 'center'
+                      }}
+                      color={theme.CORE.COLORS['grey-7']}
+                    />
+                  )}
+                </View>
+              </TouchableOpacity>
+              {Object.keys(settingsItemsMap)?.length - 1 !== index && (
+                <Divider width={windowWidth - 86} ml={62} />
               )}
-            </TouchableOpacity>
+            </Fragment>
           ))}
         </View>
       </View>
@@ -148,26 +189,34 @@ const SettingsScreen = () => {
               key={item}
               style={styles.item}>
               <View style={styles.textWrapper}>
-                <View style={styles.iconContainer}>
-                  <FastImage
-                    source={extraActionsMap[item].icon}
-                    tintColor={extraActionsMap[item].iconColor}
-                    style={styles.icon}
+                <View
+                  style={[
+                    styles.iconContainer,
+                    {
+                      backgroundColor: extraActionsMap[item].iconBackgroundColor
+                    }
+                  ]}>
+                  <Icon
+                    name={extraActionsMap[item].icon}
+                    size={20}
+                    color={theme.CORE.COLORS.white}
                   />
                 </View>
                 <Text
                   numberOfLines={1}
                   variant="body1"
-                  fontWeight="medium"
                   color={extraActionsMap[item].textColor}>
                   {extraActionsMap[item].text}
                 </Text>
               </View>
               {!!extraActionsMap[item].isArrowShow && (
-                <FastImage
-                  source={ArrowShortRight3x}
-                  tintColor={extraActionsMap[item].arrowColor}
-                  style={styles.arrowIcon}
+                <Icon
+                  name="chevron-right"
+                  size={24}
+                  style={{
+                    textAlign: 'center'
+                  }}
+                  color={theme.CORE.COLORS['grey-7']}
                 />
               )}
             </TouchableOpacity>

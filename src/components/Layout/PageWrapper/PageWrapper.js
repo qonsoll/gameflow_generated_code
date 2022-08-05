@@ -21,11 +21,17 @@ const PageWrapper = (props) => {
     withLanguage,
     withLogo = true,
     title,
-    userAvatarUrl
+    userAvatarUrl,
+    rightButtonText
   } = props
 
   // [ADDITIONAL_HOOKS]
-  const styles = dynamicStyles({ logoColor, leftIconColor, rightIconColor })
+  const styles = dynamicStyles({
+    logoColor,
+    leftIconColor,
+    rightIconColor,
+    title
+  })
   const onPress = () => Keyboard.dismiss()
 
   return (
@@ -50,11 +56,18 @@ const PageWrapper = (props) => {
           </TouchableOpacity>
         )}
         {withLanguage && <Language style={styles.language} />}
-        {!!rightButtonIcon && (
+        {(!!rightButtonIcon || !!rightButtonText) && (
           <TouchableOpacity
             onPress={rightButtonAction}
             style={styles.rightButton}>
-            <Image source={rightButtonIcon} style={styles.rightIcon} />
+            {!!rightButtonText && (
+              <Text variant="body1" color="info-default">
+                {rightButtonText}
+              </Text>
+            )}
+            {!!rightButtonIcon && (
+              <Image source={rightButtonIcon} style={styles.rightIcon} />
+            )}
           </TouchableOpacity>
         )}
         {userAvatarUrl && (

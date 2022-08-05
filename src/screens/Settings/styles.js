@@ -5,7 +5,7 @@ const dynamicStyles = () => {
   return StyleSheet.create({
     wrapper: {
       width: '100%',
-      paddingHorizontal: 24,
+      paddingHorizontal: 12,
       marginBottom: 32
     },
     logo: { width: 140, height: 100, marginBottom: 24 },
@@ -14,7 +14,7 @@ const dynamicStyles = () => {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      paddingHorizontal: 12
+      paddingHorizontal: 16
     },
     itemWithMargin: { marginBottom: 32 },
     arrowIcon: {
@@ -35,15 +35,16 @@ const dynamicStyles = () => {
     container: {
       width: '100%',
       backgroundColor: theme.COMPONENTS.CARD.backgroundColor,
-      borderRadius: theme.COMPONENTS.CARD.borderRadiuses.md
+      borderRadius: theme.COMPONENTS.CARD.borderRadiuses.sm
     },
     iconContainer: {
-      borderRadius: 8,
-      height: 40,
-      width: 40,
+      backgroundColor: 'green',
+      borderRadius: 6,
+      height: 30,
+      width: 30,
       justifyContent: 'center',
       alignItems: 'center',
-      marginRight: 8
+      marginRight: 16
     }
   })
 }

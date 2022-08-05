@@ -12,14 +12,14 @@ const UserSimpleView = () => {
   return (
     <View style={styles.wrapper}>
       <View style={styles.avatarContainer}>
-        <Avatar size={130} url={avatarUrl} />
+        <Avatar size={100} url={avatarUrl} />
       </View>
       <View style={styles.nameContainer}>
         <Text variant="h2" fontWeight="semibold">
           {firstName} {lastName}
         </Text>
 
-        <Text variant="body1" color="grey-6" fontWeight="semibold">
+        <Text variant="body1" color="grey-6">
           + {phone} ‧ {email}
         </Text>
       </View>

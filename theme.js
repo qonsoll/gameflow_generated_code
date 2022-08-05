@@ -114,7 +114,7 @@ const COLORS = {
   'card-spin-background': 'rgba(0, 0, 0, 0.55)',
   'modal-background': 'rgba(89, 89, 89, 0.2)',
   'card-background': '#fff',
-  'page-wrapper-background': 'rgb(242, 241, 247)'
+  'page-wrapper-background': '#efeef2'
 }
 
 const FONT_FAMILIES = {

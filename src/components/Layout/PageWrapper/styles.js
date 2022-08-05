@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 import { isIOS } from '~/__constants__'
 import theme from '../../../../theme'
 
-const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
+const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor, title }) => {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -11,10 +11,11 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
     },
     headerContainer: {
       width: '100%',
-      marginBottom: isIOS ? 12 : 32,
+      marginBottom: isIOS ? (title ? 12 : -20) : 32,
       alignItems: 'center',
       justifyContent: 'flex-end',
-      paddingTop: isIOS ? 40 : 0
+      paddingTop: isIOS ? 40 : 0,
+      height: isIOS ? 88 : 40
     },
     logo: {
       width: 128,
@@ -30,14 +31,21 @@ const dynamicStyles = ({ logoColor, leftIconColor, rightIconColor }) => {
       justifyContent: 'center',
       left: 0,
       position: 'absolute',
-      paddingHorizontal: 24
+      paddingHorizontal: 16
     },
     leftIcon: {
       width: 32,
       height: 32,
       tintColor: leftIconColor || theme.CORE.COLORS['primary-default']
     },
-    rightButton: { position: 'absolute', right: 0, paddingHorizontal: 24 },
+    rightButton: {
+      height: 52,
+      justifyContent: 'center',
+      position: 'absolute',
+      right: 0,
+      paddingHorizontal: 16,
+      top: isIOS ? 36 : 20
+    },
     rightIcon: {
       width: 32,
       height: 32,

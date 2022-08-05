@@ -1,13 +1,14 @@
-import React from 'react'
-import styles from './LanguageSimpleView.styles'
-import PropTypes from 'prop-types'
-import { useTranslations } from '@qonsoll/translation'
-import { View, TouchableOpacity } from 'react-native'
-import { Text } from '@qonsoll/react-native-design'
-import theme from '../../../../../theme'
-import Icon from 'react-native-vector-icons/MaterialIcons'
 import { LANGUAGES, LANGUAGES_DESCRIPTION } from '~/__constants__'
+import { TouchableOpacity, View } from 'react-native'
+
 import { Divider } from 'native-base'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Text } from '@qonsoll/react-native-design'
+import styles from './LanguageSimpleView.styles'
+import theme from '../../../../../theme'
+import { useTranslations } from '@qonsoll/translation'
 
 const LanguageSimpleView = (props) => {
   const { language, showDivider } = props
@@ -29,29 +30,26 @@ const LanguageSimpleView = (props) => {
         activeOpacity={0.2}>
         <View
           style={{
-            flexDirection: 'row',
             justifyContent: 'space-between',
+            flexDirection: 'row',
             alignItems: 'center'
           }}>
-          <Text variant="h5" fontWeight="semibold">
-            {LANGUAGES[language]}
-          </Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            {isSelected && (
-              <Icon
-                name="check"
-                size={18}
-                color={theme.CORE.COLORS['primary-default']}
-              />
-            )}
-          </View>
-        </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View>
+            <Text variant="h5" fontWeight="semibold">
+              {LANGUAGES[language]}
+            </Text>
+
             <Text color="grey-6" numberOfLines={2}>
               {LANGUAGES_DESCRIPTION[language]}
             </Text>
           </View>
+          {isSelected && (
+            <Icon
+              name="check"
+              size={18}
+              color={theme.CORE.COLORS['primary-default']}
+            />
+          )}
         </View>
       </TouchableOpacity>
       {showDivider && <Divider ml={6} />}

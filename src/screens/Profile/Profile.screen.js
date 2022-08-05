@@ -85,9 +85,14 @@ const ProfileScreen = () => {
   )
 
   return (
-    <PageWrapper>
+    <PageWrapper
+      withLogo={false}
+      rightButtonText={t('Done')}
+      rightButtonAction={() => {}}
+      leftButtonText={t('Cancel')}
+      leftButtonAction={navigation.goBack}>
       <Avatar
-        size={isKeyboardOpen ? 36 : 130}
+        size={100}
         isEditable
         url={userData?.avatarUrl}
         onChange={(url) => {

@@ -23,6 +23,7 @@ const PageWrapper = (props) => {
     title,
     userAvatarUrl,
     rightButtonText,
+    leftButtonText,
     bgColor
   } = props
 
@@ -50,11 +51,18 @@ const PageWrapper = (props) => {
           withLogo && <Logo style={styles.logo} />
         )}
 
-        {!!leftButtonIcon && (
+        {(!!leftButtonIcon || !!leftButtonText) && (
           <TouchableOpacity
             onPress={leftButtonAction}
             style={styles.leftButton}>
-            <Image source={leftButtonIcon} style={styles.leftIcon} />
+            {!!leftButtonText && (
+              <Text variant="body1" color="info-default">
+                {leftButtonText}
+              </Text>
+            )}
+            {!!leftButtonIcon && (
+              <Image source={leftButtonIcon} style={styles.leftIcon} />
+            )}
           </TouchableOpacity>
         )}
         {withLanguage && <Language style={styles.language} />}

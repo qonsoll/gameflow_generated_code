@@ -119,7 +119,9 @@ const COLORS = {
 
 const FONT_FAMILIES = {
   heading: 'Helvetica Neue Bold',
-  body: 'Helvetica Neue'
+  body: 'Helvetica Neue',
+  regular: 'SFUIText-Regular',
+  semibold: 'SFUIText-Semibold'
 }
 
 const FONT_WEIGHTS = {
@@ -128,6 +130,64 @@ const FONT_WEIGHTS = {
   medium: '500',
   regular: '400',
   light: '300'
+}
+
+const FONTS = {
+  h1: {
+    fontFamily: FONT_FAMILIES.regular,
+    fontSize: 34,
+    lineHeight: 41
+  },
+  h2: {
+    fontFamily: FONT_FAMILIES.regular,
+    fontSize: 28,
+    lineHeight: 34
+  },
+  h3: {
+    fontFamily: FONT_FAMILIES.regular,
+    fontSize: 22,
+    lineHeight: 28
+  },
+  h4: {
+    fontFamily: FONT_FAMILIES.regular,
+    fontSize: 20,
+    lineHeight: 25
+  },
+  h5: {
+    fontFamily: FONT_FAMILIES.semibold,
+    fontSize: 17,
+    lineHeight: 22
+  },
+  body: {
+    fontFamily: FONT_FAMILIES.semibold,
+    fontSize: 17,
+    lineHeight: 22
+  },
+  callout: {
+    fontFamily: FONT_FAMILIES.semibold,
+    fontSize: 16,
+    lineHeight: 21
+  },
+  subhead: {
+    fontFamily: FONT_FAMILIES.semibold,
+    fontSize: 15,
+    lineHeight: 20
+  },
+  footnote: {
+    fontFamily: FONT_FAMILIES.semibold,
+    fontSize: 13,
+    lineHeight: 18
+  },
+  caption1: {
+    fontFamily: FONT_FAMILIES.semibold,
+    fontSize: 12,
+    lineHeight: 16
+  },
+  caption2: {
+    fontFamily: FONT_FAMILIES.semibold,
+    fontSize: 11,
+    lineHeight: 13
+  }
 }
 
 const LETTER_SPACINGS = {

@@ -58,7 +58,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>You will get zero benefit allowing this app accessing your location. You should never see this alert. If you do alert technical support at hello@foihelse.com</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>"Daily Playground needs microphone access to work"</string>
+	<string>&quot;Daily Playground needs microphone access to work&quot;</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to use your photo library when upload avatar.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -66,6 +66,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>MaterialIcons.ttf</string>
+		<string>SFUIText-Regular.ttf</string>
+		<string>SFUIText-Semibold.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>SplashScreen</string>

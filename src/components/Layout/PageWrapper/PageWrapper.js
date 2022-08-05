@@ -45,7 +45,7 @@ const PageWrapper = (props) => {
       <View style={styles.headerContainer}>
         {title ? (
           <View style={styles.title}>
-            <Text variant="h3">{title}</Text>
+            <Text variant="h4">{title}</Text>
           </View>
         ) : (
           withLogo && <Logo style={styles.logo} />

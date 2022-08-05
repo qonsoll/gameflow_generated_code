@@ -9,7 +9,6 @@ const dynamicStyles = (props) =>
       marginBottom: 32
     },
     listWrapper: {
-      marginHorizontal: 16,
       backgroundColor: theme.COMPONENTS.CARD.backgroundColor,
       borderRadius: theme.COMPONENTS.CARD.borderRadiuses.sm
     }

@@ -52,7 +52,7 @@ const LanguageSimpleView = (props) => {
           )}
         </View>
       </TouchableOpacity>
-      {showDivider && <Divider ml={6} />}
+      {showDivider && <Divider ml={3} />}
     </>
   )
 }

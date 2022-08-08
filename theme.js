@@ -118,8 +118,8 @@ const COLORS = {
 }
 
 const FONT_FAMILIES = {
-  heading: 'Helvetica Neue Bold',
-  body: 'Helvetica Neue',
+  heading: 'SFUIText-Regular',
+  body: 'SFUIText-Regular',
   regular: 'SFUIText-Regular',
   semibold: 'SFUIText-Semibold'
 }
@@ -130,6 +130,34 @@ const FONT_WEIGHTS = {
   medium: '500',
   regular: '400',
   light: '300'
+}
+
+const FONT_SIZES = {
+  h1: 34,
+  h2: 28,
+  h3: 22,
+  h4: 20,
+  h5: 17,
+  body: 17,
+  callout: 16,
+  subhead: 15,
+  footnote: 13,
+  caption1: 12,
+  caption2: 11
+}
+
+const LINE_HEIGHTS = {
+  h1: 41,
+  h2: 34,
+  h3: 28,
+  h4: 25,
+  h5: 22,
+  body: 22,
+  callout: 21,
+  subhead: 20,
+  footnote: 18,
+  caption1: 16,
+  caption2: 13
 }
 
 const FONTS = {
@@ -306,6 +334,8 @@ const CORE = {
   COLORS,
   FONT_FAMILIES,
   FONT_WEIGHTS,
+  LINE_HEIGHTS,
+  FONT_SIZES,
   LETTER_SPACINGS,
   ICON_SIZES,
   BORDER_RADIUSES,

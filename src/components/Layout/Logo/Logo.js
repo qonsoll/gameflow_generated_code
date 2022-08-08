@@ -1,5 +1,5 @@
 import FastImage from 'react-native-fast-image'
-import { Logo as LogoImage } from '~/constants/assets'
+import { Logo as LogoImage } from '~/__constants__/assets'
 import React from 'react'
 
 /**

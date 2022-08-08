@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import statusBarColorsMap from '../constants/statusBarColorsMap'
+import statusBarColorsMap from '../__constants__/statusBarColorsMap'
 import { useNavigationState } from '@react-navigation/native'
 
 /**

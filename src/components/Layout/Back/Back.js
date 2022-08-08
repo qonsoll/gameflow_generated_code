@@ -1,6 +1,6 @@
 import { Image, TouchableOpacity } from 'react-native'
 
-import { ArrowShortLeft3x } from '../../../constants/assets'
+import { ArrowShortLeft3x } from '~/__constants__/assets'
 import React from 'react'
 import dynamicStyles from './styles'
 

@@ -1,4 +1,7 @@
-import { ONBOARDING_SECOND_SCREEN, SIGN_IN_SCREEN } from '~/constants/screens'
+import {
+  ONBOARDING_SECOND_SCREEN,
+  SIGN_IN_SCREEN
+} from '~/__constants__/screens'
 
 import { Onboarding } from '~/components'
 import React from 'react'

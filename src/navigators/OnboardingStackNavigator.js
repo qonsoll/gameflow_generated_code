@@ -2,7 +2,7 @@ import {
   ONBOARDING_FIRST_SCREEN,
   ONBOARDING_SECOND_SCREEN,
   ONBOARDING_THIRD_SCREEN
-} from '../constants/screens'
+} from '../__constants__/screens'
 import {
   OnboardingFirstScreen,
   OnboardingSecondScreen,

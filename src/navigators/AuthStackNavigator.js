@@ -3,7 +3,7 @@ import {
   LOGIN_WITH_EMAIL_SCREEN,
   SIGN_IN_SCREEN,
   SIGN_UP_WITH_EMAIL_SCREEN
-} from '../constants/screens'
+} from '../__constants__/screens'
 import {
   ForgotPasswordScreen,
   LoginWithEmailScreen,

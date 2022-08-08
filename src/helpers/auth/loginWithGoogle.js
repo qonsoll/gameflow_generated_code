@@ -1,5 +1,5 @@
 import { COLLECTIONS } from '~/__constants__'
-import CONFIG from '~/constants/config'
+import CONFIG from '~/__constants__/config'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import { Platform } from 'react-native'
 import auth from '@react-native-firebase/auth'

@@ -1,5 +1,5 @@
 import { ALERT_TYPE, Toast } from 'react-native-alert-notification'
-import { AuthHeader, BackgroundGradient } from '../../../components'
+import { AuthHeader, BackgroundGradient } from '~/components'
 import {
   Keyboard,
   KeyboardAvoidingView,
@@ -10,7 +10,7 @@ import { useKeyboardState, useSwipe } from '~/hooks'
 
 import { ForgotPasswordForm } from '~/domains/Auth/components/ForgotPasswordForm'
 import React from 'react'
-import { SIGN_IN_SCREEN } from '~/constants/screens'
+import { SIGN_IN_SCREEN } from '~/__constants__/screens'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
 import { resetPassword } from '~/helpers/auth'

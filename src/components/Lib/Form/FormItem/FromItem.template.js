@@ -11,7 +11,7 @@ import { useController, useFormContext } from 'react-hook-form'
 
 import { Image } from 'react-native'
 import PropTypes from 'prop-types'
-import { Warning } from '../../../../constants/assets'
+import { Warning } from '~/__constants__/assets'
 import useStyles from './styles'
 
 const MARGINS = {

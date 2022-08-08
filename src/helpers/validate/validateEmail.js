@@ -1,4 +1,4 @@
-import { REG_EXPS } from '../../constants'
+import { REG_EXPS } from '~/__constants__'
 
 /**
  * It validates an email address

@@ -10,7 +10,7 @@ import {
 import React, { useState } from 'react'
 import { useKeyboardState, useSwipe } from '~/hooks'
 
-import { FORGOT_PASSWORD_SCREEN } from '~/constants/screens'
+import { FORGOT_PASSWORD_SCREEN } from '~/__constants__/screens'
 import { LoginForm } from '~/domains/Auth/components/LoginForm'
 import { Text } from '@qonsoll/react-native-design'
 import auth from '@react-native-firebase/auth'

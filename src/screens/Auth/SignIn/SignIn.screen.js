@@ -1,10 +1,10 @@
-import { Apple3x, GoogleColored3x, Mail3x } from '~/constants/assets'
+import { Apple3x, GoogleColored3x, Mail3x } from '~/__constants__/assets'
 import { AuthHeader, BackgroundGradient } from '~/components'
 import { Image, TouchableOpacity, View } from 'react-native'
 import {
   LOGIN_WITH_EMAIL_SCREEN,
   SIGN_UP_WITH_EMAIL_SCREEN
-} from '~/constants/screens'
+} from '~/__constants__/screens'
 import React, { Fragment } from 'react'
 import { appleAuth, googleAuth } from '~/helpers/auth'
 

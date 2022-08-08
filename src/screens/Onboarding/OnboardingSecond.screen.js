@@ -2,7 +2,7 @@ import {
   ONBOARDING_FIRST_SCREEN,
   ONBOARDING_THIRD_SCREEN,
   SIGN_IN_SCREEN
-} from '~/constants/screens'
+} from '~/__constants__/screens'
 
 import { Onboarding } from '~/components'
 import React from 'react'

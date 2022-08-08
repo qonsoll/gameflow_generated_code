@@ -1,0 +1,59 @@
+{
+  "domain": "Language",
+  "variant": "SortMenu",
+  "parentDomains": [],
+  "collectionName": "languages",
+  "singularDomain": "language",
+  "loweringDomain": "language", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": ["styles"],
+      "source": "./LanguageSortMenu.styles",
+      "isDefault": true
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["View"],
+      "source": "react-native",
+      "isDefault": false
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+  ],
+  "propTypes": [
+  ],
+  "nestedComponents": [
+  ]
+}

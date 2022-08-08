@@ -9,8 +9,7 @@ const dynamicStyles = (props) => {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      paddingVertical: 12,
-      paddingHorizontal: 10,
+      paddingVertical: 6,
       borderWidth: 1,
       backgroundColor: props.disabled
         ? theme.CORE.COLORS['input-background-disabled']

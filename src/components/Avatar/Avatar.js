@@ -1,5 +1,6 @@
 import { Image, TouchableOpacity, View } from 'react-native'
 import React, { Fragment, useRef } from 'react'
+import { Text, useTheme } from '@qonsoll/react-native-design'
 
 import ActionSheet from 'react-native-actionsheet'
 import FastImage from 'react-native-fast-image'
@@ -7,11 +8,17 @@ import ImagePicker from 'react-native-image-crop-picker'
 import PropTypes from 'prop-types'
 import { UserIcon } from '../../__constants__/assets'
 import dynamicStyles from './styles'
-import { useTheme } from '@qonsoll/react-native-design'
 import { useTranslations } from '@qonsoll/translation'
 
 const Avatar = (props) => {
-  const { size, url, onChange, cropping } = props
+  const {
+    size,
+    url,
+    onChange,
+    isEditable,
+    cropping,
+    avatarContainerStyle
+  } = props
 
   // [ADDITIONAL_HOOKS]
   const { theme } = useTheme()
@@ -52,14 +59,16 @@ const Avatar = (props) => {
       .then((image) => {
         updateUrl(image.path)
       })
-      .catch((error) => console.error('error ===', error))
+      .catch((error) => console.error(error))
   }
 
   const updateUrl = (avatarUrl) => onChange && onChange(avatarUrl)
 
   return (
     <Fragment>
-      <TouchableOpacity onPress={onEditButtonPress}>
+      <TouchableOpacity
+        style={[styles.avatarContainer, avatarContainerStyle]}
+        activeOpacity={1}>
         {url ? (
           <FastImage style={styles.fastImage} source={{ uri: url }} />
         ) : (
@@ -68,6 +77,14 @@ const Avatar = (props) => {
           </View>
         )}
       </TouchableOpacity>
+
+      {isEditable && (
+        <TouchableOpacity onPress={onEditButtonPress}>
+          <Text variant="body1" mb={8} color="primary-default">
+            {t('Set New Photo')}
+          </Text>
+        </TouchableOpacity>
+      )}
 
       <ActionSheet
         ref={updatePhotoDialogActionSheet}

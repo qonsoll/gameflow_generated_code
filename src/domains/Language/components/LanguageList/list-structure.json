@@ -1,0 +1,92 @@
+{
+  "domain": "Language",
+  "variant": "List",
+  "parentDomains": [],
+  "collectionName": "languages",
+  "singularDomain": "language",
+  "loweringDomain": "language", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": ["styles"],
+      "source": "./LanguageList.styles",
+      "isDefault": true
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["FlatList","View"],
+      "source": "react-native",
+      "isDefault": false
+    },
+    {
+      "imports": ["Text"],
+      "source": "@qonsoll/react-native-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["useGetLanguages"],
+      "source": "~/domains/Language/hooks",
+      "isDefault": false
+    },
+    {
+      "imports": ["LanguageSimpleView"],
+      "source": "~/domains/Language/components",
+      "isDefault": false
+    }
+  ],
+  "components": [],
+  "states" : [
+    {
+      "variables": ["languages","loading"],
+      "hook": "useGetLanguages",
+      "params": [],
+      "type": "array"
+    }
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+  ],
+  "propTypes": [
+  ],
+  "nestedComponents": [
+    {
+      "domain": "Language",
+      "variant": "SortMenu"
+    },
+    {
+      "domain": "Language",
+      "variant": "SimpleView"
+    },
+    {
+      "domain": "Language",
+      "variant": "SimpleForm"
+    }
+  ]
+}

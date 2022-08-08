@@ -1,11 +1,14 @@
 import { Image, Keyboard, TouchableOpacity, View } from 'react-native'
 
+import { Avatar } from '~/components'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import Language from '../../Language/Language'
 import Logo from '../Logo'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
+import theme from '../../../../theme'
 
 const PageWrapper = (props) => {
   const {
@@ -19,11 +22,21 @@ const PageWrapper = (props) => {
     children,
     withLanguage,
     withLogo = true,
-    title
+    title,
+    userAvatarUrl,
+    rightButtonText,
+    leftButtonText,
+    bgColor
   } = props
 
   // [ADDITIONAL_HOOKS]
-  const styles = dynamicStyles({ logoColor, leftIconColor, rightIconColor })
+  const styles = dynamicStyles({
+    logoColor,
+    leftIconColor,
+    rightIconColor,
+    title,
+    bgColor
+  })
   const onPress = () => Keyboard.dismiss()
 
   return (
@@ -34,26 +47,51 @@ const PageWrapper = (props) => {
       <View style={styles.headerContainer}>
         {title ? (
           <View style={styles.title}>
-            <Text variant="h3">{title}</Text>
+            <Text variant="h4">{title}</Text>
           </View>
         ) : (
           withLogo && <Logo style={styles.logo} />
         )}
 
-        {!!leftButtonIcon && (
+        {(!!leftButtonIcon || !!leftButtonText) && (
           <TouchableOpacity
             onPress={leftButtonAction}
             style={styles.leftButton}>
-            <Image source={leftButtonIcon} style={styles.leftIcon} />
+            {!!leftButtonIcon && (
+              <Icon
+                name={leftButtonIcon}
+                size={24}
+                color={theme.CORE.COLORS['primary-default']}
+              />
+            )}
+            {!!leftButtonText && (
+              <Text variant="body1" color="primary-default">
+                {leftButtonText}
+              </Text>
+            )}
           </TouchableOpacity>
         )}
         {withLanguage && <Language style={styles.language} />}
-        {!!rightButtonIcon && (
+        {(!!rightButtonIcon || !!rightButtonText) && (
           <TouchableOpacity
             onPress={rightButtonAction}
             style={styles.rightButton}>
-            <Image source={rightButtonIcon} style={styles.rightIcon} />
+            {!!rightButtonText && (
+              <Text variant="body1" color="primary-default">
+                {rightButtonText}
+              </Text>
+            )}
+            {!!rightButtonIcon && (
+              <Image source={rightButtonIcon} style={styles.rightIcon} />
+            )}
           </TouchableOpacity>
+        )}
+        {userAvatarUrl && (
+          <Avatar
+            avatarContainerStyle={{ position: 'absolute', right: 24, top: 24 }}
+            size={36}
+            url={userAvatarUrl}
+          />
         )}
       </View>
       {children}

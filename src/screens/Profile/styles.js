@@ -21,7 +21,11 @@ const dynamicStyles = () => {
       width: '100%',
       paddingHorizontal: 24
     },
-    container: { flexDirection: 'row', flex: 1, height: '100%' },
+    container: {
+      flexDirection: 'row',
+      flex: 1,
+      height: '100%'
+    },
     input: { height: 50 },
     phoneContainer: { height: 80, width: '100%' },
     button: {

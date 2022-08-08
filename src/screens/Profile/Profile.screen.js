@@ -1,18 +1,27 @@
-import { Avatar, Button, Form, Input, PageWrapper } from '~/components'
-import { Box, Text } from '@qonsoll/react-native-design'
-import { LayoutAnimation, ScrollView, View } from 'react-native'
+import { Avatar, PageWrapper } from '~/components'
+import { Button, Divider, FormControl, Input } from 'native-base'
+import { Dimensions, LayoutAnimation, UIManager, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useUserContext, useUserDispatch } from '~/contexts'
 
-import { ArrowShortLeft3x } from '~/__constants__/assets'
-import KeyboardListener from 'react-native-keyboard-listener'
 import PhoneInput from 'react-native-phone-input'
+import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
 import firestore from '@react-native-firebase/firestore'
+import { isIOS } from '../../__constants__'
 import theme from '../../../theme'
 import { uploadPhoto } from '~/helpers'
+import { useKeyboardWithAnimationPresetState } from '../../hooks'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
+
+const windowWidth = Dimensions.get('window').width
+
+if (!isIOS) {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true)
+  }
+}
 
 const ProfileScreen = () => {
   const { t } = useTranslations()
@@ -20,8 +29,8 @@ const ProfileScreen = () => {
 
   const user = useUserContext()
   const dispatch = useUserDispatch()
+  const isKeyboardOpen = useKeyboardWithAnimationPresetState()
   const styles = dynamicStyles(isKeyboardOpen)
-  const form = Form.useForm()
   const { firstName, lastName, avatarUrl, phone, _id } = user
 
   const [userData, setUserData] = useState({
@@ -30,7 +39,6 @@ const ProfileScreen = () => {
     lastName,
     phone
   })
-  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false)
   const [isSpin, setIsSpin] = useState(false)
 
   const onUserDataChange = (data) => setUserData({ ...userData, ...data })
@@ -81,115 +89,85 @@ const ProfileScreen = () => {
 
   return (
     <PageWrapper
-      title={t('profile-title')}
-      leftButtonIcon={ArrowShortLeft3x}
-      withLanguage
-      leftButtonAction={() => navigation.goBack()}>
-      <View style={styles.container}>
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            mb={isKeyboardOpen ? 0 : 16}
-            position={isKeyboardOpen ? 'absolute' : 'relative'}
-            right={isKeyboardOpen ? 0 : null}>
-            <Avatar
-              size={isKeyboardOpen ? 36 : 130}
-              isEditable
-              url={userData?.avatarUrl}
-              onChange={(url) => {
-                onUserDataChange({ avatarUrl: url })
-              }}
-            />
-          </Box>
-
-          <Form form={form}>
-            <Box>
-              <Form.Item
-                label={t('profile-first-name-label')}
-                name="firstName"
-                margins="xs"
-                initialValue={firstName}>
-                <Input
-                  onChangeText={(text) => {
-                    form.setFieldsValue({ firstName: text })
-                    onUserDataChange({ firstName: text })
-                  }}
-                  value={userData?.firstName}
-                  placeholder={t('profile-first-name-placeholder')}
-                  style={{ box: styles.input }}
-                />
-              </Form.Item>
-              <Form.Item
-                margins="xs"
-                label={t('profile-last-name-label')}
-                name="lastName"
-                initialValue={lastName}>
-                <Input
-                  onChangeText={(text) => {
-                    form.setFieldsValue({ lastName: text })
-                    onUserDataChange({ lastName: text })
-                  }}
-                  value={userData?.lastName}
-                  placeholder={t('profile-last-name-placeholder')}
-                  style={{ box: styles.input }}
-                />
-              </Form.Item>
-            </Box>
-          </Form>
-
-          <View>
-            <Text variant="body1" mb={4}>
-              {t('profile-phone-label')}
-            </Text>
-            <View style={styles.phoneContainer}>
-              <PhoneInput
-                onChangePhoneNumber={(data) =>
-                  onUserDataChange({ phone: data.slice(1) })
-                }
-                autoFormat
-                style={styles.phoneInput}
-                textProps={{ maxLength: 16 }}
-                flagStyle={{
-                  borderColor: theme.CORE.COLORS['input-border-color'],
-                  borderRightWidth: 1,
-                  borderWidth: 0
-                }}
-                initialCountry="no"
-                initialValue={phone || '+47'}
-                textStyle={styles.textStyle}
-                cancelTextStyle={styles.inputFontSize}
-                confirmTextStyle={styles.inputFontSize}
-                cancelText={t('cancel')}
-                confirmText={t('confirm')}
-                maxLength={5}
-              />
-            </View>
-          </View>
-          <View style={isKeyboardOpen && styles.buttonContainer}>
-            <Button
-              loading={isSpin}
-              color="white"
-              disabled={isSaveButtonDisabled}
-              variant="primary"
-              style={styles.button}
-              onPress={onSave}>
-              {!isSpin && (
-                <Text
-                  variant="h4"
-                  color={isSaveButtonDisabled ? 'grey-7' : 'white'}>
-                  {t('save')}
-                </Text>
-              )}
-            </Button>
-          </View>
-        </ScrollView>
-      </View>
-      <KeyboardListener
-        onWillShow={() => setIsKeyboardOpen(true)}
-        onWillHide={() => setIsKeyboardOpen(false)}
+      withLogo={false}
+      rightButtonText={t('Done')}
+      rightButtonAction={() => {}}
+      leftButtonText={t('Cancel')}
+      leftButtonAction={navigation.goBack}>
+      <Avatar
+        size={100}
+        isEditable
+        url={userData?.avatarUrl}
+        onChange={(url) => {
+          onUserDataChange({ avatarUrl: url })
+        }}
       />
+      <View style={{ width: '100%', paddingHorizontal: 16 }}>
+        <View
+          style={{
+            width: '100%',
+            height: 72,
+            backgroundColor: 'white',
+            borderRadius: 8,
+            justifyContent: 'center',
+            marginBottom: 4
+          }}>
+          <FormControl isRequired>
+            <Input
+              variant="unstyled"
+              value={userData.firstName}
+              placeholder={t('First Name')}
+            />
+          </FormControl>
+          <Divider ml={3} style={{ width: windowWidth - 44 }} />
+          <FormControl isRequired>
+            <Input
+              variant="unstyled"
+              value={userData.lastName}
+              placeholder={t('Last Name')}
+            />
+          </FormControl>
+        </View>
+        <Text
+          styleOverride={{ ...theme.CORE.FONTS.caption1, fontWeight: '500' }}
+          fontWeight={'600'}
+          variant="caption1"
+          color="grey-6"
+          mx={12}>
+          {t('Enter your name and add an optional profile photo')}.
+        </Text>
+        <Text
+          // styleOverride={{ ...theme.CORE.FONTS.caption1 }}
+          fontWeight="medium"
+          variant="caption1"
+          color="grey-6"
+          mx={12}>
+          {t('Enter your name and add an optional profile photo')}.
+        </Text>
+
+        <PhoneInput
+          onChangePhoneNumber={(data) =>
+            onUserDataChange({ phone: data.slice(1) })
+          }
+          autoFormat
+          flagStyle={{
+            borderColor: theme.CORE.COLORS['input-border-color'],
+            borderRightWidth: 1,
+            borderWidth: 0
+          }}
+          initialCountry="no"
+          initialValue={phone || '+47'}
+          textStyle={styles.textStyle}
+          cancelTextStyle={styles.inputFontSize}
+          confirmTextStyle={styles.inputFontSize}
+          cancelText={t('cancel')}
+          confirmText={t('confirm')}
+          maxLength={5}
+        />
+        {/* <Button onPress={onSave} isDisabled={isSaveButtonDisabled}>
+          Save
+        </Button> */}
+      </View>
     </PageWrapper>
   )
 }

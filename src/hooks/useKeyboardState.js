@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { Keyboard } from 'react-native'
+import { Keyboard, LayoutAnimation } from 'react-native'
 
 /**
  * It returns a boolean value that indicates whether the keyboard is opened or not
@@ -13,12 +13,14 @@ const useKeyboardState = () => {
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       () => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.spring)
         setOpened(true)
       }
     )
     const keyboardDidHideListener = Keyboard.addListener(
       'keyboardDidHide',
       () => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.spring)
         setOpened(false)
       }
     )

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 const dynamicStyles = (avatarUrl) => {
   return StyleSheet.create({
     wrapper: {
-      marginBottom: 32,
+      marginBottom: 24,
       width: '100%',
       paddingHorizontal: 24
     },
@@ -11,9 +11,7 @@ const dynamicStyles = (avatarUrl) => {
     avatarContainer: {
       width: '100%',
       alignItems: 'center',
-      borderWidth: avatarUrl ? 0 : 2,
-      borderColor: avatarUrl ? 'transparent' : '#C18AA4',
-      marginBottom: 24
+      marginBottom: 12
     },
     avatar: {
       height: avatarUrl ? 120 : 96,

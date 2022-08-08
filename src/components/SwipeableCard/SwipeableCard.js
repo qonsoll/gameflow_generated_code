@@ -1,11 +1,13 @@
-import { Edit3x, Trash3x } from '~/__constants__/assets'
 import { TouchableOpacity, View } from 'react-native'
 
-import FastImage from 'react-native-fast-image'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Swipeable } from './components'
+import { Text } from '@qonsoll/react-native-design'
 import styles from './SwipeableCard.styles'
+import theme from '../../../theme'
+import { useTranslations } from '@qonsoll/translation'
 
 /**
  * It returns a `Swipeable` component that has a `TouchableOpacity` component as its child. The
@@ -18,7 +20,8 @@ import styles from './SwipeableCard.styles'
  * component has an onPress prop that calls the onRemove function and the onClose function.
  */
 const SwipeableCard = (props) => {
-  const { children, onRemove, onEdit, onPress, style } = props
+  const { children, onRemove, onEdit, onPress, style, activeOpacity } = props
+  const { t } = useTranslations()
 
   return (
     <Swipeable
@@ -31,11 +34,8 @@ const SwipeableCard = (props) => {
               onEdit?.()
               onClose()
             }}>
-            <FastImage
-              tintColor={styles.editIcon.tintColor}
-              style={styles.editIcon}
-              source={Edit3x}
-            />
+            <Icon name="edit" size={24} color={theme.CORE.COLORS.white} />
+            <Text color="white">{t('Edit')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.removeButton}
@@ -43,16 +43,16 @@ const SwipeableCard = (props) => {
               onRemove?.()
               onClose()
             }}>
-            <FastImage
-              style={styles.removeIcon}
-              tintColor={styles.removeIcon.tintColor}
-              source={Trash3x}
-            />
+            <Icon name="delete" size={24} color={theme.CORE.COLORS.white} />
+            <Text color="white">{t('Delete')}</Text>
           </TouchableOpacity>
         </View>
       )}
       overshootRight={false}>
-      <TouchableOpacity style={style} activeOpacity={1} onPress={onPress}>
+      <TouchableOpacity
+        style={style}
+        activeOpacity={activeOpacity || 1}
+        onPress={onPress}>
         {children}
       </TouchableOpacity>
     </Swipeable>
@@ -64,7 +64,8 @@ SwipeableCard.propTypes = {
   onRemove: PropTypes.func,
   onEdit: PropTypes.func,
   onPress: PropTypes.func,
-  style: PropTypes.any
+  style: PropTypes.any,
+  activeOpacity: PropTypes.number
 }
 
 export default SwipeableCard

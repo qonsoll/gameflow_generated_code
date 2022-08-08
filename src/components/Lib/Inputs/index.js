@@ -1,9 +1,10 @@
-import React, { forwardRef, useRef } from 'react'
+import React, { forwardRef, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { TextInput, Animated, Pressable } from 'react-native'
 import { useTheme } from '@qonsoll/react-native-design'
 import PasswordInput from './PasswordInput'
 import dynamicStyles, { useStyles } from './styles'
+import Icon from 'react-native-vector-icons/Feather'
 
 const Input = forwardRef((props, ref) => {
   const {
@@ -21,6 +22,7 @@ const Input = forwardRef((props, ref) => {
   // [ADDITIONAL_HOOKS]
   const { theme } = useTheme()
   const animatedStyles = useStyles({ error, disabled })
+  const [focused, setIsFocused] = useState(false)
 
   // [COMPONENT_STATE_HOOKS]
   const inputRef = useRef()
@@ -39,6 +41,8 @@ const Input = forwardRef((props, ref) => {
     <Pressable onPress={!disabled ? onInputPress : undefined}>
       <Animated.View style={[styles.box, animatedStyles, style?.box]}>
         <TextInput
+          onFocus={() => setIsFocused(true)}
+          onEndEditing={() => setIsFocused(false)}
           ref={ref || inputRef}
           onChangeText={onChange}
           selectionColor={theme.CORE.COLORS['primary-lighten-1']}
@@ -46,6 +50,15 @@ const Input = forwardRef((props, ref) => {
           {...rest}
         />
         {!!imageRight && imageRight}
+        {focused && (
+          <Pressable>
+            <Icon
+              name="x-circle"
+              size={16}
+              color={theme.CORE.COLORS['grey-t-5']}
+            />
+          </Pressable>
+        )}
       </Animated.View>
     </Pressable>
   )

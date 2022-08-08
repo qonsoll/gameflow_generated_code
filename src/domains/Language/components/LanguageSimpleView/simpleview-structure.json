@@ -1,0 +1,92 @@
+{
+  "domain": "Language",
+  "variant": "SimpleView",
+  "parentDomains": [],
+  "collectionName": "languages",
+  "singularDomain": "language",
+  "loweringDomain": "language", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": ["styles"],
+      "source": "./LanguageSimpleView.styles",
+      "isDefault": true
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["View"],
+      "source": "react-native",
+      "isDefault": false
+    },
+    {
+      "imports": ["SwipeableCard"],
+      "source": "~/components",
+      "isDefault": false
+    },
+    {
+      "imports": ["Text","Divider"],
+      "source": "@qonsoll/react-native-design",
+      "isDefault": false
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+    {
+    "fieldName": "name",
+    "fieldTitle": "Name",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Title",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [{"name": "level", "value": "4", "isVariable": true }],
+    "withLabel": false,
+    "isRecognized": true,
+    "priority": 2
+    }
+  ],
+  "propTypes": [
+    {
+      "name": "language",
+      "type": "object",
+      "isRequired": true
+    }
+  ],
+  "nestedComponents": [
+    {
+      "domain": "Language",
+      "variant": "SimpleForm"
+    }
+  ]
+}

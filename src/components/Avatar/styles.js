@@ -18,7 +18,8 @@ const dynamicStyles = (theme, size) => {
     defaultAvatar: {
       height: size / 1.35 || 96,
       width: size / 2.16 || 60
-    }
+    },
+    avatarContainer: { marginBottom: 12 }
   })
 }
 

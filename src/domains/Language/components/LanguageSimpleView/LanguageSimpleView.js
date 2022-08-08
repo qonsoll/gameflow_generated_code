@@ -1,11 +1,10 @@
 import { LANGUAGES, LANGUAGES_DESCRIPTION } from '~/__constants__'
-import { TouchableOpacity, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 
 import { Divider } from 'native-base'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Text } from '@qonsoll/react-native-design'
 import styles from './LanguageSimpleView.styles'
 import theme from '../../../../../theme'
 import { useTranslations } from '@qonsoll/translation'
@@ -35,11 +34,11 @@ const LanguageSimpleView = (props) => {
             alignItems: 'center'
           }}>
           <View>
-            <Text variant="h5" fontWeight="semibold">
+            <Text style={{ ...theme.CORE.FONTS.body }}>
               {LANGUAGES[language]}
             </Text>
 
-            <Text color="grey-6" numberOfLines={2}>
+            <Text style={{ ...theme.CORE.FONTS.footnote }} numberOfLines={2}>
               {LANGUAGES_DESCRIPTION[language]}
             </Text>
           </View>

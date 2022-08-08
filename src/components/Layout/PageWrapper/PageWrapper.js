@@ -61,11 +61,11 @@ const PageWrapper = (props) => {
               <Icon
                 name={leftButtonIcon}
                 size={24}
-                color={theme.CORE.COLORS['info-default']}
+                color={theme.CORE.COLORS['primary-default']}
               />
             )}
             {!!leftButtonText && (
-              <Text variant="body1" color="info-default">
+              <Text variant="body1" color="primary-default">
                 {leftButtonText}
               </Text>
             )}
@@ -77,7 +77,7 @@ const PageWrapper = (props) => {
             onPress={rightButtonAction}
             style={styles.rightButton}>
             {!!rightButtonText && (
-              <Text variant="body1" color="info-default">
+              <Text variant="body1" color="primary-default">
                 {rightButtonText}
               </Text>
             )}

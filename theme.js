@@ -159,32 +159,32 @@ const FONTS = {
     lineHeight: 22
   },
   body: {
-    fontFamily: FONT_FAMILIES.semibold,
+    fontFamily: FONT_FAMILIES.regular,
     fontSize: 17,
     lineHeight: 22
   },
   callout: {
-    fontFamily: FONT_FAMILIES.semibold,
+    fontFamily: FONT_FAMILIES.regular,
     fontSize: 16,
     lineHeight: 21
   },
   subhead: {
-    fontFamily: FONT_FAMILIES.semibold,
+    fontFamily: FONT_FAMILIES.regular,
     fontSize: 15,
     lineHeight: 20
   },
   footnote: {
-    fontFamily: FONT_FAMILIES.semibold,
+    fontFamily: FONT_FAMILIES.regular,
     fontSize: 13,
     lineHeight: 18
   },
   caption1: {
-    fontFamily: FONT_FAMILIES.semibold,
+    fontFamily: FONT_FAMILIES.regular,
     fontSize: 12,
     lineHeight: 16
   },
   caption2: {
-    fontFamily: FONT_FAMILIES.semibold,
+    fontFamily: FONT_FAMILIES.regular,
     fontSize: 11,
     lineHeight: 13
   }
@@ -309,7 +309,8 @@ const CORE = {
   LETTER_SPACINGS,
   ICON_SIZES,
   BORDER_RADIUSES,
-  SHADOWS
+  SHADOWS,
+  FONTS
 }
 
 const EXTENSIONS = {

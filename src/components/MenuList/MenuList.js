@@ -1,16 +1,17 @@
-import { View, TouchableOpacity, Dimensions } from 'react-native'
+import { Dimensions, TouchableOpacity, View } from 'react-native'
 import React, { Fragment } from 'react'
+
+import { Divider } from 'native-base'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import PropTypes from 'prop-types'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from '../../screens/Settings/styles'
 import theme from '../../../theme'
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import { Divider } from 'native-base'
-import PropTypes from 'prop-types'
 
 const windowWidth = Dimensions.get('window').width
 
 const MenuList = (props) => {
-  const { data } = props
+  const { data, dividerWidth, dividerMarginLeft } = props
 
   const styles = dynamicStyles()
 
@@ -19,17 +20,19 @@ const MenuList = (props) => {
       <Fragment key={index}>
         <TouchableOpacity onPress={item.action} style={styles.item}>
           <View style={styles.textWrapper}>
-            <View
-              style={[
-                styles.iconContainer,
-                { backgroundColor: item.iconBackgroundColor }
-              ]}>
-              <Icon
-                name={item.icon}
-                size={20}
-                color={theme.CORE.COLORS.white}
-              />
-            </View>
+            {item?.icon && (
+              <View
+                style={[
+                  styles.iconContainer,
+                  { backgroundColor: item.iconBackgroundColor }
+                ]}>
+                <Icon
+                  name={item.icon}
+                  size={20}
+                  color={theme.CORE.COLORS.white}
+                />
+              </View>
+            )}
             <Text numberOfLines={1} variant="body1" color={item.textColor}>
               {item.text}
             </Text>
@@ -48,7 +51,10 @@ const MenuList = (props) => {
           </View>
         </TouchableOpacity>
         {data?.length - 1 !== index && (
-          <Divider width={windowWidth - 86} ml={62} />
+          <Divider
+            width={dividerWidth || windowWidth - 86}
+            ml={dividerMarginLeft || 62}
+          />
         )}
       </Fragment>
     ))
@@ -58,7 +64,9 @@ const MenuList = (props) => {
 }
 
 MenuList.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  dividerWidth: PropTypes.number,
+  dividerMarginLeft: PropTypes.number
 }
 
 export default MenuList

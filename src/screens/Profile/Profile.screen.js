@@ -1,10 +1,9 @@
 import { Avatar, PageWrapper } from '~/components'
 import { Dimensions, TouchableOpacity, UIManager, View } from 'react-native'
-import { Divider, FormControl, Input } from 'native-base'
+import { Divider, FormControl } from 'native-base'
 import React, { useState } from 'react'
 import { useUserContext, useUserDispatch } from '~/contexts'
-
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import { Input } from '~/components/Form'
 import { MenuList } from '~/components'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
@@ -42,7 +41,6 @@ const ProfileScreen = () => {
     phone,
     email
   })
-  const [isSpin, setIsSpin] = useState(false)
 
   const PHONE_ACTIONS = [
     {
@@ -66,7 +64,6 @@ const ProfileScreen = () => {
   const onUserDataChange = (data) => setUserData({ ...userData, ...data })
 
   const onSave = async () => {
-    setIsSpin(true)
     let url = userData?.avatarUrl
 
     // Checking is avatar changed and exist
@@ -90,14 +87,9 @@ const ProfileScreen = () => {
     })
     // Update user data in DB
     await firestore().collection('users').doc(_id).update(data)
-    setIsSpin(false)
 
     navigation.goBack()
   }
-
-  const [isFirstNameFocused, setIsFirstNameFocused] = useState(false)
-  const [isLastNameFocused, setIsLastNameFocused] = useState(false)
-  const [isBioFocused, setIsBioFocused] = useState(false)
 
   return (
     <PageWrapper
@@ -122,24 +114,6 @@ const ProfileScreen = () => {
               value={userData.firstName}
               onChangeText={(text) => onUserDataChange({ firstName: text })}
               placeholder={t('First Name')}
-              style={styles.input}
-              onFocus={() => setIsFirstNameFocused(true)}
-              onBlur={() => setIsFirstNameFocused(false)}
-              InputRightElement={
-                isFirstNameFocused &&
-                userData.firstName && (
-                  <TouchableOpacity
-                    onPress={() => onUserDataChange({ firstName: null })}
-                    style={styles.iconWrapper}>
-                    <Icon
-                      name="close"
-                      size={12}
-                      style={styles.icon}
-                      color={theme.CORE.COLORS.white}
-                    />
-                  </TouchableOpacity>
-                )
-              }
             />
           </FormControl>
           <Divider ml={3} style={{ width: windowWidth - 48 }} />
@@ -149,24 +123,6 @@ const ProfileScreen = () => {
               value={userData.lastName}
               onChangeText={(text) => onUserDataChange({ lastName: text })}
               placeholder={t('Last Name')}
-              style={styles.input}
-              onFocus={() => setIsLastNameFocused(true)}
-              onBlur={() => setIsLastNameFocused(false)}
-              InputRightElement={
-                isLastNameFocused &&
-                userData.lastName && (
-                  <TouchableOpacity
-                    onPress={() => onUserDataChange({ lastName: null })}
-                    style={styles.iconWrapper}>
-                    <Icon
-                      name="close"
-                      size={12}
-                      style={styles.icon}
-                      color={theme.CORE.COLORS.white}
-                    />
-                  </TouchableOpacity>
-                )
-              }
             />
           </FormControl>
         </View>
@@ -182,24 +138,6 @@ const ProfileScreen = () => {
               value={userData.bio}
               onChangeText={(text) => onUserDataChange({ bio: text })}
               placeholder={t('Bio')}
-              style={styles.input}
-              onFocus={() => setIsBioFocused(true)}
-              onBlur={() => setIsBioFocused(false)}
-              InputRightElement={
-                isBioFocused &&
-                userData.bio && (
-                  <TouchableOpacity
-                    onPress={() => onUserDataChange({ bio: null })}
-                    style={styles.iconWrapper}>
-                    <Icon
-                      name="close"
-                      style={styles.icon}
-                      size={12}
-                      color={theme.CORE.COLORS.white}
-                    />
-                  </TouchableOpacity>
-                )
-              }
             />
           </FormControl>
         </View>

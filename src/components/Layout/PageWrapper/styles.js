@@ -39,7 +39,8 @@ const dynamicStyles = ({
       justifyContent: 'center',
       left: 0,
       position: 'absolute',
-      paddingHorizontal: 16
+      paddingHorizontal: 16,
+      top: isIOS ? 36 : 0
     },
     leftIcon: {
       width: 32,
@@ -52,7 +53,9 @@ const dynamicStyles = ({
       position: 'absolute',
       right: 0,
       paddingHorizontal: 16,
-      top: isIOS ? 36 : 2
+      top: isIOS ? 36 : 0,
+      flexDirection: 'row',
+      alignItems: 'center'
     },
     rightIcon: {
       width: 32,

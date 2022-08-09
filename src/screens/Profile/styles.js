@@ -19,20 +19,14 @@ const dynamicStyles = () => {
     },
     wrapper: {
       width: '100%',
-      paddingHorizontal: 24
+      paddingHorizontal: 16
     },
     container: {
       flexDirection: 'row',
       flex: 1,
       height: '100%'
     },
-    input: { height: 50 },
     phoneContainer: { height: 80, width: '100%' },
-    button: {
-      height: 50,
-      borderRadius: 10,
-      marginBottom: 32
-    },
     buttonContainer: {
       paddingBottom: 250
     },
@@ -43,6 +37,45 @@ const dynamicStyles = () => {
       fontSize: 16,
       flex: 1,
       color: theme.CORE.COLORS['grey-t-4']
+    },
+    itemContainer: {
+      marginBottom: 36,
+      width: '100%',
+      backgroundColor: theme.COMPONENTS.CARD.backgroundColor,
+      borderRadius: theme.COMPONENTS.CARD.borderRadiuses.sm
+    },
+    formContainer: {
+      width: '100%',
+      backgroundColor: 'white',
+      borderRadius: 10,
+      justifyContent: 'center',
+      marginBottom: 4,
+      paddingLeft: 4,
+      paddingVertical: 4
+    },
+    input: {
+      fontFamily: theme.CORE.FONT_FAMILIES.body,
+      fontSize: theme.CORE.FONT_SIZES.body
+    },
+    description: {
+      fontSize: theme.CORE.FONT_SIZES.footnote,
+      lineHeight: theme.CORE.LINE_HEIGHTS.footnote
+    },
+    button: {
+      backgroundColor: theme.CORE.COLORS.white,
+      borderRadius: 10,
+      height: 48,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    icon: { textAlign: 'center' },
+    iconWrapper: {
+      backgroundColor: theme.CORE.COLORS['grey-7'],
+      borderRadius: 10,
+      width: 16,
+      height: 16,
+      justifyContent: 'center',
+      marginRight: 12
     }
   })
 }

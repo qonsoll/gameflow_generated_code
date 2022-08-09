@@ -1,10 +1,11 @@
 import { Avatar, PageWrapper } from '~/components'
-import { Button, Divider, FormControl, Input } from 'native-base'
-import { Dimensions, LayoutAnimation, UIManager, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { Dimensions, TouchableOpacity, UIManager, View } from 'react-native'
+import { Divider, FormControl, Input } from 'native-base'
+import React, { useState } from 'react'
 import { useUserContext, useUserDispatch } from '~/contexts'
 
-import PhoneInput from 'react-native-phone-input'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import { MenuList } from '~/components'
 import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
 import firestore from '@react-native-firebase/firestore'
@@ -31,21 +32,38 @@ const ProfileScreen = () => {
   const dispatch = useUserDispatch()
   const isKeyboardOpen = useKeyboardWithAnimationPresetState()
   const styles = dynamicStyles(isKeyboardOpen)
-  const { firstName, lastName, avatarUrl, phone, _id } = user
+  const { firstName, lastName, avatarUrl, phone, _id, bio, email } = user
 
   const [userData, setUserData] = useState({
     avatarUrl,
     firstName,
     lastName,
-    phone
+    bio,
+    phone,
+    email
   })
   const [isSpin, setIsSpin] = useState(false)
 
-  const onUserDataChange = (data) => setUserData({ ...userData, ...data })
+  const PHONE_ACTIONS = [
+    {
+      text: t('Change Number'),
+      arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
+      action: () => {},
+      isArrowShow: true,
+      textColor: 'grey-4',
+      description: '+' + userData?.phone
+    },
+    {
+      text: t('Email'),
+      arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
+      action: () => {},
+      isArrowShow: true,
+      textColor: 'grey-4',
+      description: userData?.email
+    }
+  ]
 
-  useEffect(() => {
-    LayoutAnimation.spring()
-  }, [isKeyboardOpen])
+  const onUserDataChange = (data) => setUserData({ ...userData, ...data })
 
   const onSave = async () => {
     setIsSpin(true)
@@ -77,15 +95,9 @@ const ProfileScreen = () => {
     navigation.goBack()
   }
 
-  const isSaveButtonDisabled = !(
-    (userData?.avatarUrl !== avatarUrl ||
-      userData?.firstName !== firstName ||
-      userData?.lastName !== lastName ||
-      userData?.phone !== phone) &&
-    userData?.firstName &&
-    userData?.lastName &&
-    userData?.phone
-  )
+  const [isFirstNameFocused, setIsFirstNameFocused] = useState(false)
+  const [isLastNameFocused, setIsLastNameFocused] = useState(false)
+  const [isBioFocused, setIsBioFocused] = useState(false)
 
   return (
     <PageWrapper
@@ -102,71 +114,116 @@ const ProfileScreen = () => {
           onUserDataChange({ avatarUrl: url })
         }}
       />
-      <View style={{ width: '100%', paddingHorizontal: 16 }}>
-        <View
-          style={{
-            width: '100%',
-            height: 72,
-            backgroundColor: 'white',
-            borderRadius: 8,
-            justifyContent: 'center',
-            marginBottom: 4
-          }}>
+      <View style={styles.wrapper}>
+        <View style={styles.formContainer}>
           <FormControl isRequired>
             <Input
               variant="unstyled"
               value={userData.firstName}
+              onChangeText={(text) => onUserDataChange({ firstName: text })}
               placeholder={t('First Name')}
+              style={styles.input}
+              onFocus={() => setIsFirstNameFocused(true)}
+              onBlur={() => setIsFirstNameFocused(false)}
+              InputRightElement={
+                isFirstNameFocused &&
+                userData.firstName && (
+                  <TouchableOpacity
+                    onPress={() => onUserDataChange({ firstName: null })}
+                    style={styles.iconWrapper}>
+                    <Icon
+                      name="close"
+                      size={12}
+                      style={styles.icon}
+                      color={theme.CORE.COLORS.white}
+                    />
+                  </TouchableOpacity>
+                )
+              }
             />
           </FormControl>
-          <Divider ml={3} style={{ width: windowWidth - 44 }} />
+          <Divider ml={3} style={{ width: windowWidth - 48 }} />
           <FormControl isRequired>
             <Input
               variant="unstyled"
               value={userData.lastName}
+              onChangeText={(text) => onUserDataChange({ lastName: text })}
               placeholder={t('Last Name')}
+              style={styles.input}
+              onFocus={() => setIsLastNameFocused(true)}
+              onBlur={() => setIsLastNameFocused(false)}
+              InputRightElement={
+                isLastNameFocused &&
+                userData.lastName && (
+                  <TouchableOpacity
+                    onPress={() => onUserDataChange({ lastName: null })}
+                    style={styles.iconWrapper}>
+                    <Icon
+                      name="close"
+                      size={12}
+                      style={styles.icon}
+                      color={theme.CORE.COLORS.white}
+                    />
+                  </TouchableOpacity>
+                )
+              }
             />
           </FormControl>
         </View>
-        <Text
-          styleOverride={{ ...theme.CORE.FONTS.caption1, fontWeight: '500' }}
-          fontWeight={'600'}
-          variant="caption1"
-          color="grey-6"
-          mx={12}>
-          {t('Enter your name and add an optional profile photo')}.
-        </Text>
-        <Text
-          // styleOverride={{ ...theme.CORE.FONTS.caption1 }}
-          fontWeight="medium"
-          variant="caption1"
-          color="grey-6"
-          mx={12}>
+
+        <Text styleOverride={styles.description} color="grey-6" mx={12} mb={36}>
           {t('Enter your name and add an optional profile photo')}.
         </Text>
 
-        <PhoneInput
-          onChangePhoneNumber={(data) =>
-            onUserDataChange({ phone: data.slice(1) })
-          }
-          autoFormat
-          flagStyle={{
-            borderColor: theme.CORE.COLORS['input-border-color'],
-            borderRightWidth: 1,
-            borderWidth: 0
-          }}
-          initialCountry="no"
-          initialValue={phone || '+47'}
-          textStyle={styles.textStyle}
-          cancelTextStyle={styles.inputFontSize}
-          confirmTextStyle={styles.inputFontSize}
-          cancelText={t('cancel')}
-          confirmText={t('confirm')}
-          maxLength={5}
-        />
-        {/* <Button onPress={onSave} isDisabled={isSaveButtonDisabled}>
-          Save
-        </Button> */}
+        <View style={styles.formContainer}>
+          <FormControl isRequired>
+            <Input
+              variant="unstyled"
+              value={userData.bio}
+              onChangeText={(text) => onUserDataChange({ bio: text })}
+              placeholder={t('Bio')}
+              style={styles.input}
+              onFocus={() => setIsBioFocused(true)}
+              onBlur={() => setIsBioFocused(false)}
+              InputRightElement={
+                isBioFocused &&
+                userData.bio && (
+                  <TouchableOpacity
+                    onPress={() => onUserDataChange({ bio: null })}
+                    style={styles.iconWrapper}>
+                    <Icon
+                      name="close"
+                      style={styles.icon}
+                      size={12}
+                      color={theme.CORE.COLORS.white}
+                    />
+                  </TouchableOpacity>
+                )
+              }
+            />
+          </FormControl>
+        </View>
+
+        <Text styleOverride={styles.description} color="grey-6" mx={12}>
+          {t('Any details such as age, occupation or city')}.
+        </Text>
+        <Text styleOverride={styles.description} color="grey-6" mx={12} mb={36}>
+          Example: 23 y.o. designer from San Francisco.
+        </Text>
+
+        <View style={styles.itemContainer}>
+          <MenuList
+            data={PHONE_ACTIONS}
+            dividerWidth={windowWidth - 48}
+            dividerMarginLeft={4}
+          />
+        </View>
+
+        <TouchableOpacity style={styles.button}>
+          <Text variant="body1" color="danger-default">
+            {t('Delete account')}
+          </Text>
+        </TouchableOpacity>
       </View>
     </PageWrapper>
   )

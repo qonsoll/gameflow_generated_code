@@ -23,6 +23,7 @@ const SimpleViewLayout = (props) => {
     <Center>
       <Container maxWidth={theme.COMPONENTS.CONTAINER.maxWidth}>
         <Flex
+          minH={12}
           direction="row"
           justifyContent="space-between"
           alignItems="center"
@@ -38,7 +39,7 @@ const SimpleViewLayout = (props) => {
           />
         </Flex>
         {description && (
-          <Text numberOfLines={2} color="gray.400">
+          <Text mb={2} numberOfLines={2} color="gray.400">
             {description}
           </Text>
         )}

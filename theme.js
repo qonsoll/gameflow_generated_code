@@ -568,6 +568,9 @@ const COMPONENTS = {
   INPUT: {
     backgroundColor: COLORS['card-background'],
     borderColor: 'transparent'
+  },
+  CONTAINER: {
+    maxWidth: '90%' // Components max width
   }
 }
 

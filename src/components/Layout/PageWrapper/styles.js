@@ -17,7 +17,7 @@ const dynamicStyles = ({
     },
     headerContainer: {
       width: '100%',
-      marginBottom: isIOS ? (title ? 12 : -20) : title ? 32 : 0,
+      marginBottom: isIOS ? (title ? 12 : -20) : title ? 12 : 0,
       alignItems: 'center',
       justifyContent: 'flex-end',
       paddingTop: isIOS ? 40 : 0,

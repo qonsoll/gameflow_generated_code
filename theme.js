@@ -1,3 +1,5 @@
+import { Dimensions } from 'react-native'
+
 const COLORS = {
   // General
   black: '#000000',
@@ -550,6 +552,7 @@ const EXTENSIONS = {
   }
 }
 
+const CONTAINER_OFFSET = 24
 const COMPONENTS = {
   ICON: {
     variants: EXTENSIONS.ITEM_TOKENS.VARIANT_TOKENS,
@@ -570,7 +573,8 @@ const COMPONENTS = {
     borderColor: 'transparent'
   },
   CONTAINER: {
-    maxWidth: '90%' // Components max width
+    offset: CONTAINER_OFFSET,
+    maxWidth: Dimensions.get('window').width - CONTAINER_OFFSET * 2
   }
 }
 

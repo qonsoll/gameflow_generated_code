@@ -1,4 +1,4 @@
-import { Image, Keyboard, TouchableOpacity, View } from 'react-native'
+import { Keyboard, TouchableOpacity, View } from 'react-native'
 
 import { Avatar } from '~/components'
 import Icon from 'react-native-vector-icons/MaterialIcons'
@@ -82,7 +82,11 @@ const PageWrapper = (props) => {
               </Text>
             )}
             {!!rightButtonIcon && (
-              <Image source={rightButtonIcon} style={styles.rightIcon} />
+              <Icon
+                name={rightButtonIcon}
+                size={24}
+                color={theme.CORE.COLORS['primary-default']}
+              />
             )}
           </TouchableOpacity>
         )}

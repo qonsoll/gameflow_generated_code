@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 import theme from '../../../../theme'
 
 const dynamicStyles = (title, imageUri) => {
-  const imageSize = theme.EXTENSIONS.ITEM_TOKENS.SIZE_TOKENS.md.height
+  const imageSize = 50
   const imageMargin = 8
 
   const containerWidth = theme.COMPONENTS.CONTAINER.maxWidth
@@ -18,7 +18,7 @@ const dynamicStyles = (title, imageUri) => {
       height: imageSize,
       width: imageSize,
       marginRight: imageMargin,
-      borderRadius: theme.EXTENSIONS.CORNERS.md
+      borderRadius: theme.CORE.BORDER_RADIUSES.sm
     },
     description: { maxWidth: descriptionMaxWidth },
     title: { isToBig: isTitleToBig, width: titleWidth },

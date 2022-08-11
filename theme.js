@@ -253,84 +253,38 @@ const SHADOW_OFFSETS = {
   DEFAULT: { width: 2, height: 2 }
 }
 
-// Elevation doesn't work properly on Android
 const SHADOWS = {
   xs: {
     shadowColor: COLORS.black,
     shadowOpacity: 0.2,
     shadowRadius: 2,
     shadowOffset: SHADOW_OFFSETS.DEFAULT
-    // elevation: 1
   },
   sm: {
     shadowColor: COLORS.black,
     shadowOpacity: 0.4,
     shadowRadius: 4,
     shadowOffset: SHADOW_OFFSETS.DEFAULT
-    // elevation: 3
   },
   md: {
     shadowColor: COLORS.black,
     shadowOpacity: 0.6,
     shadowRadius: 8,
     shadowOffset: SHADOW_OFFSETS.DEFAULT
-    // elevation: 4
   },
   lg: {
     shadowColor: COLORS.black,
     shadowOpacity: 0.8,
     shadowRadius: 16,
     shadowOffset: SHADOW_OFFSETS.DEFAULT
-    // elevation: 5
   },
   xl: {
     shadowColor: COLORS.black,
     shadowOpacity: 0.16,
     shadowRadius: 20,
     shadowOffset: SHADOW_OFFSETS.DEFAULT
-    // elevation: 6
   }
 }
-
-// const TOGGLES = {
-//   variants: {
-//     default: {
-//       variant: 'lightGrey',
-//       corners: 'round',
-//       border: 'thin',
-//       type: 'filled',
-//       color: COLORS['primary-default']
-//     },
-//     primary: {
-//       variant: 'primary',
-//       corners: 'round',
-//       border: 'thin',
-//       type: 'filled',
-//       color: COLORS.white
-//     }
-//   }
-// }
-
-// const STATUSES = {
-//   variants: {
-//     default: {
-//       wrapperBg: COLORS['grey-t-9'],
-//       bg: COLORS['grey-t-7']
-//     },
-//     active: {
-//       wrapperBg: COLORS['primary-lighten-5'],
-//       bg: COLORS['primary-default']
-//     },
-//     danger: {
-//       wrapperBg: COLORS['danger-lighten-5'],
-//       bg: COLORS['danger-default']
-//     },
-//     warning: {
-//       wrapperBg: COLORS['warning-lighten-5'],
-//       bg: COLORS['warning-default']
-//     }
-//   }
-// }
 
 const CORE = {
   COLORS,
@@ -552,7 +506,10 @@ const EXTENSIONS = {
   }
 }
 
-const CONTAINER_OFFSET = 24
+const CONTAINER_OFFSET = 12
+const CONTAINER_MAX_WIDTH =
+  Dimensions.get('window').width - CONTAINER_OFFSET * 2
+
 const COMPONENTS = {
   ICON: {
     variants: EXTENSIONS.ITEM_TOKENS.VARIANT_TOKENS,
@@ -569,19 +526,42 @@ const COMPONENTS = {
     borderRadius: BORDER_RADIUSES.sm
   },
   INPUT: {
-    backgroundColor: COLORS['card-background'],
-    borderColor: 'transparent'
+    variants: {
+      default: { backgroundColor: COLORS.white },
+      primary: { backgroundColor: COLORS['primary-default'] }
+    }
   },
   CONTAINER: {
     offset: CONTAINER_OFFSET,
-    maxWidth: Dimensions.get('window').width - CONTAINER_OFFSET * 2
+    maxWidth: CONTAINER_MAX_WIDTH
+  }
+}
+
+// Override Native-Base default theme with custom theme
+const NATIVE_BASE = {
+  components: {
+    Input: {
+      variants: COMPONENTS.INPUT.variants,
+      defaultProps: { size: 'lg', variant: 'default' },
+      baseStyle: { borderRadius: 12, fontFamily: CORE.FONT_FAMILIES.body }
+    },
+    TextArea: {
+      variants: COMPONENTS.INPUT.variants,
+      defaultProps: { size: 'lg', variant: 'default' },
+      baseStyle: { borderRadius: 12, fontFamily: CORE.FONT_FAMILIES.body }
+    },
+    Container: {
+      baseStyle: { maxWidth: CONTAINER_MAX_WIDTH, w: 'full' }
+    },
+    FormControl: { defaultProps: { mb: 3 } },
+    FormControlLabel: { defaultProps: { fontSize: 49 } },
+    Switch: { defaultProps: {} }
   }
 }
 
 const theme = {
   CORE,
-  SHADOWS,
-  EXTENSIONS,
+  NATIVE_BASE,
   COMPONENTS
 }
 

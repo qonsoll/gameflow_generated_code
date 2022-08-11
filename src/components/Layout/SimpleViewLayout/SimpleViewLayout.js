@@ -23,7 +23,7 @@ const SimpleViewLayout = (props) => {
 
   return (
     <Center>
-      <Container minH={12} maxWidth={styles.container.maxWidth}>
+      <Container minH={12}>
         <HStack justifyContent="space-between" alignItems="center" mt={2}>
           <HStack justifyContent="space-between" w={styles.title.width}>
             <Heading size="sm">{title}</Heading>

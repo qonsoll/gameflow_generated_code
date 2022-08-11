@@ -1,6 +1,7 @@
 import 'moment/locale/nb'
 
 import { AppStackNavigator, AuthStackNavigator } from './src/navigators'
+import { NativeBaseProvider, extendTheme } from 'native-base'
 import React, { useEffect } from 'react'
 import { UserAuthContext, UserAuthProvider, UserProvider } from './src/contexts'
 
@@ -10,7 +11,6 @@ import Orientation from 'react-native-orientation'
 import { Root } from 'react-native-alert-notification'
 /* Importing the navigators from the navigators folder. */
 import { ThemeProvider } from '@qonsoll/react-native-design'
-import { NativeBaseProvider } from 'native-base'
 import TranslationProvider from './src/contexts/TranslationContext'
 import theme from './theme'
 
@@ -19,10 +19,11 @@ const App = () => {
   useEffect(() => {
     Orientation.lockToPortrait()
   }, [])
+  const nativeBaseTheme = extendTheme(theme.NATIVE_BASE)
 
   return (
     <Root>
-      <NativeBaseProvider>
+      <NativeBaseProvider theme={nativeBaseTheme}>
         <AppearanceProvider>
           <ThemeProvider theme={theme}>
             <TranslationProvider>

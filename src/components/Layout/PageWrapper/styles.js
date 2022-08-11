@@ -72,7 +72,7 @@ const dynamicStyles = ({
       borderRadius: 8,
       justifyContent: 'center',
       alignItems: 'center',
-      ...theme.SHADOWS.xs,
+      ...theme.CORE.SHADOWS.xs,
       shadowOffset: { width: 0, height: 0 },
       zIndex: 4
     }

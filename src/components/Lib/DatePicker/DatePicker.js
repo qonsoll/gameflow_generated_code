@@ -1,26 +1,23 @@
 import React, { useState } from 'react'
-import { Button } from 'native-base'
+
+import { Input } from 'native-base'
 import LibPicker from 'react-native-date-picker'
-import theme from '../../../../theme'
-import dynamicStyles from './DatePicker.styles'
 import PropTypes from 'prop-types'
+import { TouchableOpacity } from 'react-native'
+import theme from '../../../../theme'
+
+// import dynamicStyles from './DatePicker.styles'
 
 const DatePicker = (props) => {
-  const {
-    value,
-    buttonText,
-    onConfirm,
-    onCancel,
-    open: isOpen,
-    buttonStyles
-  } = props
+  const { value, onConfirm, onCancel, open: isOpen } = props
 
   // [STATES]
   const [date, setDate] = useState(value || new Date())
   const [open, setOpen] = useState(isOpen)
 
   // [COMPUTED_PROPERTIES]
-  const styles = dynamicStyles({ buttonStyles })
+  // const styles = dynamicStyles({})
+  const dateString = date.toString()
 
   // [HANDLERS]
   const handleConfirm =
@@ -34,12 +31,9 @@ const DatePicker = (props) => {
 
   return (
     <>
-      <Button
-        style={styles.buttonStyles}
-        variant="unstyled"
-        onPress={() => setOpen(true)}>
-        {buttonText || 'Select date'}
-      </Button>
+      <TouchableOpacity onPress={() => setOpen(true)}>
+        <Input value={dateString} isReadOnly />
+      </TouchableOpacity>
       <LibPicker
         modal
         open={open}

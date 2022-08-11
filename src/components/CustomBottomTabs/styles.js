@@ -24,7 +24,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
       width: '100%',
       paddingHorizontal: 12,
       borderRadius: 16,
-      ...theme.SHADOWS.sm,
+      ...theme.CORE.SHADOWS.sm,
       shadowOffset: { width: 2, height: 4 }
     },
     buttonContainer: {
@@ -93,7 +93,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
       bottom: 0,
       left: 0,
       borderTopRightRadius: 20,
-      ...theme.SHADOWS.xs,
+      ...theme.CORE.SHADOWS.xs,
       shadowOffset: { width: 8, height: 4 }
     },
     rightShadow: {
@@ -104,7 +104,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
       bottom: 0,
       right: 0,
       borderTopLeftRadius: 20,
-      ...theme.SHADOWS.xs,
+      ...theme.CORE.SHADOWS.xs,
       shadowOffset: { width: -8, height: 4 }
     }
   })

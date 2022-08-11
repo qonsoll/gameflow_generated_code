@@ -1,13 +1,13 @@
-import { Input as NativeBaseInput } from 'native-base'
-import { TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { useState } from 'react'
-import theme from '../../../../theme'
-import dynamicStyles from './Input.styles'
+import { Input as NativeBaseInput } from 'native-base'
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
+import dynamicStyles from './Input.styles'
+import theme from '../../../../theme'
+import { useState } from 'react'
 
 const Input = (props) => {
-  const { value, onChangeText, placeholder } = props
+  const { value, onChangeText, placeholder, style } = props
   const [isFocused, setIsFocused] = useState(false)
   const [inputValue, setInputValue] = useState(value || '')
 
@@ -27,7 +27,7 @@ const Input = (props) => {
       value={inputValue}
       onChangeText={handleChangeInput}
       placeholder={placeholder}
-      style={styles.input}
+      style={style || styles.input}
       onFocus={onFocus}
       onBlur={onBlur}
       InputRightElement={

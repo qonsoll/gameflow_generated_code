@@ -506,7 +506,7 @@ const EXTENSIONS = {
   }
 }
 
-const CONTAINER_OFFSET = 12
+const CONTAINER_OFFSET = 16
 const CONTAINER_MAX_WIDTH =
   Dimensions.get('window').width - CONTAINER_OFFSET * 2
 

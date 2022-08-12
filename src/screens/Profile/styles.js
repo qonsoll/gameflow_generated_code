@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native'
 import theme from '../../../theme'
 
-const dynamicStyles = () => {
+const dynamicStyles = ({} = {}) => {
   return StyleSheet.create({
+    divider: { marginLeft: 3 },
     checkMarkStyles: { width: 28, height: 28 },
     phoneInput: {
       height: 50,
@@ -16,10 +17,6 @@ const dynamicStyles = () => {
       paddingVertical: 12,
       paddingHorizontal: 10,
       marginBottom: 32
-    },
-    wrapper: {
-      width: '100%',
-      paddingHorizontal: 16
     },
     container: {
       flexDirection: 'row',
@@ -51,7 +48,8 @@ const dynamicStyles = () => {
       justifyContent: 'center',
       marginBottom: 4,
       paddingLeft: 4,
-      paddingVertical: 4
+      paddingVertical: 4,
+      overflow: 'hidden'
     },
     input: {
       fontFamily: theme.CORE.FONT_FAMILIES.body,
@@ -66,7 +64,8 @@ const dynamicStyles = () => {
       borderRadius: 10,
       height: 48,
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      width: '100%'
     },
     icon: { textAlign: 'center' },
     iconWrapper: {

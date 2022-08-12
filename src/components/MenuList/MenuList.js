@@ -1,19 +1,18 @@
-import { Dimensions, TouchableOpacity, View } from 'react-native'
 import React, { Fragment } from 'react'
+import { TouchableOpacity, View } from 'react-native'
 
 import { Divider } from 'native-base'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import PropTypes from 'prop-types'
 import { Text } from '@qonsoll/react-native-design'
-import dynamicStyles from '../../screens/Settings/styles'
+import dynamicStyles from './MenuList.styles'
 import theme from '../../../theme'
-
-const windowWidth = Dimensions.get('window').width
 
 const MenuList = (props) => {
   const { data, dividerWidth, dividerMarginLeft } = props
 
-  const styles = dynamicStyles()
+  const dividerMargin = dividerMarginLeft || 4
+  const styles = dynamicStyles({ dividerMargin, dividerWidth })
 
   return data ? (
     data.map((item, index) => (
@@ -52,8 +51,8 @@ const MenuList = (props) => {
         </TouchableOpacity>
         {data?.length - 1 !== index && (
           <Divider
-            width={dividerWidth || windowWidth - 86}
-            ml={dividerMarginLeft || 62}
+            width={styles.divider.width}
+            ml={styles.divider.marginLeft}
           />
         )}
       </Fragment>

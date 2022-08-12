@@ -1,28 +1,27 @@
 import { Image, TouchableOpacity, View } from 'react-native'
 import React, { Fragment, useRef } from 'react'
-import { Text, useTheme } from '@qonsoll/react-native-design'
+import { Text } from '@qonsoll/react-native-design'
 
 import ActionSheet from 'react-native-actionsheet'
 import FastImage from 'react-native-fast-image'
-import ImagePicker from 'react-native-image-crop-picker'
 import PropTypes from 'prop-types'
-import { UserIcon } from '../../__constants__/assets'
-import dynamicStyles from './styles'
+import { UserIcon } from '~/__constants__/assets'
+import dynamicStyles from './ImagePicker.styles'
 import { useTranslations } from '@qonsoll/translation'
+import { useImagePickerActions } from './hooks'
 
-const Avatar = (props) => {
+const ImagePicker = (props) => {
   const {
     size,
     url,
     onChange,
-    isEditable,
+    isEditable = true,
     cropping,
     avatarContainerStyle
   } = props
 
   // [ADDITIONAL_HOOKS]
-  const { theme } = useTheme()
-  const styles = dynamicStyles(theme, size)
+  const styles = dynamicStyles(size)
   const { t } = useTranslations()
 
   const updatePhotoDialogActionSheet = useRef()
@@ -36,33 +35,10 @@ const Avatar = (props) => {
     }
   }
 
-  const onPhotoUploadDialogMap = [
-    () => onLaunchCamera(),
-    () => onOpenPhotos(),
-    () => updateUrl(null)
-  ]
-
-  const onLaunchCamera = () => {
-    ImagePicker.openCamera({
-      cropping: cropping || true
-    })
-      .then((image) => {
-        updateUrl(image.path)
-      })
-      .catch((error) => console.error(error))
-  }
-
-  const onOpenPhotos = () => {
-    ImagePicker.openPicker({
-      cropping: cropping || true
-    })
-      .then((image) => {
-        updateUrl(image.path)
-      })
-      .catch((error) => console.error(error))
-  }
-
-  const updateUrl = (avatarUrl) => onChange && onChange(avatarUrl)
+  const { onPhotoUploadDialogs } = useImagePickerActions({
+    cropping,
+    onChange
+  })
 
   return (
     <Fragment>
@@ -91,19 +67,19 @@ const Avatar = (props) => {
         options={[t('camera'), t('library'), t('remove'), t('cancel')]}
         cancelButtonIndex={3}
         destructiveButtonIndex={2}
-        onPress={(index) => onPhotoUploadDialogMap[index]?.()}
+        onPress={(index) => onPhotoUploadDialogs[index]?.()}
       />
       <ActionSheet
         ref={photoUploadDialogActionSheet}
         options={[t('camera'), t('library'), t('cancel')]}
         cancelButtonIndex={2}
-        onPress={(index) => onPhotoUploadDialogMap[index]?.()}
+        onPress={(index) => onPhotoUploadDialogs[index]?.()}
       />
     </Fragment>
   )
 }
 
-Avatar.propTypes = {
+ImagePicker.propTypes = {
   onChange: PropTypes.func,
   url: PropTypes.string,
   size: PropTypes.number,
@@ -111,4 +87,4 @@ Avatar.propTypes = {
   isEditable: PropTypes.bool
 }
 
-export default Avatar
+export default ImagePicker

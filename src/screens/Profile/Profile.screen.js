@@ -1,8 +1,9 @@
 import { Avatar, PageWrapper } from '~/components'
-import { Dimensions, TouchableOpacity, UIManager, View } from 'react-native'
-import { Divider, FormControl } from 'native-base'
+import { Container, Divider, FormControl } from 'native-base'
 import React, { useState } from 'react'
+import { TouchableOpacity, UIManager, View } from 'react-native'
 import { useUserContext, useUserDispatch } from '~/contexts'
+
 import { Input } from '~/components/Form'
 import { MenuList } from '~/components'
 import { Text } from '@qonsoll/react-native-design'
@@ -11,11 +12,8 @@ import firestore from '@react-native-firebase/firestore'
 import { isIOS } from '../../__constants__'
 import theme from '../../../theme'
 import { uploadPhoto } from '~/helpers'
-import { useKeyboardWithAnimationPresetState } from '../../hooks'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
-
-const windowWidth = Dimensions.get('window').width
 
 if (!isIOS) {
   if (UIManager.setLayoutAnimationEnabledExperimental) {
@@ -29,8 +27,7 @@ const ProfileScreen = () => {
 
   const user = useUserContext()
   const dispatch = useUserDispatch()
-  const isKeyboardOpen = useKeyboardWithAnimationPresetState()
-  const styles = dynamicStyles(isKeyboardOpen)
+  const styles = dynamicStyles()
   const { firstName, lastName, avatarUrl, phone, _id, bio, email } = user
 
   const [userData, setUserData] = useState({
@@ -42,7 +39,7 @@ const ProfileScreen = () => {
     email
   })
 
-  const PHONE_ACTIONS = [
+  const MENU_ACTIONS = [
     {
       text: t('Change Number'),
       arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
@@ -106,9 +103,9 @@ const ProfileScreen = () => {
           onUserDataChange({ avatarUrl: url })
         }}
       />
-      <View style={styles.wrapper}>
+      <Container>
         <View style={styles.formContainer}>
-          <FormControl isRequired>
+          <FormControl mb={0} isRequired>
             <Input
               variant="unstyled"
               value={userData.firstName}
@@ -116,8 +113,8 @@ const ProfileScreen = () => {
               placeholder={t('First Name')}
             />
           </FormControl>
-          <Divider ml={3} style={{ width: windowWidth - 48 }} />
-          <FormControl isRequired>
+          <Divider ml={styles.divider.marginLeft} />
+          <FormControl mb={0} isRequired>
             <Input
               variant="unstyled"
               value={userData.lastName}
@@ -127,12 +124,12 @@ const ProfileScreen = () => {
           </FormControl>
         </View>
 
-        <Text styleOverride={styles.description} color="grey-6" mx={12} mb={36}>
+        <Text styleOverride={styles.description} color="grey-6" mx={4} mb={36}>
           {t('Enter your name and add an optional profile photo')}.
         </Text>
 
         <View style={styles.formContainer}>
-          <FormControl isRequired>
+          <FormControl mb={0} isRequired>
             <Input
               variant="unstyled"
               value={userData.bio}
@@ -142,19 +139,15 @@ const ProfileScreen = () => {
           </FormControl>
         </View>
 
-        <Text styleOverride={styles.description} color="grey-6" mx={12}>
+        <Text styleOverride={styles.description} color="grey-6" mx={4}>
           {t('Any details such as age, occupation or city')}.
         </Text>
-        <Text styleOverride={styles.description} color="grey-6" mx={12} mb={36}>
+        <Text styleOverride={styles.description} color="grey-6" mx={4} mb={36}>
           Example: 23 y.o. designer from San Francisco.
         </Text>
 
         <View style={styles.itemContainer}>
-          <MenuList
-            data={PHONE_ACTIONS}
-            dividerWidth={windowWidth - 48}
-            dividerMarginLeft={4}
-          />
+          <MenuList data={MENU_ACTIONS} />
         </View>
 
         <TouchableOpacity style={styles.button}>
@@ -162,7 +155,7 @@ const ProfileScreen = () => {
             {t('Delete account')}
           </Text>
         </TouchableOpacity>
-      </View>
+      </Container>
     </PageWrapper>
   )
 }

@@ -1,5 +1,6 @@
 import { useSettingsActions, useSettingsItems } from './hooks'
 
+import { Container } from 'native-base'
 import { LogoSmall } from '~/__constants__/assets'
 import { MenuList } from '~/components'
 import { PageWrapper } from '~/components'
@@ -22,19 +23,21 @@ const SettingsScreen = () => {
       leftButtonAction={onDashboard}
       rightButtonText={t('Edit')}
       rightButtonAction={onProfile}>
-      <UserSimpleView />
+      <Container>
+        <UserSimpleView />
 
-      <View style={styles.wrapper}>
-        <View style={styles.container}>
-          <MenuList data={SETTINGS_ITEMS} />
+        <View style={styles.wrapper}>
+          <View style={styles.container}>
+            <MenuList data={SETTINGS_ITEMS} />
+          </View>
         </View>
-      </View>
 
-      <View style={styles.wrapper}>
-        <View style={styles.container}>
-          <MenuList data={EXTRA_ACTIONS} />
+        <View style={styles.wrapper}>
+          <View style={styles.container}>
+            <MenuList data={EXTRA_ACTIONS} />
+          </View>
         </View>
-      </View>
+      </Container>
     </PageWrapper>
   )
 }

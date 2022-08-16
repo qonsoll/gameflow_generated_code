@@ -6,17 +6,14 @@ import PropTypes from 'prop-types'
 import { TouchableOpacity } from 'react-native'
 import theme from '../../../../theme'
 
-// import dynamicStyles from './DatePicker.styles'
-
 const DatePicker = (props) => {
   const { value, onConfirm, onCancel, open: isOpen } = props
 
   // [STATES]
-  const [date, setDate] = useState(value || new Date())
+  const [date, setDate] = useState(value instanceof Date ? value : new Date())
   const [open, setOpen] = useState(isOpen)
 
   // [COMPUTED_PROPERTIES]
-  // const styles = dynamicStyles({})
   const dateString = date.toString()
 
   // [HANDLERS]

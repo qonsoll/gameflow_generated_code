@@ -48,7 +48,7 @@ const dynamicStyles = ({
       tintColor: leftIconColor || theme.CORE.COLORS['primary-default']
     },
     rightButton: {
-      height: 52,
+      height: isIOS ? 52 : 44,
       justifyContent: 'center',
       position: 'absolute',
       right: 0,

@@ -35,7 +35,7 @@ const dynamicStyles = ({
     leftButton: {
       flexDirection: 'row',
       alignItems: 'center',
-      height: 52,
+      height: isIOS ? 52 : 44,
       justifyContent: 'center',
       left: 0,
       position: 'absolute',

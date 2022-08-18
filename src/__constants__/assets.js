@@ -141,6 +141,7 @@ export const MicrophoneOff3x = require('../../assets/MicrophoneOff3x.png')
 export const Minus = require('../../assets/Minus.png')
 export const Minus2x = require('../../assets/Minus2x.png')
 export const Minus3x = require('../../assets/Minus3x.png')
+export const NoData = require('../../assets/NoData.svg')
 export const Notification = require('../../assets/Notification.png')
 export const Notification2x = require('../../assets/Notification2x.png')
 export const Notification3x = require('../../assets/Notification3x.png')
@@ -362,6 +363,7 @@ export default {
   Minus,
   Minus2x,
   Minus3x,
+  NoData,
   Notification,
   Notification2x,
   Notification3x,

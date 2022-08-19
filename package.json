@@ -48,7 +48,7 @@
 		"firebase": "9.6.5",
 		"immer": "9.0.7",
 		"jwt-decode": "^3.1.2",
-		"lodash": "4.17.21",
+		"lodash": "^4.17.21",
 		"md5": "2.3.0",
 		"moment": "2.29.1",
 		"native-base": "^3.4.9",

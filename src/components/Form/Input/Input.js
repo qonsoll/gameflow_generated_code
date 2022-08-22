@@ -7,7 +7,7 @@ import theme from '../../../../theme'
 import { useState } from 'react'
 
 const Input = (props) => {
-  const { value, onChangeText, placeholder, style } = props
+  const { value, onChange, placeholder, style } = props
   const [isFocused, setIsFocused] = useState(false)
   const [inputValue, setInputValue] = useState(value || '')
 
@@ -17,7 +17,7 @@ const Input = (props) => {
   const onBlur = () => setIsFocused(false)
   const handleClearInput = () => setInputValue('')
   const handleChangeInput = (text) => {
-    onChangeText?.(text)
+    onChange?.(text)
     setInputValue(text)
   }
 

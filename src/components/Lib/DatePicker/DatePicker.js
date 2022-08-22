@@ -7,7 +7,7 @@ import { TouchableOpacity } from 'react-native'
 import theme from '../../../../theme'
 
 const DatePicker = (props) => {
-  const { value, onConfirm, onCancel, open: isOpen } = props
+  const { value, onChange, onCancel, open: isOpen } = props
 
   // [STATES]
   const [date, setDate] = useState(value instanceof Date ? value : new Date())
@@ -17,12 +17,15 @@ const DatePicker = (props) => {
   const dateString = date.toString()
 
   // [HANDLERS]
-  const handleConfirm =
-    onConfirm ||
-    ((newDate) => {
-      setOpen(false)
-      setDate(newDate)
-    })
+  const handleConfirm = onChange
+    ? (newDate) => {
+        onChange(newDate)
+        setOpen(false)
+      }
+    : (newDate) => {
+        setOpen(false)
+        setDate(newDate)
+      }
 
   const handleCancel = onCancel || (() => setOpen(false))
 

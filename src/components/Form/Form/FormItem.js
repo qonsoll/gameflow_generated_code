@@ -60,7 +60,7 @@ const FromItem = (props) => {
       {label && <Text mb={10}>{label}</Text>}
       <FormItemChildren {...childrenProps}>{children}</FormItemChildren>
 
-      <Animated.Text style={styles.errorText}>{animatedError}</Animated.Text>
+      {/* <Animated.Text style={styles.errorText}>{animatedError}</Animated.Text> */}
     </Box>
   )
 }

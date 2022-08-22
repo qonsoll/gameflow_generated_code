@@ -56,7 +56,7 @@ const FromItem = (props) => {
   }, [error])
 
   return (
-    <Box mb={!animatedError ? MARGINS[margins] : MARGINS[margins] - 3}>
+    <Box mb={animatedError && MARGINS[margins]}>
       {label && <Text mb={10}>{label}</Text>}
       <FormItemChildren {...childrenProps}>{children}</FormItemChildren>
 
@@ -67,7 +67,7 @@ const FromItem = (props) => {
 
 const FormItemChildren = memo(
   forwardRef(({ children, ...rest }, ref) => (
-    <Box mb={2}>
+    <Box>
       {typeof children === 'function'
         ? children({ ...rest, ref })
         : cloneElement(children, { ...rest, ref })}

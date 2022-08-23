@@ -1,6 +1,6 @@
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Input as NativeBaseInput } from 'native-base'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { TouchableOpacity } from 'react-native'
 import dynamicStyles from './Input.styles'
 import theme from '../../../../theme'
@@ -20,6 +20,10 @@ const Input = (props) => {
     onChange?.(text)
     setInputValue(text)
   }
+
+  useEffect(() => {
+    setInputValue(value || '')
+  }, [value])
 
   return (
     <NativeBaseInput

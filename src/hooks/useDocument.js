@@ -1,6 +1,5 @@
 import firestore from '@react-native-firebase/firestore'
 import { useEffect, useState } from 'react'
-import { buildQuery } from '../helpers'
 
 const useDocument = (props) => {
   const { ref = '' } = props
@@ -9,22 +8,21 @@ const useDocument = (props) => {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true)
-      try {
-        const [collectionName, documentId] = ref.split('/')
-        const snapshotRef = firestore()
-          .collection(collectionName)
-          .doc(documentId)
+    const [collectionName, documentId] = ref.split('/')
 
-        const querySnapshot = await snapshotRef.get()
-        setData(querySnapshot.data())
-      } catch (err) {
-        setError(err)
-      }
-      setLoading(false)
-    }
-    ref && fetchData()
+    const subscriber = firestore()
+      .collection(collectionName)
+      .doc(documentId)
+      .onSnapshot((snapshot) => {
+        try {
+          setData(snapshot.data())
+          setLoading(false)
+        } catch (e) {
+          setError(e)
+        }
+      })
+
+    return () => subscriber()
   }, [ref, props])
 
   return [data, loading, error]

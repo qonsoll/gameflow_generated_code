@@ -9,18 +9,20 @@ const useCollection = (props) => {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true)
+    const subscriber = buildQuery(
+      firestore().collection(ref),
+      props
+    ).onSnapshot((snapshot) => {
       try {
-        const snapshotRef = buildQuery(firestore().collection(ref), props)
-        const querySnapshot = await snapshotRef.get()
-        setData(querySnapshot.docs.map((item) => item.data()))
-      } catch (err) {
-        setError(err)
+        const items = snapshot.docs.map((doc) => ({ ...doc.data() }))
+        setData(items)
+        setLoading(false)
+      } catch (e) {
+        setError(e)
       }
-      setLoading(false)
-    }
-    ref && fetchData()
+    })
+
+    return () => subscriber()
   }, [ref, props])
 
   return [data, loading, error]

@@ -17,9 +17,8 @@ const saveBelongsToRelationship = async (
   }
   // If the data is null, return null
   else {
-    const isDocumentExists = (
-      await getDocumentSnapshot(collection, data._id)
-    ).exists()
+    const isDocumentExists = (await getDocumentSnapshot(collection, data._id))
+      .exists
     if (isDocumentExists) {
       await updateDocument(collection, data._id, { ...data, ...additionalData })
       return data._id

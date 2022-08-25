@@ -13,9 +13,8 @@ const saveHasManyRelationship = async (
   additionalData = {}
 ) => {
   const promises = array?.map(async (item) => {
-    const isDocumentExists = (
-      await getDocumentSnapshot(collection, item._id)
-    ).exists()
+    const isDocumentExists = (await getDocumentSnapshot(collection, item._id))
+      .exists
     if (!isDocumentExists) {
       const document = await createDocument(collection, {
         ...item,

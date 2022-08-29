@@ -20,7 +20,8 @@ const dynamicStyles = (size) => {
       height: size / 1.35 || 96,
       width: size / 2.16 || 60
     },
-    avatarContainer: { marginBottom: 12 }
+    avatarContainer: { marginBottom: 12 },
+    wrapper: { marginLeft: 12 }
   })
 }
 

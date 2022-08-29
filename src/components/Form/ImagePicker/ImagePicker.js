@@ -9,6 +9,7 @@ import { UserIcon } from '~/__constants__/assets'
 import dynamicStyles from './ImagePicker.styles'
 import { useTranslations } from '@qonsoll/translation'
 import { useImagePickerActions } from './hooks'
+import { Container } from 'native-base'
 
 const ImagePicker = (props) => {
   const {
@@ -41,7 +42,7 @@ const ImagePicker = (props) => {
   })
 
   return (
-    <Fragment>
+    <Container style={styles.wrapper}>
       <TouchableOpacity
         style={[styles.avatarContainer, avatarContainerStyle]}
         activeOpacity={1}>
@@ -75,7 +76,7 @@ const ImagePicker = (props) => {
         cancelButtonIndex={2}
         onPress={(index) => onPhotoUploadDialogs[index]?.()}
       />
-    </Fragment>
+    </Container>
   )
 }
 

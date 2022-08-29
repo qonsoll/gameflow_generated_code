@@ -1,7 +1,7 @@
-import { Switch as NativeBaseSwitch, theme } from 'native-base'
-
+import { Switch as NativeBaseSwitch } from 'native-base'
 import PropTypes from 'prop-types'
 import React from 'react'
+import theme from '../../../../theme'
 
 const Switch = (props) => {
   const { value, onChange, ...rest } = props

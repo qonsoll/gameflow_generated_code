@@ -65,7 +65,9 @@ const PageWrapper = (props) => {
               />
             )}
             {!!leftButtonText && (
-              <Text variant="body1" color="primary-default">
+              <Text
+                color="primary-default"
+                styleOverride={theme.CORE.FONTS.body}>
                 {leftButtonText}
               </Text>
             )}
@@ -77,7 +79,10 @@ const PageWrapper = (props) => {
             onPress={rightButtonAction}
             style={styles.rightButton}>
             {!!rightButtonText && (
-              <Text variant="body1" color="primary-default">
+              <Text
+                styleOverride={theme.CORE.FONTS.body}
+                fontWeight="medium"
+                color="primary-default">
                 {rightButtonText}
               </Text>
             )}

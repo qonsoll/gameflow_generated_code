@@ -13,7 +13,7 @@ import { useImagePickerActions } from './hooks'
 const ImagePicker = (props) => {
   const {
     size,
-    url,
+    value,
     onChange,
     isEditable = true,
     cropping,
@@ -28,7 +28,7 @@ const ImagePicker = (props) => {
   const photoUploadDialogActionSheet = useRef()
 
   const onEditButtonPress = () => {
-    if (url) {
+    if (value) {
       updatePhotoDialogActionSheet.current.show()
     } else {
       photoUploadDialogActionSheet.current.show()
@@ -45,8 +45,8 @@ const ImagePicker = (props) => {
       <TouchableOpacity
         style={[styles.avatarContainer, avatarContainerStyle]}
         activeOpacity={1}>
-        {url ? (
-          <FastImage style={styles.fastImage} source={{ uri: url }} />
+        {value ? (
+          <FastImage style={styles.fastImage} source={{ uri: value }} />
         ) : (
           <View style={styles.defaultAvatarContainer}>
             <Image style={styles.defaultAvatar} source={UserIcon} />

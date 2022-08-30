@@ -533,7 +533,9 @@ const COMPONENTS = {
   },
   CONTAINER: {
     offset: CONTAINER_OFFSET,
-    maxWidth: CONTAINER_MAX_WIDTH
+    maxWidth: CONTAINER_MAX_WIDTH,
+    scrollWrapper: { width: '100%', height: '100%' },
+    scrollContent: { paddingBottom: CONTAINER_OFFSET }
   }
 }
 
@@ -551,7 +553,11 @@ const NATIVE_BASE = {
       baseStyle: { borderRadius: 12, fontFamily: CORE.FONT_FAMILIES.body }
     },
     Container: {
-      baseStyle: { maxWidth: CONTAINER_MAX_WIDTH, w: 'full' }
+      baseStyle: {
+        maxWidth: CONTAINER_MAX_WIDTH,
+        w: 'full',
+        alignSelf: 'center'
+      }
     },
     FormControl: { defaultProps: { mb: 3 } },
     FormControlLabel: { defaultProps: { fontSize: 49 } },

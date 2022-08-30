@@ -1,6 +1,7 @@
+import React, { useEffect } from 'react'
+
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Input as NativeBaseInput } from 'native-base'
-import React, { useEffect } from 'react'
 import { TouchableOpacity } from 'react-native'
 import dynamicStyles from './Input.styles'
 import theme from '../../../../theme'
@@ -34,6 +35,7 @@ const Input = (props) => {
       style={style || styles.input}
       onFocus={onFocus}
       onBlur={onBlur}
+      placeholderTextColor={theme.CORE.COLORS['grey-7']}
       InputRightElement={
         isFocused &&
         inputValue && (

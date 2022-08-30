@@ -1,38 +1,49 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { Input } from 'native-base'
 import LibPicker from 'react-native-date-picker'
 import PropTypes from 'prop-types'
+import { Text } from '@qonsoll/react-native-design'
 import { TouchableOpacity } from 'react-native'
+import moment from 'moment'
 import theme from '../../../../theme'
 
 const DatePicker = (props) => {
-  const { value, onChange, onCancel, open: isOpen } = props
+  const {
+    value,
+    onChange,
+    onCancel,
+    open: isOpen,
+    format = 'DD.MM.YYYY'
+  } = props
 
   // [STATES]
   const [date, setDate] = useState(value instanceof Date ? value : new Date())
   const [open, setOpen] = useState(isOpen)
 
   // [COMPUTED_PROPERTIES]
-  const dateString = date.toString()
+  const dateString = moment(date).format(format)
 
   // [HANDLERS]
   const handleConfirm = onChange
     ? (newDate) => {
-        onChange(newDate)
+        onChange(newDate.toString())
         setOpen(false)
       }
     : (newDate) => {
         setOpen(false)
         setDate(newDate)
       }
-
   const handleCancel = onCancel || (() => setOpen(false))
+  useEffect(() => {
+    if (value !== undefined && typeof value === 'string') {
+      setDate(new Date(value))
+    }
+  }, [value])
 
   return (
     <>
       <TouchableOpacity onPress={() => setOpen(true)}>
-        <Input value={dateString} isReadOnly />
+        <Text color="grey-7">{dateString}</Text>
       </TouchableOpacity>
       <LibPicker
         modal
@@ -48,7 +59,7 @@ const DatePicker = (props) => {
 }
 
 DatePicker.propTypes = {
-  value: PropTypes.instanceOf(Date),
+  value: PropTypes.string,
   buttonText: PropTypes.string,
   onConfirm: PropTypes.func,
   onCancel: PropTypes.func,

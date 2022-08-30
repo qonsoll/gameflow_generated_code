@@ -8,7 +8,7 @@ const dynamicStyles = (title, imageUri) => {
   const containerWidth = theme.COMPONENTS.CONTAINER.maxWidth
   const iconSize = theme.COMPONENTS.ICON.iconSizes.sm
   const titleWidth = containerWidth - iconSize
-  const isTitleToBig = title.length > 30 || containerWidth < 200
+  const isTitleToBig = title?.length > 30 || containerWidth < 200
   const descriptionMaxWidth = imageUri
     ? containerWidth - imageSize - imageMargin
     : containerWidth

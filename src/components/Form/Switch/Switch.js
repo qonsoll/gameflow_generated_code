@@ -10,7 +10,7 @@ const Switch = (props) => {
     <NativeBaseSwitch
       onTrackColor={theme.CORE.COLORS['primary-default']}
       onValueChange={onChange}
-      value={value}
+      isChecked={value}
       {...rest}
     />
   )

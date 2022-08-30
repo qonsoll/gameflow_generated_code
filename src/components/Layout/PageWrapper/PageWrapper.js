@@ -1,4 +1,4 @@
-import { Keyboard, TouchableOpacity, View } from 'react-native'
+import { Keyboard, ScrollView, TouchableOpacity, View } from 'react-native'
 
 import { Avatar } from '~/components'
 import Icon from 'react-native-vector-icons/MaterialIcons'
@@ -26,7 +26,8 @@ const PageWrapper = (props) => {
     userAvatarUrl,
     rightButtonText,
     leftButtonText,
-    bgColor
+    bgColor,
+    isContentScrollable
   } = props
 
   // [ADDITIONAL_HOOKS]
@@ -103,7 +104,15 @@ const PageWrapper = (props) => {
           />
         )}
       </View>
-      {children}
+      {isContentScrollable ? (
+        <ScrollView
+          style={theme.COMPONENTS.CONTAINER.scrollWrapper}
+          contentContainerStyle={theme.COMPONENTS.CONTAINER.scrollContent}>
+          {children}
+        </ScrollView>
+      ) : (
+        children
+      )}
     </TouchableOpacity>
   )
 }

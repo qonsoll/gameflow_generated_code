@@ -1,16 +1,14 @@
 import { Avatar, PageWrapper } from '~/components'
-import { Container, Divider, FormControl } from 'native-base'
+import { Container, Divider, FormControl, Text } from 'native-base'
 import React, { useState } from 'react'
 import { TouchableOpacity, UIManager, View } from 'react-native'
 import { useUserContext, useUserDispatch } from '~/contexts'
 
 import { Input } from '~/components/Form'
 import { MenuList } from '~/components'
-import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
 import firestore from '@react-native-firebase/firestore'
 import { isIOS } from '../../__constants__'
-import theme from '../../../theme'
 import { uploadPhoto } from '~/helpers'
 import { useNavigation } from '@react-navigation/native'
 import { useTranslations } from '@qonsoll/translation'
@@ -42,7 +40,6 @@ const ProfileScreen = () => {
   const MENU_ACTIONS = [
     {
       text: t('Change Number'),
-      arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
       action: () => {},
       isArrowShow: true,
       textColor: 'grey-4',
@@ -50,7 +47,6 @@ const ProfileScreen = () => {
     },
     {
       text: t('Email'),
-      arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
       action: () => {},
       isArrowShow: true,
       textColor: 'grey-4',
@@ -66,12 +62,16 @@ const ProfileScreen = () => {
     // Checking is avatar changed and exist
     if (userData?.avatarUrl && userData?.avatarUrl !== avatarUrl) {
       // Upload new avatar to storage and getting url
-      url = await uploadPhoto({ userData, _id })
+      url = await uploadPhoto({ path: userData.avatarUrl, _id })
     }
 
     const data = {
-      ...userData,
       avatarUrl: url,
+      bio: userData?.bio ?? null,
+      lastName: userData?.lastName ?? null,
+      firstName: userData?.firstName ?? null,
+      phone: userData?.phone ?? null,
+      email: userData?.email ?? null,
       _updatedAt: firestore.FieldValue.serverTimestamp(),
       _isUpdated: true,
       _updatedBy: _id
@@ -88,20 +88,23 @@ const ProfileScreen = () => {
     navigation.goBack()
   }
 
+  const exampleText = t('Example: 23 yo designer from San Francisco').replace(
+    ' yo ',
+    ' y.o. '
+  )
+
   return (
     <PageWrapper
       withLogo={false}
       rightButtonText={t('Done')}
-      rightButtonAction={() => {}}
+      rightButtonAction={onSave}
       leftButtonText={t('Cancel')}
       leftButtonAction={navigation.goBack}>
       <Avatar
         size={100}
         isEditable
         url={userData?.avatarUrl}
-        onChange={(url) => {
-          onUserDataChange({ avatarUrl: url })
-        }}
+        onChange={(url) => onUserDataChange({ avatarUrl: url })}
       />
       <Container>
         <View style={styles.formContainer}>
@@ -109,7 +112,7 @@ const ProfileScreen = () => {
             <Input
               variant="unstyled"
               value={userData.firstName}
-              onChangeText={(text) => onUserDataChange({ firstName: text })}
+              onChange={(text) => onUserDataChange({ firstName: text })}
               placeholder={t('First Name')}
             />
           </FormControl>
@@ -118,13 +121,13 @@ const ProfileScreen = () => {
             <Input
               variant="unstyled"
               value={userData.lastName}
-              onChangeText={(text) => onUserDataChange({ lastName: text })}
+              onChange={(text) => onUserDataChange({ lastName: text })}
               placeholder={t('Last Name')}
             />
           </FormControl>
         </View>
 
-        <Text styleOverride={styles.description} color="grey-6" mx={4} mb={36}>
+        <Text variant="caption1" color="text-caption-color" mx={4} mb={36}>
           {t('Enter your name and add an optional profile photo')}.
         </Text>
 
@@ -133,17 +136,17 @@ const ProfileScreen = () => {
             <Input
               variant="unstyled"
               value={userData.bio}
-              onChangeText={(text) => onUserDataChange({ bio: text })}
+              onChange={(text) => onUserDataChange({ bio: text })}
               placeholder={t('Bio')}
             />
           </FormControl>
         </View>
 
-        <Text styleOverride={styles.description} color="grey-6" mx={4}>
+        <Text variant="caption1" color="text-caption-color" mx={4}>
           {t('Any details such as age, occupation or city')}.
         </Text>
-        <Text styleOverride={styles.description} color="grey-6" mx={4} mb={36}>
-          Example: 23 y.o. designer from San Francisco.
+        <Text variant="caption1" color="text-caption-color" mx={4} mb={36}>
+          {exampleText}.
         </Text>
 
         <View style={styles.itemContainer}>
@@ -151,9 +154,7 @@ const ProfileScreen = () => {
         </View>
 
         <TouchableOpacity style={styles.button}>
-          <Text variant="body1" color="danger-default">
-            {t('Delete account')}
-          </Text>
+          <Text color="danger-default">{t('Delete account')}</Text>
         </TouchableOpacity>
       </Container>
     </PageWrapper>

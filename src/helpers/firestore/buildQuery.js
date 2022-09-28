@@ -4,9 +4,8 @@
  * @param options - {
  * @returns A function that takes in a query and options and returns a query.
  */
-const buildQuery = (query, options) => {
+const buildQuery = (query, options = {}) => {
   const {
-    ref,
     where,
     orderBy,
     limit,
@@ -14,8 +13,7 @@ const buildQuery = (query, options) => {
     startAt,
     endAt,
     startAfter,
-    endBefore,
-    ...rest
+    endBefore
   } = options
 
   if (Array.isArray(where) && where.length) {
@@ -51,10 +49,6 @@ const buildQuery = (query, options) => {
 
   if (endBefore) {
     query = query.endBefore(...endBefore)
-  }
-
-  if (Object.keys(rest).length) {
-    throw new Error('Unsupported options')
   }
 
   return query

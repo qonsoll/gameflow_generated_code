@@ -34,7 +34,7 @@ const useStyles = (error) => {
   return {
     errorText: {
       opacity,
-      color: theme.CORE.COLORS['danger-lighten-1'],
+      color: theme.COLORS['danger-lighten-1'],
       transform: [{ translateY }],
       lineHeight: 12,
       fontSize: 12
@@ -45,12 +45,12 @@ const useStyles = (error) => {
       marginRight: 6
     },
     error: {
-      backgroundColor: theme.CORE.COLORS['danger-lighten-5'],
+      backgroundColor: theme.COLORS['danger-lighten-5'],
       paddingHorizontal: 10,
       paddingVertical: 4,
       marginTop: 2,
       marginBottom: 4,
-      borderRadius: theme.CORE.BORDER_RADIUSES.sm,
+      borderRadius: theme.BORDER_RADIUSES.sm,
       fontWeight: 'semibold',
       display: 'flex',
       flexDirection: 'row',

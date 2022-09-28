@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { isIOS } from '~/__constants__'
-import theme from '../../../../theme'
+import { theme } from '~/styles'
 
 const dynamicStyles = ({
   logoColor,
@@ -13,7 +13,7 @@ const dynamicStyles = ({
     container: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: bgColor || theme.CORE.COLORS['page-wrapper-background']
+      backgroundColor: bgColor || theme.COLORS['page-wrapper-background']
     },
     headerContainer: {
       width: '100%',
@@ -22,11 +22,6 @@ const dynamicStyles = ({
       justifyContent: 'flex-end',
       paddingTop: isIOS ? 40 : 0,
       height: isIOS ? 88 : 48
-    },
-    logo: {
-      width: 128,
-      height: 48,
-      tintColor: logoColor || theme.CORE.COLORS.black
     },
     title: {
       height: 52,
@@ -45,7 +40,7 @@ const dynamicStyles = ({
     leftIcon: {
       width: 32,
       height: 32,
-      tintColor: leftIconColor || theme.CORE.COLORS['primary-default']
+      tintColor: leftIconColor || theme.COLORS['primary-default']
     },
     rightButton: {
       height: isIOS ? 52 : 44,
@@ -60,22 +55,25 @@ const dynamicStyles = ({
     rightIcon: {
       width: 32,
       height: 32,
-      tintColor: rightIconColor || theme.CORE.COLORS['primary-default']
+      tintColor: rightIconColor || theme.COLORS['primary-default']
     },
     language: {
       position: 'absolute',
       right: 24,
       top: 18,
-      backgroundColor: theme.CORE.COLORS['grey-10'],
+      backgroundColor: theme.COLORS['grey-10'],
       height: 40,
       width: 40,
       borderRadius: 8,
       justifyContent: 'center',
       alignItems: 'center',
-      ...theme.CORE.SHADOWS.xs,
+      ...theme.SHADOWS.xs,
       shadowOffset: { width: 0, height: 0 },
       zIndex: 4
-    }
+    },
+    scrollView: theme.COMPONENTS.Container.scrollWrapper,
+    scrollViewContent: theme.COMPONENTS.Container.scrollContent,
+    avatarContainer: { position: 'absolute', right: 24, top: 24 }
   })
 }
 

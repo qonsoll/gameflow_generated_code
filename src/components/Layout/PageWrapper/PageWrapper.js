@@ -1,15 +1,34 @@
 import { Keyboard, ScrollView, TouchableOpacity, View } from 'react-native'
 
 import { Avatar } from '~/components'
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import Language from '../../Language/Language'
+import { Heading } from 'native-base'
+import { Language } from '../../Lib'
 import Logo from '../Logo'
+import { NavigationAction } from './components'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Text } from '@qonsoll/react-native-design'
 import dynamicStyles from './styles'
-import theme from '../../../../theme'
 
+/**
+ * It renders a page with a header, a body, and a footer
+ * @param leftButtonIcon - Icon name for the left button
+ * @param leftButtonAction - function
+ * @param rightButtonIcon - string
+ * @param rightButtonAction - function
+ * @param leftIconColor - color of the left icon
+ * @param rightIconColor - color of the right icon
+ * @param logoColor - color of the logo
+ * @param children - the content of the page
+ * @param withLanguage - boolean
+ * @param [withLogo=true] - boolean - whether to show the logo or not
+ * @param title - string
+ * @param userAvatarUrl - string
+ * @param rightButtonText - string
+ * @param leftButtonText - Text to be displayed on the left button
+ * @param bgColor - background color of the page
+ * @param isContentScrollable - boolean
+ * @returns A function that takes in props and returns a TouchableOpacity component.
+ */
 const PageWrapper = (props) => {
   const {
     leftButtonIcon,
@@ -48,57 +67,34 @@ const PageWrapper = (props) => {
       <View style={styles.headerContainer}>
         {title ? (
           <View style={styles.title}>
-            <Text variant="h4">{title}</Text>
+            <Heading>{title}</Heading>
           </View>
         ) : (
-          withLogo && <Logo style={styles.logo} />
+          withLogo && <Logo />
         )}
 
         {(!!leftButtonIcon || !!leftButtonText) && (
-          <TouchableOpacity
-            onPress={leftButtonAction}
-            style={styles.leftButton}>
-            {!!leftButtonIcon && (
-              <Icon
-                name={leftButtonIcon}
-                size={24}
-                color={theme.CORE.COLORS['primary-default']}
-              />
-            )}
-            {!!leftButtonText && (
-              <Text
-                color="primary-default"
-                styleOverride={theme.CORE.FONTS.body}>
-                {leftButtonText}
-              </Text>
-            )}
-          </TouchableOpacity>
+          <NavigationAction
+            style={styles.leftButton}
+            leftIcon={leftButtonIcon}
+            action={leftButtonAction}
+            leftIconColor={leftIconColor}
+            text={leftButtonText}
+          />
         )}
         {withLanguage && <Language style={styles.language} />}
         {(!!rightButtonIcon || !!rightButtonText) && (
-          <TouchableOpacity
-            onPress={rightButtonAction}
-            style={styles.rightButton}>
-            {!!rightButtonText && (
-              <Text
-                styleOverride={theme.CORE.FONTS.body}
-                fontWeight="medium"
-                color="primary-default">
-                {rightButtonText}
-              </Text>
-            )}
-            {!!rightButtonIcon && (
-              <Icon
-                name={rightButtonIcon}
-                size={24}
-                color={theme.CORE.COLORS['primary-default']}
-              />
-            )}
-          </TouchableOpacity>
+          <NavigationAction
+            style={styles.rightButton}
+            leftIcon={rightButtonIcon}
+            action={rightButtonAction}
+            leftIconColor={rightIconColor}
+            text={rightButtonText}
+          />
         )}
         {userAvatarUrl && (
           <Avatar
-            avatarContainerStyle={{ position: 'absolute', right: 24, top: 24 }}
+            avatarContainerStyle={styles.avatarContainer}
             size={36}
             url={userAvatarUrl}
           />
@@ -106,8 +102,8 @@ const PageWrapper = (props) => {
       </View>
       {isContentScrollable ? (
         <ScrollView
-          style={theme.COMPONENTS.CONTAINER.scrollWrapper}
-          contentContainerStyle={theme.COMPONENTS.CONTAINER.scrollContent}>
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollViewContent}>
           {children}
         </ScrollView>
       ) : (

@@ -1,13 +1,2 @@
 export * from './Lib'
 export * from './Layout'
-
-export { default as CustomBottomTabs } from './CustomBottomTabs/CustomBottomTabs'
-export { default as ScreenLoading } from './ScreenLoading'
-export { default as Avatar } from './Avatar'
-export { default as Onboarding } from './Onboarding'
-export { default as Language } from './Language'
-export { default as SwipeableCard } from './SwipeableCard'
-export { default as MenuList } from './MenuList'
-export { default as Button } from './Button'
-export { default as Loading } from './Loading'
-export { default as Empty } from './Empty'

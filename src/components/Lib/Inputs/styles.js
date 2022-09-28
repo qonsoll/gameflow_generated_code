@@ -1,7 +1,7 @@
 import { Animated, StyleSheet } from 'react-native'
 import { useEffect, useRef } from 'react'
 
-import theme from '../../../../theme'
+import { theme } from '~/styles'
 
 const dynamicStyles = (props) => {
   return StyleSheet.create({
@@ -12,18 +12,20 @@ const dynamicStyles = (props) => {
       paddingVertical: 6,
       borderWidth: 1,
       backgroundColor: props.disabled
-        ? theme.CORE.COLORS['input-background-disabled']
-        : theme.CORE.COLORS['input-background'],
-      borderRadius: theme.CORE.BORDER_RADIUSES.md,
+        ? theme.COLORS['input-background-disabled']
+        : theme.COLORS['input-background'],
+      borderRadius: theme.BORDER_RADIUSES.md,
       paddingRight: props.iconRight || props.imageRight ? 10 : 30
     },
     input: {
       fontSize: 16,
       flex: 1,
       color: props.disabled
-        ? theme.CORE.COLORS['grey-t-8']
-        : theme.CORE.COLORS['grey-t-4']
-    }
+        ? theme.COLORS['input-placeholder-color']
+        : theme.COLORS['input-color'],
+      paddingHorizontal: 12
+    },
+    placeholderColor: theme.COLORS['input-placeholder-color']
   })
 }
 const useStyles = ({ error, disabled }) => {
@@ -33,9 +35,9 @@ const useStyles = ({ error, disabled }) => {
     inputRange: [0, 1],
     outputRange: [
       disabled
-        ? theme.CORE.COLORS['input-border-color-disabled']
-        : theme.CORE.COLORS['input-border-color'],
-      theme.CORE.COLORS['danger-default']
+        ? theme.COLORS['input-border-color-disabled']
+        : theme.COLORS['input-border-color'],
+      theme.COLORS['danger-default']
     ]
   })
   useEffect(() => {

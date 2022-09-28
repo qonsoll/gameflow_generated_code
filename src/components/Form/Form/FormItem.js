@@ -1,23 +1,28 @@
 import React, {
   cloneElement,
-  useEffect,
+  forwardRef,
   memo,
-  useState,
-  forwardRef
+  useEffect,
+  useState
 } from 'react'
-import { Animated } from 'react-native'
-import PropTypes from 'prop-types'
 import { useController, useFormContext } from 'react-hook-form'
-import { Box, Text } from '@qonsoll/react-native-design'
-import useStyles from './styles'
 
-const MARGINS = {
-  sm: 12,
-  md: 20
-}
+import { Box } from '@qonsoll/react-native-design'
+/* eslint-disable react-hooks/exhaustive-deps */
+import PropTypes from 'prop-types'
+import { Text } from 'native-base'
+
+const MARGINS = { sm: 12, md: 20 }
 
 const FromItem = (props) => {
-  const { children, initialValue, label, margins = 'md', ...rest } = props
+  const {
+    children,
+    initialValue,
+    label,
+    labelColor,
+    margins = 'md',
+    ...rest
+  } = props
 
   // [ADDITIONAL_HOOKS]
   const { control, setFieldsValue } = useFormContext()
@@ -25,8 +30,6 @@ const FromItem = (props) => {
     field: { onChange, onBlur, value, name, ref },
     fieldState: { error }
   } = useController({ control, defaultValue: initialValue, ...rest })
-
-  const styles = useStyles(!!error?.message)
 
   // [COMPONENT_STATE_HOOKS]
   const [animatedError, setAnimatedError] = useState(error?.message)
@@ -57,9 +60,12 @@ const FromItem = (props) => {
 
   return (
     <Box mb={animatedError && MARGINS[margins]}>
-      {label && <Text mb={10}>{label}</Text>}
+      {label && (
+        <Text color={labelColor} mb="10px">
+          {label}
+        </Text>
+      )}
       <FormItemChildren {...childrenProps}>{children}</FormItemChildren>
-
       {/* <Animated.Text style={styles.errorText}>{animatedError}</Animated.Text> */}
     </Box>
   )

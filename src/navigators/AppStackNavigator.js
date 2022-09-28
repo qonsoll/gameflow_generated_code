@@ -1,22 +1,16 @@
 import { BOTTOM_TAB_NAVIGATOR } from '../__constants__/navigators'
 import BottomTabNavigator from './BottomTabNavigator'
+import { IMAGE_UPLOAD_SCREEN } from '../__constants__/screens'
+import ImageUploadScreen from '../screens/ImageUpload'
 import React from 'react'
-import { StatusBar } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { isIOS } from '../__constants__'
-import theme from '../../theme'
 import { useStatusBarColor } from '../hooks'
 
 const Stack = createStackNavigator()
 
 const AppStackNavigator = () => {
-  const [statusBarColor] = useStatusBarColor()
-
-  if (statusBarColor) {
-    isIOS
-      ? StatusBar.setBarStyle(statusBarColor, true)
-      : StatusBar.setBackgroundColor(theme.CORE.COLORS['primary-default'], true)
-  }
+  /* A hook that controls the status bar color and bg on android for different screens. */
+  useStatusBarColor()
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -24,6 +18,7 @@ const AppStackNavigator = () => {
         name={BOTTOM_TAB_NAVIGATOR}
         component={BottomTabNavigator}
       />
+      <Stack.Screen name={IMAGE_UPLOAD_SCREEN} component={ImageUploadScreen} />
     </Stack.Navigator>
   )
 }

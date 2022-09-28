@@ -1,5 +1,5 @@
 import Back from '../Back'
-import Language from '../../Language'
+import { Language } from '../../Lib'
 import Logo from '../Logo'
 import React from 'react'
 import { View } from 'react-native'

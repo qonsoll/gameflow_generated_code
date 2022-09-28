@@ -1,12 +1,12 @@
+import { Divider, Text } from 'native-base'
 import { LANGUAGES, LANGUAGES_DESCRIPTION } from '~/__constants__'
-import { Text, TouchableOpacity, View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 
-import { Divider } from 'native-base'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './LanguageSimpleView.styles'
-import theme from '../../../../../theme'
+import { theme } from '~/styles'
 import { useTranslations } from '@qonsoll/translation'
 
 const LanguageSimpleView = (props) => {
@@ -34,11 +34,8 @@ const LanguageSimpleView = (props) => {
             alignItems: 'center'
           }}>
           <View>
-            <Text style={{ ...theme.CORE.FONTS.body }}>
-              {LANGUAGES[language]}
-            </Text>
-
-            <Text style={{ ...theme.CORE.FONTS.footnote }} numberOfLines={2}>
+            <Text>{LANGUAGES[language]}</Text>
+            <Text variant="caption" numberOfLines={2}>
               {LANGUAGES_DESCRIPTION[language]}
             </Text>
           </View>
@@ -46,7 +43,7 @@ const LanguageSimpleView = (props) => {
             <Icon
               name="check"
               size={18}
-              color={theme.CORE.COLORS['primary-default']}
+              color={theme.COLORS['primary-default']}
             />
           )}
         </View>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Text } from '@qonsoll/react-native-design'
 import { TouchableOpacity } from 'react-native'
 import moment from 'moment'
-import theme from '../../../../theme'
+import { theme } from '~/styles'
 
 const DatePicker = (props) => {
   const {
@@ -50,7 +50,7 @@ const DatePicker = (props) => {
         open={open}
         androidVariant="iosClone"
         date={date}
-        textColor={theme.CORE.COLORS.black}
+        textColor={theme.COLORS.black}
         onConfirm={handleConfirm}
         onCancel={handleCancel}
       />

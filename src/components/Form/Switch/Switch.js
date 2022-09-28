@@ -1,14 +1,14 @@
 import { Switch as NativeBaseSwitch } from 'native-base'
 import PropTypes from 'prop-types'
 import React from 'react'
-import theme from '../../../../theme'
+import { theme } from '~/styles'
 
 const Switch = (props) => {
   const { value, onChange, ...rest } = props
 
   return (
     <NativeBaseSwitch
-      onTrackColor={theme.CORE.COLORS['primary-default']}
+      onTrackColor={theme.COLORS['primary-default']}
       onValueChange={onChange}
       isChecked={value}
       {...rest}

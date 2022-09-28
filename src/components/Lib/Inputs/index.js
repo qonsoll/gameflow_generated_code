@@ -1,10 +1,11 @@
+import { Animated, Pressable, TextInput } from 'react-native'
 import React, { forwardRef, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
-import { TextInput, Animated, Pressable } from 'react-native'
-import { useTheme } from '@qonsoll/react-native-design'
-import PasswordInput from './PasswordInput'
 import dynamicStyles, { useStyles } from './styles'
+
 import Icon from 'react-native-vector-icons/Feather'
+import PasswordInput from './PasswordInput'
+import PropTypes from 'prop-types'
+import { useTheme } from '@qonsoll/react-native-design'
 
 const Input = forwardRef((props, ref) => {
   const {
@@ -45,18 +46,15 @@ const Input = forwardRef((props, ref) => {
           onEndEditing={() => setIsFocused(false)}
           ref={ref || inputRef}
           onChangeText={onChange}
-          selectionColor={theme.CORE.COLORS['primary-lighten-1']}
+          selectionColor={theme.COLORS['primary-lighten-1']}
           style={[styles.input, style?.input]}
+          placeholderTextColor={styles.placeholderColor}
           {...rest}
         />
         {!!imageRight && imageRight}
         {focused && (
           <Pressable>
-            <Icon
-              name="x-circle"
-              size={16}
-              color={theme.CORE.COLORS['grey-t-5']}
-            />
+            <Icon name="x-circle" size={16} color={styles.input.color} />
           </Pressable>
         )}
       </Animated.View>

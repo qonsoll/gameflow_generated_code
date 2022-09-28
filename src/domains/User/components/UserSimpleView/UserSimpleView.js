@@ -1,4 +1,5 @@
 import { Avatar } from '~/components'
+import { Heading } from 'native-base'
 import React from 'react'
 import { Text } from '@qonsoll/react-native-design'
 import { View } from 'react-native'
@@ -15,11 +16,11 @@ const UserSimpleView = () => {
         <Avatar size={100} url={avatarUrl} />
       </View>
       <View style={styles.nameContainer}>
-        <Text numberOfLines={1} variant="h2" fontWeight="semibold">
+        <Heading numberOfLines={1} variant="h2" fontWeight="semibold">
           {firstName} {lastName}
-        </Text>
+        </Heading>
 
-        <Text numberOfLines={1} variant="body1" color="grey-6">
+        <Text numberOfLines={1} color="text-caption-color">
           + {phone} ‧ {email}
         </Text>
       </View>

@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native'
-import theme from '../../../../theme'
+import { theme } from '~/styles'
 
 const dynamicStyles = (title, imageUri) => {
   const imageSize = 50
   const imageMargin = 8
 
-  const containerWidth = theme.COMPONENTS.CONTAINER.maxWidth
-  const iconSize = theme.COMPONENTS.ICON.iconSizes.sm
+  const containerWidth = theme.COMPONENTS.Container.maxWidth
+  const iconSize = theme.COMPONENTS.Icon.iconSizes.sm
   const titleWidth = containerWidth - iconSize
   const isTitleToBig = title?.length > 30 || containerWidth < 200
   const descriptionMaxWidth = imageUri
@@ -18,13 +18,13 @@ const dynamicStyles = (title, imageUri) => {
       height: imageSize,
       width: imageSize,
       marginRight: imageMargin,
-      borderRadius: theme.CORE.BORDER_RADIUSES.sm
+      borderRadius: theme.BORDER_RADIUSES.sm
     },
     description: { maxWidth: descriptionMaxWidth },
     title: { isToBig: isTitleToBig, width: titleWidth },
     icon: {
       size: iconSize,
-      color: theme.COMPONENTS.ICON.variants.grey.backgroundColor
+      color: theme.COLORS['text-caption-color']
     },
     container: { maxWidth: containerWidth }
   })

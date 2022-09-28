@@ -1,6 +1,7 @@
-import { useTheme } from '@qonsoll/react-native-design'
 import { useEffect, useRef } from 'react'
+
 import { Animated } from 'react-native'
+import { useTheme } from '@qonsoll/react-native-design'
 
 const useStyles = (error) => {
   // [ADDITIONAL_HOOKS]
@@ -32,7 +33,7 @@ const useStyles = (error) => {
   return {
     errorText: {
       opacity,
-      color: theme.CORE.COLORS['danger-default'],
+      color: theme.COLORS['danger-default'],
       transform: [{ translateY }]
     }
   }

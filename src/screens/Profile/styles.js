@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import theme from '../../../theme'
+import { theme } from '~/styles'
 
 const dynamicStyles = ({} = {}) => {
   return StyleSheet.create({
@@ -7,13 +7,13 @@ const dynamicStyles = ({} = {}) => {
     checkMarkStyles: { width: 28, height: 28 },
     phoneInput: {
       height: 50,
-      backgroundColor: theme.CORE.COLORS['input-background'],
+      backgroundColor: theme.COLORS['input-background'],
       fontSize: 16,
       borderWidth: 1,
-      borderRadius: theme.CORE.BORDER_RADIUSES.md,
+      borderRadius: theme.BORDER_RADIUSES.md,
       flex: 1,
-      color: theme.CORE.COLORS['grey-t-4'],
-      borderColor: theme.CORE.COLORS['input-border-color'],
+      color: theme.COLORS['grey-t-4'],
+      borderColor: theme.COLORS['input-border-color'],
       paddingVertical: 12,
       paddingHorizontal: 10,
       marginBottom: 32
@@ -33,17 +33,17 @@ const dynamicStyles = ({} = {}) => {
     textStyle: {
       fontSize: 16,
       flex: 1,
-      color: theme.CORE.COLORS['grey-t-4']
+      color: theme.COLORS['grey-t-4']
     },
     itemContainer: {
       marginBottom: 36,
       width: '100%',
-      backgroundColor: theme.COMPONENTS.CARD.backgroundColor,
-      borderRadius: theme.COMPONENTS.CARD.borderRadiuses.sm
+      backgroundColor: theme.COMPONENTS.Card.backgroundColor,
+      borderRadius: theme.COMPONENTS.Card.borderRadiuses.sm
     },
     formContainer: {
       width: '100%',
-      backgroundColor: 'white',
+      backgroundColor: theme.COLORS['card-background'],
       borderRadius: 10,
       justifyContent: 'center',
       marginBottom: 4,
@@ -52,15 +52,15 @@ const dynamicStyles = ({} = {}) => {
       overflow: 'hidden'
     },
     input: {
-      fontFamily: theme.CORE.FONT_FAMILIES.body,
-      fontSize: theme.CORE.FONT_SIZES.body
+      fontFamily: theme.FONT_FAMILIES.body,
+      fontSize: theme.FONT_SIZES.body
     },
     description: {
-      fontSize: theme.CORE.FONT_SIZES.footnote,
-      lineHeight: theme.CORE.LINE_HEIGHTS.footnote
+      fontSize: theme.FONT_SIZES.footnote,
+      lineHeight: theme.LINE_HEIGHTS.footnote
     },
     button: {
-      backgroundColor: theme.CORE.COLORS.white,
+      backgroundColor: theme.COLORS.white,
       borderRadius: 10,
       height: 48,
       justifyContent: 'center',
@@ -69,7 +69,7 @@ const dynamicStyles = ({} = {}) => {
     },
     icon: { textAlign: 'center' },
     iconWrapper: {
-      backgroundColor: theme.CORE.COLORS['grey-7'],
+      backgroundColor: theme.COLORS['grey-7'],
       borderRadius: 10,
       width: 16,
       height: 16,

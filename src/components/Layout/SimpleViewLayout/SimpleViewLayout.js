@@ -1,10 +1,11 @@
-import { Center, Container, HStack, Heading, Text } from 'native-base'
+import { Container, Heading, Text, View } from 'native-base'
 import React, { memo } from 'react'
 
 import FastImage from 'react-native-fast-image'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import PropTypes from 'prop-types'
 import dynamicStyles from './SimpleViewLayout.styles'
+import { theme } from '~/styles'
 
 /**
  * It takes in a title, date, and description, and returns a Flex component with a title, date, and
@@ -22,36 +23,46 @@ const SimpleViewLayout = (props) => {
   const styles = dynamicStyles(title, imageUri)
 
   return (
-    <Center>
-      <Container minH={12}>
-        <HStack justifyContent="space-between" alignItems="center" mt={2}>
-          <HStack justifyContent="space-between" w={styles.title.width}>
-            <Heading size="sm">{title}</Heading>
-            {!styles.title.isToBig && date && (
-              <Text color="gray.500">{date}</Text>
-            )}
-          </HStack>
-          <Icon
-            name="chevron-right"
-            size={styles.icon.size}
-            color={styles.icon.color}
-          />
-        </HStack>
-        <HStack alignItems="center" mb={2}>
-          {imageUri && (
-            <FastImage source={{ uri: imageUri }} style={styles.image} />
-          )}
-          {description && (
-            <Text
-              maxW={styles.description.maxWidth}
-              numberOfLines={2}
-              color="gray.500">
-              {description}
+    <Container minH={12}>
+      <View
+        justifyContent="space-between"
+        flexDirection="row"
+        alignItems="center"
+        mt={2}>
+        <View
+          justifyContent="space-between"
+          alignItems="center"
+          flexDirection="row"
+          w={styles.title.width}>
+          <Heading size="sm" color={theme.COMPONENTS.Typography.color}>
+            {title}
+          </Heading>
+          {!styles.title.isToBig && date && (
+            <Text color="text-caption-color" variant="caption1">
+              {date}
             </Text>
           )}
-        </HStack>
-      </Container>
-    </Center>
+        </View>
+        <Icon
+          name="chevron-right"
+          size={styles.icon.size}
+          color={styles.icon.color}
+        />
+      </View>
+      <View alignItems="center" mb={2}>
+        {imageUri && (
+          <FastImage source={{ uri: imageUri }} style={styles.image} />
+        )}
+        {description && (
+          <Text
+            maxW={styles.description.maxWidth}
+            numberOfLines={2}
+            color="text-caption-color">
+            {description}
+          </Text>
+        )}
+      </View>
+    </Container>
   )
 }
 

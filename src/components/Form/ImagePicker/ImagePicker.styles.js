@@ -1,27 +1,24 @@
 import { StyleSheet } from 'react-native'
-import theme from '../../../../theme'
+import { theme } from '~/styles'
 
 const dynamicStyles = (size) => {
   return StyleSheet.create({
     fastImage: {
       width: size || 130,
       height: size || 130,
-      borderRadius: theme.CORE.BORDER_RADIUSES.sm
+      borderRadius: theme.BORDER_RADIUSES.sm
     },
     defaultAvatarContainer: {
-      borderRadius: theme.CORE.BORDER_RADIUSES.sm,
-      backgroundColor: theme.CORE.COLORS.white,
+      borderRadius: theme.BORDER_RADIUSES.sm,
+      backgroundColor: theme.COLORS.white,
       height: size || 130,
       width: size || 130,
       alignItems: 'center',
-      justifyContent: 'flex-end'
+      justifyContent: 'center'
     },
-    defaultAvatar: {
-      height: size / 1.35 || 96,
-      width: size / 2.16 || 60
-    },
+    defaultAvatar: {},
     avatarContainer: { marginBottom: 12 },
-    wrapper: { marginLeft: 12 }
+    wrapper: { alignItems: 'center' }
   })
 }
 

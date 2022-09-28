@@ -1,0 +1,2 @@
+import SimpleViewLayoutSecondary from './SimpleViewLayoutSecondary'
+export default SimpleViewLayoutSecondary

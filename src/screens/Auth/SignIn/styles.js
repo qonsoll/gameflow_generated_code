@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native'
 
-import theme from '../../../../theme'
+import { theme } from '~/styles'
 
 const { width, height } = Dimensions.get('screen')
 
@@ -58,12 +58,12 @@ const dynamicStyles = () => {
     leftDivider: {
       flex: 1,
       borderBottomWidth: 1,
-      borderColor: theme.CORE.COLORS['white-t-lighten1']
+      borderColor: theme.COLORS['white-t-lighten1']
     },
     rightDivider: {
       flex: 1,
       borderBottomWidth: 1,
-      borderColor: theme.CORE.COLORS['white-t-lighten1']
+      borderColor: theme.COLORS['white-t-lighten1']
     },
     emailButton: {
       justifyContent: 'center',

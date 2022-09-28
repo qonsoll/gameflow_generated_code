@@ -15,18 +15,14 @@ import { useOnboarding, useStatusBarColor } from '../hooks'
 import { ONBOARDING_NAVIGATOR } from '../__constants__/navigators'
 import OnboardingStackNavigator from './OnboardingStackNavigator'
 import React from 'react'
-import { StatusBar } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 const Stack = createStackNavigator()
 
 const AuthStackNavigator = () => {
   const [isOnboardingShoved] = useOnboarding()
-  const [statusBarColor] = useStatusBarColor()
-
-  if (statusBarColor) {
-    StatusBar.setBarStyle(statusBarColor, true)
-  }
+  /* A hook that controls the status bar color and bg on android for different screens. */
+  useStatusBarColor()
 
   return (
     <Stack.Navigator

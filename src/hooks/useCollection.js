@@ -1,6 +1,7 @@
-import firestore from '@react-native-firebase/firestore'
 import { useEffect, useState } from 'react'
+
 import { buildQuery } from '../helpers'
+import firestore from '@react-native-firebase/firestore'
 
 const useCollection = (props) => {
   const { ref = '' } = props

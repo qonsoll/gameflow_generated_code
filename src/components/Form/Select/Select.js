@@ -3,10 +3,18 @@ import { Select as NativeBaseSelect } from 'native-base'
 import PropTypes from 'prop-types'
 
 const Select = (props) => {
-  const { children, value, onChange, ...rest } = props
+  const { children, value, onChange, placeholder, ...rest } = props
 
   return (
-    <NativeBaseSelect {...rest} selectedValue={value} onValueChange={onChange}>
+    <NativeBaseSelect
+      minWidth="100%"
+      maxHeight="8"
+      marginLeft={-1}
+      {...rest}
+      selectedValue={value}
+      onValueChange={onChange}
+      accessibilityLabel={placeholder}
+      placeholder={placeholder}>
       {children}
     </NativeBaseSelect>
   )

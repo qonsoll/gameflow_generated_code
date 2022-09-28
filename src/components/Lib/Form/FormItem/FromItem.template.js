@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Animated, View } from 'react-native'
 import { Box, Text } from '@qonsoll/react-native-design'
 import React, {
@@ -60,7 +61,6 @@ const FromItem = (props) => {
   // [USE_EFFECTS]
   useEffect(() => {
     initialValue && setFieldsValue({ [name]: initialValue })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -72,7 +72,6 @@ const FromItem = (props) => {
       onError?.(error)
       setAnimatedError(error?.message)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error])
 
   return (

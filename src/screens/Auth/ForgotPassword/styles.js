@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native'
 
-import theme from '../../../../theme'
+import { theme } from '~/styles'
 
 const { width, height } = Dimensions.get('screen')
 
@@ -20,11 +20,11 @@ const dynamicStyles = () => {
     logo: {
       width: 120,
       height: 86,
-      tintColor: theme.CORE.COLORS.white,
+      tintColor: theme.COLORS.white,
       marginTop: 8
     },
     headerButtonsContainer: {
-      backgroundColor: theme.CORE.COLORS['primary-default'],
+      backgroundColor: theme.COLORS['primary-default'],
       position: 'absolute',
       height: 20,
       width: width,
@@ -34,7 +34,7 @@ const dynamicStyles = () => {
     icon: {
       width: 32,
       height: 32,
-      tintColor: theme.CORE.COLORS.white
+      tintColor: theme.COLORS.white
     },
     keyboard: {
       justifyContent: 'center',

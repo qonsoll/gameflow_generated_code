@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native'
 
-import theme from '../../../theme'
+import { theme } from '~/styles'
 
 const WINDOW_HEIGHT = Dimensions.get('window').height
 
@@ -19,7 +19,7 @@ const dynamicStyles = () => {
       justifyContent: 'center',
       width: 230,
       borderRadius: 8,
-      backgroundColor: theme.CORE.COLORS['primary-default'],
+      backgroundColor: theme.COLORS['primary-default'],
       shadowColor: '#000',
       shadowOffset: {
         width: 4,

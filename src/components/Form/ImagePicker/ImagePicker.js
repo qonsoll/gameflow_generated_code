@@ -1,15 +1,15 @@
-import { Image, TouchableOpacity, View } from 'react-native'
-import React, { Fragment, useRef } from 'react'
-import { Text } from '@qonsoll/react-native-design'
+import React, { useRef } from 'react'
+import { TouchableOpacity, View } from 'react-native'
 
 import ActionSheet from 'react-native-actionsheet'
-import FastImage from 'react-native-fast-image'
-import PropTypes from 'prop-types'
-import { UserIcon } from '~/__constants__/assets'
-import dynamicStyles from './ImagePicker.styles'
-import { useTranslations } from '@qonsoll/translation'
-import { useImagePickerActions } from './hooks'
 import { Container } from 'native-base'
+import FastImage from 'react-native-fast-image'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import PropTypes from 'prop-types'
+import { Text } from '@qonsoll/react-native-design'
+import dynamicStyles from './ImagePicker.styles'
+import { useImagePickerActions } from './hooks'
+import { useTranslations } from '@qonsoll/translation'
 
 const ImagePicker = (props) => {
   const {
@@ -18,7 +18,8 @@ const ImagePicker = (props) => {
     onChange,
     isEditable = true,
     cropping,
-    avatarContainerStyle
+    avatarContainerStyle,
+    color
   } = props
 
   // [ADDITIONAL_HOOKS]
@@ -50,7 +51,12 @@ const ImagePicker = (props) => {
           <FastImage style={styles.fastImage} source={{ uri: value }} />
         ) : (
           <View style={styles.defaultAvatarContainer}>
-            <Image style={styles.defaultAvatar} source={UserIcon} />
+            <Icon
+              name="image"
+              color={color}
+              size={size}
+              style={styles.defaultAvatar}
+            />
           </View>
         )}
       </TouchableOpacity>

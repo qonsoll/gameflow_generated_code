@@ -1,22 +1,19 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { TextInput } from 'react-native'
-import theme from '../../../../theme'
+import dynamicStyles from './TextArea.styles'
 
 const TextArea = (props) => {
   const { value, onChange, ...rest } = props
-
+  const styles = dynamicStyles()
   return (
     <TextInput
       value={value}
       onChangeText={onChange}
-      placeholderTextColor={theme.CORE.COLORS['grey-7']}
+      placeholderTextColor={styles.placeholderColor}
       multiline={true}
       numberOfLines={2}
-      style={[
-        theme.CORE.FONTS.body,
-        { paddingHorizontal: 12, marginBottom: 8 }
-      ]}
+      style={styles.textArea}
       {...rest}
     />
   )

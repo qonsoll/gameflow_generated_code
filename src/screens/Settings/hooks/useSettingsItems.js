@@ -1,7 +1,7 @@
-import { useTranslations } from '@qonsoll/translation'
-import theme from '../../../../theme'
 import { LANGUAGES } from '../../../__constants__'
+import { theme } from '~/styles'
 import useSettingsActions from './useSettingsActions'
+import { useTranslations } from '@qonsoll/translation'
 
 const useSettingsItems = () => {
   const { t, language } = useTranslations()
@@ -16,8 +16,7 @@ const useSettingsItems = () => {
     {
       icon: 'language',
       text: t('settings-language-item-name'),
-      iconBackgroundColor: theme.CORE.COLORS['primary-default'],
-      arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+      iconBackgroundColor: theme.COLORS['primary-default'],
       action: onLanguages,
       isArrowShow: true,
       textColor: 'grey-4',
@@ -26,8 +25,7 @@ const useSettingsItems = () => {
     {
       icon: 'email',
       text: t('settings-contact-us-item-name'),
-      iconBackgroundColor: theme.CORE.COLORS['info-default'],
-      arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+      iconBackgroundColor: theme.COLORS['info-default'],
       action: onContactUs,
       isArrowShow: true,
       textColor: 'grey-4'
@@ -35,8 +33,7 @@ const useSettingsItems = () => {
     {
       icon: 'shield',
       text: t('settings-terms-and-privacy-item-name'),
-      iconBackgroundColor: theme.CORE.COLORS['warning-default'],
-      arrowColor: theme.COMPONENTS.ICON.variants.lightGrey.backgroundColor,
+      iconBackgroundColor: theme.COLORS['warning-default'],
       action: onTermsAndPrivacy,
       isArrowShow: true,
       textColor: 'grey-4'
@@ -47,8 +44,7 @@ const useSettingsItems = () => {
     {
       icon: 'logout',
       text: t('settings-log-out-item-name'),
-      iconBackgroundColor: theme.CORE.COLORS['danger-default'],
-      arrowColor: theme.COMPONENTS.ICON.variants.lightDanger.backgroundColor,
+      iconBackgroundColor: theme.COLORS['danger-default'],
       action: onLogOut,
       isArrowShow: true,
       textColor: 'grey-4'

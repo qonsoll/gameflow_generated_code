@@ -1,10 +1,14 @@
+import { DASHBOARD_SCREEN } from './screens'
+import { theme } from '../styles'
+
 const statusBarColorsMap = {
-  DASHBOARD_SCREEN: 'dark-content',
-  ONBOARDING_SCREEN: 'dark-content',
-  SIGN_IN_SCREEN: 'light-content',
-  SETTINGS_NAVIGATOR: 'dark-content',
-  BOTTOM_TAB_NAVIGATOR: 'dark-content',
-  ONBOARDING_NAVIGATOR: 'dark-content'
+  [DASHBOARD_SCREEN]: 'dark-content',
+  default: theme.COLORS['status-bar-color']
 }
 
-export default statusBarColorsMap
+const statusBarBackgroundMap = {
+  [DASHBOARD_SCREEN]: theme.COLORS.white,
+  default: theme.COLORS['status-bar-bg-color']
+}
+
+export { statusBarBackgroundMap, statusBarColorsMap }

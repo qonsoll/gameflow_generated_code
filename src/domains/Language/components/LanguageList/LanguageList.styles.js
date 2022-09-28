@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import theme from '../../../../../theme'
+import { theme } from '~/styles'
 
 const dynamicStyles = (props) =>
   StyleSheet.create({
@@ -9,8 +9,8 @@ const dynamicStyles = (props) =>
       marginBottom: 32
     },
     listWrapper: {
-      backgroundColor: theme.COMPONENTS.CARD.backgroundColor,
-      borderRadius: theme.COMPONENTS.CARD.borderRadiuses.sm
+      backgroundColor: theme.COMPONENTS.Card.backgroundColor,
+      borderRadius: theme.COMPONENTS.Card.borderRadiuses.sm
     }
   })
 

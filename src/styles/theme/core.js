@@ -4,56 +4,47 @@ export const COLORS = {
   white: '#ffffff',
 
   // Black
-  'black-t-lighten1': 'rgba(0,0,0,0.75)',
-  'black-t-lighten2': 'rgba(0,0,0,0.50)',
-  'black-t-lighten3': 'rgba(0,0,0,0.25)',
-  'black-t-lighten4': 'rgba(0,0,0,0.15)',
-  'black-t-lighten5': 'rgba(0,0,0,0.10)',
-  'black-t-lighten6': 'rgba(0,0,0,0.05)',
+  'black-t-lighten1': 'rgba(0, 0, 0, 0.75)',
+  'black-t-lighten2': 'rgba(0, 0, 0, 0.50)',
+  'black-t-lighten3': 'rgba(0, 0, 0, 0.25)',
+  'black-t-lighten4': 'rgba(0, 0, 0, 0.15)',
+  'black-t-lighten5': 'rgba(0, 0, 0, 0.10)',
+  'black-t-lighten6': 'rgba(0, 0, 0, 0.05)',
 
   // White
-  'white-t-lighten1': 'rgba(255,255,255,0.65)',
-  'white-t-lighten2': 'rgba(255,255,255,0.50)',
-  'white-t-lighten3': 'rgba(255,255,255,0.25)',
-  'white-t-lighten4': 'rgba(255,255,255,0.15)',
-  'white-t-lighten5': 'rgba(255,255,255,0.10)',
-  'white-t-lighten6': 'rgba(255,255,255,0.05)',
-
-  // Social media
-  'vipps-default': '#fe5c24',
+  'white-t-lighten1': 'rgba(255, 255, 255, 0.65)',
+  'white-t-lighten2': 'rgba(255, 255, 255, 0.50)',
+  'white-t-lighten3': 'rgba(255, 255, 255, 0.25)',
+  'white-t-lighten4': 'rgba(255, 255, 255, 0.15)',
+  'white-t-lighten5': 'rgba(255, 255, 255, 0.10)',
+  'white-t-lighten6': 'rgba(255, 255, 255, 0.05)',
 
   // Primary
-  'primary-default': '#766bd9',
-  'primary-lighten-1': '#8679dd',
-  'primary-lighten-2': '#9587e1',
-  'primary-lighten-3': '#a395e5',
-  'primary-lighten-4': '#DCBDCC',
-  'primary-lighten-5': '#E6D0DB',
-  'primary-lighten-6': '#F3E8ED',
-  'primary-lighten-7': '#FAF6F8',
-  'primary-light': '#c6dbf6',
+  'primary-default': 'rgb(118, 107, 217)',
+  'primary-lighten-1': 'rgb(134, 121, 221)',
+  'primary-lighten-2': 'rgb(149, 135, 225)',
+  'primary-lighten-3': 'rgb(163, 149, 229)',
+  'primary-lighten-4': 'rgb(220, 189, 204)',
+  'primary-lighten-5': 'rgb(230, 208, 219)',
+  'primary-lighten-6': 'rgb(243, 232, 237)',
 
   // Secondary
-  'secondary-default': '#C18AA4',
-  'secondary-darken-1': '#06B8BC',
-  'secondary-lighten-1': '#40EEF2',
-  'secondary-lighten-2': '#7FF3F6',
-  'secondary-lighten-3': '#BFF9FA',
-  'secondary-lighten-4': '#D9FCFD',
-  'secondary-lighten-5': '#E5FCFD',
-  'secondary-lighten-6': '#F2FEFE',
+  'secondary-default': 'rgb(193, 138, 164)',
+  'secondary-lighten-1': 'rgb(64, 238, 242)',
+  'secondary-lighten-2': 'rgb(127, 243, 246)',
+  'secondary-lighten-3': 'rgb(191, 249, 250)',
+  'secondary-lighten-4': 'rgb(217, 252, 253)',
+  'secondary-lighten-5': 'rgb(229, 252, 253)',
+  'secondary-lighten-6': 'rgb(242, 254, 254)',
 
   // Grey PURE
-  'grey-1': '#2D2D2D',
-  'grey-2': '#393939',
-  'grey-3': '#414141',
-  'grey-4': '#030b17',
-  'grey-5': '#5b6068',
-  'grey-6': '#81858b',
-  'grey-7': '#c0c2c5',
-  'grey-8': '#d9dbdc',
-  'grey-9': '#e5e6e7',
-  'grey-10': '#f2f3f3',
+  'grey-1': 'rgb(45, 45, 45)',
+  'grey-2': 'rgb(57, 57, 57)',
+  'grey-3': 'rgb(65, 65, 65)',
+  'grey-4': 'rgb(3, 11, 23)',
+  'grey-5': 'rgb(91, 96, 104)',
+  'grey-6': 'rgb(129, 133, 139)',
+  'grey-7': 'rgb(192, 194, 197)',
 
   // Grey TRANSPARENT
   'grey-t-1': 'rgba(35, 31, 32, 0.6)',
@@ -63,48 +54,42 @@ export const COLORS = {
   'grey-t-5': 'rgba(3, 11, 23, 0.50)',
   'grey-t-6': 'rgba(3, 11, 23, 0.25)',
   'grey-t-7': 'rgba(3, 11, 23, 0.15)',
-  'grey-t-8': 'rgba(3, 11, 23, 0.10)',
-  'grey-t-9': 'rgba(3, 11, 23, 0.05)',
-  'grey-t-10': 'rgba(3, 11, 23, 0.05)',
 
   // Success
-  'success-default': '#52c41a',
-  'success-lighten-1': '#8ed96a',
-  'success-lighten-2': '#a8e18c',
-  'success-lighten-3': '#d4f0c6',
-  'success-lighten-4': '#e5f6dd',
-  'success-lighten-5': '#edf9e8',
-  'success-lighten-6': '#f6fcf3',
+  'success-default': 'rgb(82, 196, 26)',
+  'success-lighten-1': 'rgb(142, 217, 106)',
+  'success-lighten-2': 'rgb(168, 225, 140)',
+  'success-lighten-3': 'rgb(212, 240, 198)',
+  'success-lighten-4': 'rgb(229, 246, 221)',
+  'success-lighten-5': 'rgb(237, 249, 232)',
+  'success-lighten-6': 'rgb(246, 252, 243)',
 
   // Warning
-  'warning-default': '#faad14',
-  'warning-lighten-1': '#fcca66',
-  'warning-lighten-2': '#fcd689',
-  'warning-lighten-3': '#feeac4',
-  'warning-lighten-4': '#fef3dc',
-  'warning-lighten-5': '#fef7e7',
-  'warning-lighten-6': '#fffbf3',
+  'warning-default': 'rgb(250, 173, 20)',
+  'warning-lighten-1': 'rgb(252, 202, 102)',
+  'warning-lighten-2': 'rgb(252, 214, 137)',
+  'warning-lighten-3': 'rgb(254, 234, 196)',
+  'warning-lighten-4': 'rgb(254, 243, 220)',
+  'warning-lighten-5': 'rgb(254, 247, 231)',
+  'warning-lighten-6': 'rgb(255, 251, 243)',
 
   // Error
-  'danger-default': '#f5222d',
-  'danger-lighten-1': '#f86f76',
-  'danger-lighten-2': '#fa9096',
-  'danger-lighten-3': '#fcc8ca',
-  'danger-lighten-4': '#fedee0',
-  'danger-lighten-5': '#fee8ea',
-  'danger-lighten-6': '#fef4f4',
+  'danger-default': 'rgb(245, 34, 45)',
+  'danger-lighten-1': 'rgb(248, 111, 118)',
+  'danger-lighten-2': 'rgb(250, 144, 150)',
+  'danger-lighten-3': 'rgb(252, 200, 202)',
+  'danger-lighten-4': 'rgb(254, 222, 224)',
+  'danger-lighten-5': 'rgb(254, 232, 234)',
+  'danger-lighten-6': 'rgb(254, 244, 244)',
 
   // Info
-  'info-default': '#1d6fdc',
-  'info-lighten-1': '#6ca1e8',
-  'info-lighten-2': '#8eb7ed',
-  'info-lighten-3': '#c6dbf6',
-  'info-lighten-4': '#ddeafa',
-  'info-lighten-5': '#e8f0fb',
-  'info-lighten-6': '#f3f8fd',
-
-  // Gold
-  'gold-default': '#EBBB74'
+  'info-default': 'rgb(29, 111, 220)',
+  'info-lighten-1': 'rgb(108, 161, 232)',
+  'info-lighten-2': 'rgb(142, 183, 237)',
+  'info-lighten-3': 'rgb(198, 219, 246)',
+  'info-lighten-4': 'rgb(221, 234, 250)',
+  'info-lighten-5': 'rgb(232, 240, 251)',
+  'info-lighten-6': 'rgb(243, 248, 253)'
 }
 
 export const FONT_FAMILIES = {
@@ -172,40 +157,6 @@ export const BORDER_RADIUSES = {
   round: 50
 }
 
-const SHADOW_OFFSETS = { DEFAULT: { width: 2, height: 2 } }
-export const SHADOWS = {
-  xs: {
-    shadowColor: COLORS.black,
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    shadowOffset: SHADOW_OFFSETS.DEFAULT
-  },
-  sm: {
-    shadowColor: COLORS.black,
-    shadowOpacity: 0.4,
-    shadowRadius: 4,
-    shadowOffset: SHADOW_OFFSETS.DEFAULT
-  },
-  md: {
-    shadowColor: COLORS.black,
-    shadowOpacity: 0.6,
-    shadowRadius: 8,
-    shadowOffset: SHADOW_OFFSETS.DEFAULT
-  },
-  lg: {
-    shadowColor: COLORS.black,
-    shadowOpacity: 0.8,
-    shadowRadius: 16,
-    shadowOffset: SHADOW_OFFSETS.DEFAULT
-  },
-  xl: {
-    shadowColor: COLORS.black,
-    shadowOpacity: 0.16,
-    shadowRadius: 20,
-    shadowOffset: SHADOW_OFFSETS.DEFAULT
-  }
-}
-
 export const CORE = {
   COLORS,
   FONT_FAMILIES,
@@ -213,8 +164,7 @@ export const CORE = {
   LINE_HEIGHTS,
   FONT_SIZES,
   ICON_SIZES,
-  BORDER_RADIUSES,
-  SHADOWS
+  BORDER_RADIUSES
 }
 
 export default CORE

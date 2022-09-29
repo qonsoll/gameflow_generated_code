@@ -5,8 +5,7 @@ import {
   FONT_SIZES,
   FONT_WEIGHTS,
   ICON_SIZES,
-  LINE_HEIGHTS,
-  SHADOWS
+  LINE_HEIGHTS
 } from './core'
 
 import { Dimensions } from 'react-native'
@@ -229,6 +228,40 @@ export const NATIVE_BASE_THEME = {
   },
   colors: COLORS,
   fontWeights: FONT_WEIGHTS
+}
+
+const SHADOW_OFFSETS = { DEFAULT: { width: 2, height: 2 } }
+const SHADOWS = {
+  xs: {
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    shadowOffset: SHADOW_OFFSETS.DEFAULT
+  },
+  sm: {
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    shadowOffset: SHADOW_OFFSETS.DEFAULT
+  },
+  md: {
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.6,
+    shadowRadius: 8,
+    shadowOffset: SHADOW_OFFSETS.DEFAULT
+  },
+  lg: {
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.8,
+    shadowRadius: 16,
+    shadowOffset: SHADOW_OFFSETS.DEFAULT
+  },
+  xl: {
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.16,
+    shadowRadius: 20,
+    shadowOffset: SHADOW_OFFSETS.DEFAULT
+  }
 }
 
 export const THEME = {

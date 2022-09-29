@@ -1,7 +1,7 @@
 import {
   PROFILE_SCREEN,
   SETTINGS_SCREEN,
-  LANGUAGES_ALL
+  LANGUAGES_ALL_SCREEN
 } from '~/__constants__/screens'
 import { ProfileScreen, SettingsScreen } from '~/screens'
 
@@ -19,7 +19,7 @@ const SettingsStackNavigator = () => {
       }}>
       <Stack.Screen name={SETTINGS_SCREEN} component={SettingsScreen} />
       <Stack.Screen name={PROFILE_SCREEN} component={ProfileScreen} />
-      <Stack.Screen name={LANGUAGES_ALL} component={LanguagesAll} />
+      <Stack.Screen name={LANGUAGES_ALL_SCREEN} component={LanguagesAll} />
     </Stack.Navigator>
   )
 }

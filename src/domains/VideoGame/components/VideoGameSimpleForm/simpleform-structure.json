@@ -1,0 +1,292 @@
+{
+  "domain": "VideoGame",
+  "variant": "SimpleForm",
+  "parentDomains": [],
+  "collectionName": "videoGames",
+  "singularDomain": "videoGame",
+  "loweringDomain": "videoGame", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["dynamicStyles"],
+      "source": "./VideoGameSimpleForm.styles",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["View","TouchableOpacity"],
+      "source": "react-native",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Container","Divider","Text"],
+      "source": "native-base",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Form"],
+      "source": "~/components/Form",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["theme"],
+      "source": "~/styles",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Icon"],
+      "source": "react-native-vector-icons/MaterialIcons",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["IMAGE_UPLOAD_SCREEN"],
+      "source": "~/__constants__/screens",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["useNavigation"],
+      "source": "@react-navigation/native",
+      "isDefault": false,
+      "comment": ""
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false,
+      "comment": "Getting translations instance from useTranslations hook"
+    },
+    {
+      "variables": ["styles"],
+      "hook": "dynamicStyles",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting styles from styles file"
+    },
+    {
+      "variables": ["navigation"],
+      "hook": "useNavigation",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting navigation instance from useNavigation hook"
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+    {
+    "fieldName": "name",
+    "fieldTitle": "Name",
+    "loweringFieldTitle": "name",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Input",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": false,
+    "isRecognized": true,
+    "priority": 2,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "releaseDate",
+    "fieldTitle": "Release date",
+    "loweringFieldTitle": "release date",
+    "dataType": "date",
+    "transformedDataType": "date",
+    "isRequired": false,
+    "component": "DatePicker",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": true
+    },
+    {
+    "fieldName": "publisher",
+    "fieldTitle": "Publisher",
+    "loweringFieldTitle": "publisher",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Input",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "genre",
+    "fieldTitle": "Genre",
+    "loweringFieldTitle": "genre",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Input",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "logoUrl",
+    "fieldTitle": "Logo url",
+    "loweringFieldTitle": "logo url",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "ImagePicker",
+    "sourceProp": "src",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 1,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "shortLogoUrl",
+    "fieldTitle": "Short logo url",
+    "loweringFieldTitle": "short logo url",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "ImagePicker",
+    "sourceProp": "src",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 1,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "slug",
+    "fieldTitle": "Slug",
+    "loweringFieldTitle": "slug",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Input",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "color",
+    "fieldTitle": "Color",
+    "loweringFieldTitle": "color",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Input",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "bgColor",
+    "fieldTitle": "Bg color",
+    "loweringFieldTitle": "bg color",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Input",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "bgImage",
+    "fieldTitle": "Bg image",
+    "loweringFieldTitle": "bg image",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "ImagePicker",
+    "sourceProp": "src",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 1,
+    "isBoolean": false,
+    "isDate": false
+    }
+  ],
+  "propTypes": [
+    {
+      "name": "form",
+      "type": "object",
+      "isRequired": false
+    }
+  ],
+  "nestedComponents": [
+  ]
+}

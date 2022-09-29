@@ -1,0 +1,118 @@
+{
+  "domain": "Team",
+  "variant": "List",
+  "parentDomains": [],
+  "collectionName": "teams",
+  "singularDomain": "team",
+  "loweringDomain": "team", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["dynamicStyles"],
+      "source": "./TeamList.styles",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["FlatList","View"],
+      "source": "react-native",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["TeamSimpleView"],
+      "source": "~/domains/Team/components",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Loading","Empty"],
+      "source": "~/components",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Divider"],
+      "source": "native-base",
+      "isDefault": false,
+      "comment": ""
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false,
+      "comment": "Getting translations instance from useTranslations hook"
+    },
+    {
+      "variables": ["styles"],
+      "hook": "dynamicStyles",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting styles from styles file"
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+  ],
+  "propTypes": [
+    {
+      "name": "teams",
+      "type": "array",
+      "isRequired": false
+    },
+    {
+      "name": "loading",
+      "type": "bool",
+      "isRequired": false
+    },
+    {
+      "name": "hideButton",
+      "type": "bool",
+      "isRequired": false
+    }
+  ],
+  "nestedComponents": [
+    {
+      "domain": "Team",
+      "variant": "SortMenu"
+    },
+    {
+      "domain": "Team",
+      "variant": "SimpleView"
+    },
+    {
+      "domain": "Team",
+      "variant": "SimpleForm"
+    }
+  ]
+}

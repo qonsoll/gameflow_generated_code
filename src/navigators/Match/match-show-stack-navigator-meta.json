@@ -1,0 +1,51 @@
+{
+  "domain": "Match",
+  "name": "MatchShowStackNavigator",
+  "title": "MATCHES",
+  "routeName": "MATCH_SHOW_NAVIGATOR",
+  "screens": [
+    {
+      "name": "MatchesAll",
+      "domain": "Match",
+      "variant": "All",
+      "screenName": "MATCHES_ALL_SCREEN",
+      "component": "MatchesAll"
+    },
+    {
+      "name": "MatchFilter",
+      "domain": "Match",
+      "screenName": "MATCH_FILTER_SCREEN",
+      "component": "MatchFilter"
+    },
+    {
+      "name": "MatchShow",
+      "domain": "Match",
+      "variant": "Show",
+      "screenName": "MATCH_SHOW_SCREEN",
+      "component": "MatchShow"
+    },
+    {
+      "fieldName": "teams",
+      "dataType": "hasMany",
+      "childDomain": "Team",
+      "domain": "Match",
+      "variant": "All",
+      "screenType": "Show",
+      "name": "MatchTeamsShow",
+      "screenName": "MATCH_TEAMS_SHOW_SCREEN",
+      "component": "MatchTeamsShow",
+      "screenComponent": "TeamList"
+    }
+  ],
+  "screenOptions": [
+    {
+      "name": "headerShown",
+      "value": "false",
+      "asVariable": true
+    }
+  ],
+  "importString": "import { MatchesAll, MatchFilter, MatchShow, MatchTeamsShow } from '../../screens/Match'",
+  "defaultScreenName": "MATCHES_ALL_SCREEN",
+  "bottomNavigator": true,
+  "isFormNavigator": false
+}

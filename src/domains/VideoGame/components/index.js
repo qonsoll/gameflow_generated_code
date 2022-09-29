@@ -1,0 +1,6 @@
+export { default as VideoGameSimpleView } from './VideoGameSimpleView'
+export { default as VideoGameSortMenu } from './VideoGameSortMenu'
+export { default as VideoGameSimpleForm } from './VideoGameSimpleForm'
+export { default as VideoGameList } from './VideoGameList'
+export { default as VideoGameAdvancedView } from './VideoGameAdvancedView'
+export { default as VideoGameSelect } from './VideoGameSelect'

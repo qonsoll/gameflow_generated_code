@@ -1,0 +1,6 @@
+{
+  "applicationType": "mobile",
+  "isAdmin": false,
+  "baseComponentLibrary": "native-base",
+  "apiType": "firebase"
+}

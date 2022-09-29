@@ -1,0 +1,78 @@
+{
+  "domain": "Competition",
+  "loweringDomain": "competition",
+  "pluralizedLoweringDomain": "competitions",
+  "variant": "Show",
+  "screenName": "CompetitionShow",
+  "domainComponent": "CompetitionAdvancedView",
+  "imports": [
+    {
+      "imports": [
+        "React"
+      ],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": [
+        "PageWrapper"
+      ],
+      "source": "~/components",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "CompetitionAdvancedView"
+      ],
+      "source": "~/domains/Competition/components",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "PropTypes"
+      ],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": [
+        "useNavigation"
+      ],
+      "source": "@react-navigation/native",
+      "isDefault": false
+    }
+  ],
+  "computedProperties": [
+    {
+      "variables": [
+        "competition"
+      ],
+      "hook": "route.params",
+      "params": [],
+      "type": "object",
+      "isNotFunction": true
+    }
+  ],
+  "hooks": [
+    {
+      "variables": [
+        "navigation"
+      ],
+      "hook": "useNavigation",
+      "params": [],
+      "type": "default"
+    }
+  ],
+  "functions": [],
+  "propTypes": [
+    {
+      "name": "route",
+      "type": "object",
+      "isRequired": false
+    }
+  ],
+  "states": [],
+  "dashboardMeta": null,
+  "isDashboard": false,
+  "isViewHasImage": false
+}

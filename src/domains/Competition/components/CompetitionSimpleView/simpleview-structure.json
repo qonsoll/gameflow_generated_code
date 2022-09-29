@@ -1,0 +1,327 @@
+{
+  "domain": "Competition",
+  "variant": "SimpleView",
+  "parentDomains": [],
+  "collectionName": "competitions",
+  "singularDomain": "competition",
+  "loweringDomain": "competition", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["dynamicStyles"],
+      "source": "./CompetitionSimpleView.styles",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["COMPETITION_NAVIGATOR","COMPETITION_FORM_NAVIGATOR","COMPETITION_SHOW_NAVIGATOR"],
+      "source": "~/__constants__/navigators",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["COMPETITION_EDIT_SCREEN","COMPETITION_SHOW_SCREEN"],
+      "source": "~/__constants__/screens",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["COLLECTIONS"],
+      "source": "~/__constants__",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["TouchableOpacity"],
+      "source": "react-native",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["SwipeableCard"],
+      "source": "~/components",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Divider"],
+      "source": "native-base",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["moment"],
+      "source": "moment",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["useNavigation"],
+      "source": "@react-navigation/native",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["SimpleViewLayout","SimpleViewLayoutSecondary"],
+      "source": "~/components",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["deleteDocument"],
+      "source": "~/services/firestore",
+      "isDefault": false,
+      "comment": ""
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+    {
+      "variables": ["creationDateFormatted"],
+      "hook": "moment(competition?._createdAt).format('DD-MM-YYYY')",
+      "params": [],
+      "type": "default",
+      "isNotFunction": true,
+      "comment": ""
+    }
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false,
+      "comment": "Getting translations instance from useTranslations hook"
+    },
+    {
+      "variables": ["styles"],
+      "hook": "dynamicStyles",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting styles from styles file"
+    },
+    {
+      "variables": ["navigation"],
+      "hook": "useNavigation",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting navigation instance from useNavigation hook"
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+    {
+    "name": "onEdit",
+    "params": [],
+    "body": "navigation.navigate(COMPETITION_NAVIGATOR, { screen: COMPETITION_FORM_NAVIGATOR, params: { screen: COMPETITION_EDIT_SCREEN, params: { competition } } })",
+    "inline": true,
+    "comment": ""
+    },
+    {
+    "name": "onShow",
+    "params": [],
+    "body": "navigation.navigate(COMPETITION_NAVIGATOR, { screen: COMPETITION_SHOW_NAVIGATOR, params: { screen: COMPETITION_SHOW_SCREEN, params: { competition } } })",
+    "inline": true,
+    "comment": ""
+    },
+    {
+    "name": "onRemove",
+    "params": [],
+    "body": "deleteDocument(COLLECTIONS.COMPETITION, competition._id)",
+    "inline": true,
+    "comment": ""
+    }
+  ],
+  "fields": [
+    {
+    "fieldName": "title",
+    "fieldTitle": "Title",
+    "loweringFieldTitle": "title",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Title",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [{"name": "level", "value": "4", "isVariable": true }],
+    "withLabel": false,
+    "isRecognized": true,
+    "priority": 2,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "startDate",
+    "fieldTitle": "Start date",
+    "loweringFieldTitle": "start date",
+    "dataType": "date",
+    "transformedDataType": "date",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": true
+    },
+    {
+    "fieldName": "endDate",
+    "fieldTitle": "End date",
+    "loweringFieldTitle": "end date",
+    "dataType": "date",
+    "transformedDataType": "date",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": true
+    },
+    {
+    "fieldName": "prize",
+    "fieldTitle": "Prize",
+    "loweringFieldTitle": "prize",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "description",
+    "fieldTitle": "Description",
+    "loweringFieldTitle": "description",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": false,
+    "isRecognized": true,
+    "priority": 3,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "region",
+    "fieldTitle": "Region",
+    "loweringFieldTitle": "region",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "color",
+    "fieldTitle": "Color",
+    "loweringFieldTitle": "color",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "season",
+    "fieldTitle": "Season",
+    "loweringFieldTitle": "season",
+    "dataType": "oneOfEnum",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "tier",
+    "fieldTitle": "Tier",
+    "loweringFieldTitle": "tier",
+    "dataType": "oneOfEnum",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    }
+  ],
+  "propTypes": [
+    {
+      "name": "competition",
+      "type": "object",
+      "isRequired": true
+    },
+    {
+      "name": "isLast",
+      "type": "bool",
+      "isRequired": false
+    }
+  ],
+  "nestedComponents": [
+  ]
+}

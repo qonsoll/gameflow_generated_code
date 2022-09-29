@@ -1,0 +1,73 @@
+{
+  "domain": "Match",
+  "variant": "SortMenu",
+  "parentDomains": [],
+  "collectionName": "matches",
+  "singularDomain": "match",
+  "loweringDomain": "match", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["dynamicStyles"],
+      "source": "./MatchSortMenu.styles",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["View"],
+      "source": "react-native",
+      "isDefault": false,
+      "comment": ""
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false,
+      "comment": "Getting translations instance from useTranslations hook"
+    },
+    {
+      "variables": ["styles"],
+      "hook": "dynamicStyles",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting styles from styles file"
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+  ],
+  "propTypes": [
+  ],
+  "nestedComponents": [
+  ]
+}

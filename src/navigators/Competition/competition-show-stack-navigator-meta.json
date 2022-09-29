@@ -1,0 +1,75 @@
+{
+  "domain": "Competition",
+  "name": "CompetitionShowStackNavigator",
+  "title": "COMPETITIONS",
+  "routeName": "COMPETITION_SHOW_NAVIGATOR",
+  "screens": [
+    {
+      "name": "CompetitionsAll",
+      "domain": "Competition",
+      "variant": "All",
+      "screenName": "COMPETITIONS_ALL_SCREEN",
+      "component": "CompetitionsAll"
+    },
+    {
+      "name": "CompetitionFilter",
+      "domain": "Competition",
+      "screenName": "COMPETITION_FILTER_SCREEN",
+      "component": "CompetitionFilter"
+    },
+    {
+      "name": "CompetitionShow",
+      "domain": "Competition",
+      "variant": "Show",
+      "screenName": "COMPETITION_SHOW_SCREEN",
+      "component": "CompetitionShow"
+    },
+    {
+      "fieldName": "participants",
+      "dataType": "hasMany",
+      "childDomain": "Team",
+      "domain": "Competition",
+      "variant": "All",
+      "screenType": "Show",
+      "name": "CompetitionTeamsShow",
+      "screenName": "COMPETITION_TEAMS_SHOW_SCREEN",
+      "component": "CompetitionTeamsShow",
+      "screenComponent": "TeamList"
+    },
+    {
+      "fieldName": "matches",
+      "dataType": "hasMany",
+      "childDomain": "Match",
+      "domain": "Competition",
+      "variant": "All",
+      "screenType": "Show",
+      "name": "CompetitionMatchesShow",
+      "screenName": "COMPETITION_MATCHES_SHOW_SCREEN",
+      "component": "CompetitionMatchesShow",
+      "screenComponent": "MatchList"
+    },
+    {
+      "fieldName": "videoGame",
+      "dataType": "hasOne",
+      "childDomain": "VideoGame",
+      "domain": "Competition",
+      "variant": "Show",
+      "screenType": "Show",
+      "name": "CompetitionVideoGameShow",
+      "screenName": "COMPETITION_VIDEO_GAME_SHOW_SCREEN",
+      "component": "CompetitionVideoGameShow",
+      "screenComponent": "VideoGameAdvancedView"
+    }
+  ],
+  "screenOptions": [
+    {
+      "name": "headerShown",
+      "value": "false",
+      "asVariable": true
+    }
+  ],
+  "importString": "import { CompetitionsAll, CompetitionFilter, CompetitionShow, CompetitionTeamsShow, CompetitionMatchesShow, CompetitionVideoGameShow } from '../../screens/Competition'",
+  "defaultScreenName": "COMPETITIONS_ALL_SCREEN",
+  "bottomNavigator": true,
+  "isFormNavigator": false
+}

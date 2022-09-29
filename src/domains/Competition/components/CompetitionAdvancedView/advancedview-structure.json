@@ -1,0 +1,305 @@
+{
+  "domain": "Competition",
+  "variant": "AdvancedView",
+  "parentDomains": [],
+  "collectionName": "competitions",
+  "singularDomain": "competition",
+  "loweringDomain": "competition", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["dynamicStyles"],
+      "source": "./CompetitionAdvancedView.styles",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["View"],
+      "source": "react-native",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["MenuList"],
+      "source": "~/components",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["useAdvancedViewItems"],
+      "source": "./hooks",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Text","HStack","Container","Heading"],
+      "source": "native-base",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["moment"],
+      "source": "moment",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["SEASONS","TIERS"],
+      "source": "~/__constants__/enums",
+      "isDefault": false,
+      "comment": ""
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false,
+      "comment": "Getting translations instance from useTranslations hook"
+    },
+    {
+      "variables": ["styles"],
+      "hook": "dynamicStyles",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting styles from styles file"
+    },
+    {
+      "variables": ["items"],
+      "hook": "useAdvancedViewItems",
+      "params": ["{ competition }"],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting items from useAdvancedViewItems hook"
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+    {
+    "fieldName": "title",
+    "fieldTitle": "Title",
+    "loweringFieldTitle": "title",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Heading",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": false,
+    "isRecognized": true,
+    "priority": 2,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "startDate",
+    "fieldTitle": "Start date",
+    "loweringFieldTitle": "start date",
+    "dataType": "date",
+    "transformedDataType": "date",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": true
+    },
+    {
+    "fieldName": "endDate",
+    "fieldTitle": "End date",
+    "loweringFieldTitle": "end date",
+    "dataType": "date",
+    "transformedDataType": "date",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": true
+    },
+    {
+    "fieldName": "prize",
+    "fieldTitle": "Prize",
+    "loweringFieldTitle": "prize",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "description",
+    "fieldTitle": "Description",
+    "loweringFieldTitle": "description",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [{"name": "color", "value": "gray.500", "isVariable": false }],
+    "withLabel": false,
+    "isRecognized": true,
+    "priority": 11,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "region",
+    "fieldTitle": "Region",
+    "loweringFieldTitle": "region",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "color",
+    "fieldTitle": "Color",
+    "loweringFieldTitle": "color",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "season",
+    "fieldTitle": "Season",
+    "loweringFieldTitle": "season",
+    "dataType": "oneOfEnum",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "tier",
+    "fieldTitle": "Tier",
+    "loweringFieldTitle": "tier",
+    "dataType": "oneOfEnum",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    }
+  ],
+  "propTypes": [
+    {
+      "name": "competition",
+      "type": "object",
+      "isRequired": true
+    }
+  ],
+  "nestedComponents": [
+    {
+      "domain": "Team",
+      "variant": "List"
+    },
+    {
+      "domain": "Team",
+      "variant": "List"
+    },
+    {
+      "domain": "Team",
+      "variant": "SimpleForm"
+    },
+    {
+      "domain": "Match",
+      "variant": "List"
+    },
+    {
+      "domain": "Match",
+      "variant": "List"
+    },
+    {
+      "domain": "Match",
+      "variant": "SimpleForm"
+    },
+    {
+      "domain": "VideoGame",
+      "variant": "SimpleView"
+    },
+    {
+      "domain": "VideoGame",
+      "variant": "List"
+    },
+    {
+      "domain": "VideoGame",
+      "variant": "SimpleForm"
+    }
+  ]
+}

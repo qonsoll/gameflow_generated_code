@@ -1,0 +1,156 @@
+{
+  "domain": "Match",
+  "variant": "SimpleForm",
+  "parentDomains": [],
+  "collectionName": "matches",
+  "singularDomain": "match",
+  "loweringDomain": "match", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["dynamicStyles"],
+      "source": "./MatchSimpleForm.styles",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["View","TouchableOpacity"],
+      "source": "react-native",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Container","Divider","Text"],
+      "source": "native-base",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Form"],
+      "source": "~/components/Form",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["theme"],
+      "source": "~/styles",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Icon"],
+      "source": "react-native-vector-icons/MaterialIcons",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["IMAGE_UPLOAD_SCREEN"],
+      "source": "~/__constants__/screens",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["useNavigation"],
+      "source": "@react-navigation/native",
+      "isDefault": false,
+      "comment": ""
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false,
+      "comment": "Getting translations instance from useTranslations hook"
+    },
+    {
+      "variables": ["styles"],
+      "hook": "dynamicStyles",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting styles from styles file"
+    },
+    {
+      "variables": ["navigation"],
+      "hook": "useNavigation",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting navigation instance from useNavigation hook"
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+    {
+    "fieldName": "startDate",
+    "fieldTitle": "Start date",
+    "loweringFieldTitle": "start date",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "DatePicker",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "streamUrl",
+    "fieldTitle": "Stream url",
+    "loweringFieldTitle": "stream url",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Input",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    }
+  ],
+  "propTypes": [
+    {
+      "name": "form",
+      "type": "object",
+      "isRequired": false
+    }
+  ],
+  "nestedComponents": [
+  ]
+}

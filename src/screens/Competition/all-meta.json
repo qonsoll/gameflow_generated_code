@@ -1,0 +1,94 @@
+{
+  "domain": "Competition",
+  "loweringDomain": "competition",
+  "pluralizedLoweringDomain": "competitions",
+  "variant": "All",
+  "screenName": "CompetitionsAll",
+  "domainComponent": "CompetitionList",
+  "imports": [
+    {
+      "imports": [
+        "React"
+      ],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": [
+        "PageWrapper"
+      ],
+      "source": "~/components",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "CompetitionList"
+      ],
+      "source": "~/domains/Competition/components",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "PropTypes"
+      ],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": [
+        "useNavigation"
+      ],
+      "source": "@react-navigation/native",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "useGetCompetitions"
+      ],
+      "source": "~/domains/Competition/hooks",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "useState"
+      ],
+      "source": "react",
+      "isDefault": false
+    }
+  ],
+  "computedProperties": [],
+  "hooks": [
+    {
+      "variables": [
+        "competitions",
+        "loading"
+      ],
+      "hook": "useGetCompetitions",
+      "params": [
+        "filterData"
+      ],
+      "type": "array"
+    },
+    {
+      "variables": [
+        "navigation"
+      ],
+      "hook": "useNavigation",
+      "params": [],
+      "type": "default"
+    }
+  ],
+  "functions": [],
+  "propTypes": [],
+  "states": [
+    {
+      "variables": "[filterData, setFilterData]",
+      "hook": "useState",
+      "params": "{}",
+      "type": "array"
+    }
+  ],
+  "dashboardMeta": null,
+  "isDashboard": false,
+  "isViewHasImage": false
+}

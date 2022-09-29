@@ -1,0 +1,78 @@
+{
+  "domain": "Match",
+  "loweringDomain": "match",
+  "pluralizedLoweringDomain": "matches",
+  "variant": "Show",
+  "screenName": "MatchShow",
+  "domainComponent": "MatchAdvancedView",
+  "imports": [
+    {
+      "imports": [
+        "React"
+      ],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": [
+        "PageWrapper"
+      ],
+      "source": "~/components",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "MatchAdvancedView"
+      ],
+      "source": "~/domains/Match/components",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "PropTypes"
+      ],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": [
+        "useNavigation"
+      ],
+      "source": "@react-navigation/native",
+      "isDefault": false
+    }
+  ],
+  "computedProperties": [
+    {
+      "variables": [
+        "match"
+      ],
+      "hook": "route.params",
+      "params": [],
+      "type": "object",
+      "isNotFunction": true
+    }
+  ],
+  "hooks": [
+    {
+      "variables": [
+        "navigation"
+      ],
+      "hook": "useNavigation",
+      "params": [],
+      "type": "default"
+    }
+  ],
+  "functions": [],
+  "propTypes": [
+    {
+      "name": "route",
+      "type": "object",
+      "isRequired": false
+    }
+  ],
+  "states": [],
+  "dashboardMeta": null,
+  "isDashboard": false,
+  "isViewHasImage": false
+}

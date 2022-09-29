@@ -1,0 +1,156 @@
+{
+  "domain": "Match",
+  "variant": "AdvancedView",
+  "parentDomains": [],
+  "collectionName": "matches",
+  "singularDomain": "match",
+  "loweringDomain": "match", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["dynamicStyles"],
+      "source": "./MatchAdvancedView.styles",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["View"],
+      "source": "react-native",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["MenuList"],
+      "source": "~/components",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["useAdvancedViewItems"],
+      "source": "./hooks",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Text","HStack","Container","Heading"],
+      "source": "native-base",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["moment"],
+      "source": "moment",
+      "isDefault": true,
+      "comment": ""
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false,
+      "comment": "Getting translations instance from useTranslations hook"
+    },
+    {
+      "variables": ["styles"],
+      "hook": "dynamicStyles",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting styles from styles file"
+    },
+    {
+      "variables": ["items"],
+      "hook": "useAdvancedViewItems",
+      "params": ["{ match }"],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting items from useAdvancedViewItems hook"
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+  ],
+  "fields": [
+    {
+    "fieldName": "startDate",
+    "fieldTitle": "Start date",
+    "loweringFieldTitle": "start date",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "streamUrl",
+    "fieldTitle": "Stream url",
+    "loweringFieldTitle": "stream url",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Link",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    }
+  ],
+  "propTypes": [
+    {
+      "name": "match",
+      "type": "object",
+      "isRequired": true
+    }
+  ],
+  "nestedComponents": [
+    {
+      "domain": "Team",
+      "variant": "List"
+    },
+    {
+      "domain": "Team",
+      "variant": "List"
+    },
+    {
+      "domain": "Team",
+      "variant": "SimpleForm"
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "domain": "Team",
+  "variant": "SimpleView",
+  "parentDomains": [],
+  "collectionName": "teams",
+  "singularDomain": "team",
+  "loweringDomain": "team", 
+  "imports": [
+    {
+      "imports": ["React"],
+      "source": "react",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["dynamicStyles"],
+      "source": "./TeamSimpleView.styles",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["useTranslations"],
+      "source": "@qonsoll/translation",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["TEAM_NAVIGATOR","TEAM_FORM_NAVIGATOR","TEAM_SHOW_NAVIGATOR"],
+      "source": "~/__constants__/navigators",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["TEAM_EDIT_SCREEN","TEAM_SHOW_SCREEN"],
+      "source": "~/__constants__/screens",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["COLLECTIONS"],
+      "source": "~/__constants__",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["TouchableOpacity"],
+      "source": "react-native",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["SwipeableCard"],
+      "source": "~/components",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["Divider"],
+      "source": "native-base",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["moment"],
+      "source": "moment",
+      "isDefault": true,
+      "comment": ""
+    },
+    {
+      "imports": ["useNavigation"],
+      "source": "@react-navigation/native",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["SimpleViewLayout","SimpleViewLayoutSecondary"],
+      "source": "~/components",
+      "isDefault": false,
+      "comment": ""
+    },
+    {
+      "imports": ["deleteDocument"],
+      "source": "~/services/firestore",
+      "isDefault": false,
+      "comment": ""
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+    {
+      "variables": ["creationDateFormatted"],
+      "hook": "moment(team?._createdAt).format('DD-MM-YYYY')",
+      "params": [],
+      "type": "default",
+      "isNotFunction": true,
+      "comment": ""
+    }
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false,
+      "comment": "Getting translations instance from useTranslations hook"
+    },
+    {
+      "variables": ["styles"],
+      "hook": "dynamicStyles",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting styles from styles file"
+    },
+    {
+      "variables": ["navigation"],
+      "hook": "useNavigation",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false,
+      "comment": "Getting navigation instance from useNavigation hook"
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+    {
+    "name": "onEdit",
+    "params": [],
+    "body": "navigation.navigate(TEAM_NAVIGATOR, { screen: TEAM_FORM_NAVIGATOR, params: { screen: TEAM_EDIT_SCREEN, params: { team } } })",
+    "inline": true,
+    "comment": ""
+    },
+    {
+    "name": "onShow",
+    "params": [],
+    "body": "navigation.navigate(TEAM_NAVIGATOR, { screen: TEAM_SHOW_NAVIGATOR, params: { screen: TEAM_SHOW_SCREEN, params: { team } } })",
+    "inline": true,
+    "comment": ""
+    },
+    {
+    "name": "onRemove",
+    "params": [],
+    "body": "deleteDocument(COLLECTIONS.TEAM, team._id)",
+    "inline": true,
+    "comment": ""
+    }
+  ],
+  "fields": [
+    {
+    "fieldName": "name",
+    "fieldTitle": "Name",
+    "loweringFieldTitle": "name",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Title",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [{"name": "level", "value": "4", "isVariable": true }],
+    "withLabel": false,
+    "isRecognized": true,
+    "priority": 2,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "logoUrl",
+    "fieldTitle": "Logo url",
+    "loweringFieldTitle": "logo url",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Image",
+    "sourceProp": "src",
+    "visibleOnSimple": false,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    },
+    {
+    "fieldName": "bgColor",
+    "fieldTitle": "Bg color",
+    "loweringFieldTitle": "bg color",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Text",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": false,
+    "priority": 10,
+    "isBoolean": false,
+    "isDate": false
+    }
+  ],
+  "propTypes": [
+    {
+      "name": "team",
+      "type": "object",
+      "isRequired": true
+    },
+    {
+      "name": "isLast",
+      "type": "bool",
+      "isRequired": false
+    }
+  ],
+  "nestedComponents": [
+  ]
+}

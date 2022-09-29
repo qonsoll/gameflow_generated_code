@@ -1,0 +1,94 @@
+{
+  "domain": "Match",
+  "loweringDomain": "match",
+  "pluralizedLoweringDomain": "matches",
+  "variant": "All",
+  "screenName": "MatchesAll",
+  "domainComponent": "MatchList",
+  "imports": [
+    {
+      "imports": [
+        "React"
+      ],
+      "source": "react",
+      "isDefault": true
+    },
+    {
+      "imports": [
+        "PageWrapper"
+      ],
+      "source": "~/components",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "MatchList"
+      ],
+      "source": "~/domains/Match/components",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "PropTypes"
+      ],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": [
+        "useNavigation"
+      ],
+      "source": "@react-navigation/native",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "useGetMatches"
+      ],
+      "source": "~/domains/Match/hooks",
+      "isDefault": false
+    },
+    {
+      "imports": [
+        "useState"
+      ],
+      "source": "react",
+      "isDefault": false
+    }
+  ],
+  "computedProperties": [],
+  "hooks": [
+    {
+      "variables": [
+        "matches",
+        "loading"
+      ],
+      "hook": "useGetMatches",
+      "params": [
+        "filterData"
+      ],
+      "type": "array"
+    },
+    {
+      "variables": [
+        "navigation"
+      ],
+      "hook": "useNavigation",
+      "params": [],
+      "type": "default"
+    }
+  ],
+  "functions": [],
+  "propTypes": [],
+  "states": [
+    {
+      "variables": "[filterData, setFilterData]",
+      "hook": "useState",
+      "params": "{}",
+      "type": "array"
+    }
+  ],
+  "dashboardMeta": null,
+  "isDashboard": false,
+  "isViewHasImage": false
+}

@@ -1,0 +1,348 @@
+{
+  "VideoGame": [
+    {
+      "fieldName": "name",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "releaseDate",
+      "dataType": "date",
+      "transformedDataType": "date",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "date",
+      "attribute": {
+        "name": "attr",
+        "type": "date"
+      }
+    },
+    {
+      "fieldName": "publisher",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "genre",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "logoUrl",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "shortLogoUrl",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "slug",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "color",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "bgColor",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "bgImage",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    }
+  ],
+  "Match": [
+    {
+      "fieldName": "startDate",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "teams",
+      "dataType": "hasMany",
+      "transformedDataType": "array",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "hasMany",
+      "attribute": {
+        "name": "hasMany",
+        "type": "team"
+      }
+    },
+    {
+      "fieldName": "streamUrl",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    }
+  ],
+  "Team": [
+    {
+      "fieldName": "name",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "logoUrl",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "bgColor",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    }
+  ],
+  "Competition": [
+    {
+      "fieldName": "title",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "startDate",
+      "dataType": "date",
+      "transformedDataType": "date",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "date",
+      "attribute": {
+        "name": "attr",
+        "type": "date"
+      }
+    },
+    {
+      "fieldName": "endDate",
+      "dataType": "date",
+      "transformedDataType": "date",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "date",
+      "attribute": {
+        "name": "attr",
+        "type": "date"
+      }
+    },
+    {
+      "fieldName": "prize",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "description",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "participants",
+      "dataType": "hasMany",
+      "transformedDataType": "array",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "hasMany",
+      "attribute": {
+        "name": "hasMany",
+        "type": "team"
+      }
+    },
+    {
+      "fieldName": "matches",
+      "dataType": "hasMany",
+      "transformedDataType": "array",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "hasMany",
+      "attribute": {
+        "name": "hasMany",
+        "type": "match"
+      }
+    },
+    {
+      "fieldName": "region",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "color",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "videoGame",
+      "dataType": "hasOne",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "hasOne",
+      "attribute": {
+        "name": "hasOne",
+        "type": "videoGame"
+      }
+    },
+    {
+      "fieldName": "season",
+      "dataType": "oneOfEnum",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "oneOfEnum",
+      "attribute": {
+        "name": "attr",
+        "type": "string",
+        "enumName": "seasons"
+      }
+    },
+    {
+      "fieldName": "tier",
+      "dataType": "oneOfEnum",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "oneOfEnum",
+      "attribute": {
+        "name": "attr",
+        "type": "string",
+        "enumName": "tiers"
+      }
+    }
+  ]
+}
